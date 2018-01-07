@@ -9,7 +9,14 @@ Disallow: /Thinkphp/
 Disallow: /Public/
 Disallow: /Application/
 Disallow: /Uploads/
+<<<<<<< HEAD
 12456861564663
 这些出租车vcvxvcxvcx
 User-agent: 008
 Disallow: /
+=======
+
+
+User-agent: 008
+Disallow: /
+>>>>>>> 7ede98cd34908a68659e063fa3bab35a691b320e
