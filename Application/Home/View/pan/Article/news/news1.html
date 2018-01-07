@@ -1,0 +1,256 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+	<link rel="stylesheet" type="text/css" href="__CSS__/qnj/public_css.css-v=20170815.1.css"  />
+    <link rel="stylesheet" type="text/css" href="__CSS__/qnj/head_foot.css-v=20170815.1.css"  />
+    <link rel="stylesheet" type="text/css" href="__CSS__/qnj/calendar.css-v=20170815.1.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/qnj/njl_main.css-v=20170815.1.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/qnj/swiper-3.4.1.min.css"  />
+    <link rel="stylesheet" type="text/css" id="SL_Style" href="__CSS__/qnj/translator.css">
+	<script language="javascript" type="text/javascript">
+		function glb_searchTextOnfocus(obj) {
+			if (obj.value == '请输入关键词...')
+				obj.value = '';
+			obj.style.color = '#333';
+		}
+		function glb_searchTextOnBlur(obj) {
+			if (obj.value == '') {
+				obj.value = '请输入关键词...';
+				obj.style.color = '#98BC00';
+			} else {
+				obj.style.color = '#333';
+			}
+		}
+	</script>    
+	<style>
+		.searchbox{ height:58px; margin-left:0px; padding-top:0px; z-index:99;}
+		.searchbox .l{ padding-left:36px; background:url(/Public/Home/images/v5_main_img.png) no-repeat 0 -57px; height:58px;}
+		.searchbox .m{ background:url(/Public/Home/images/v5_repeat_x.png) repeat-x 0 -123px; height:58px; }
+		.searchbox .m .searchkey{  border:0; padding:16px 0; height:22px; line-height:22px; background:none; font-size:19px; font-weight:bold; color:#98bc00;  float:left;font-family: "microsoft yahei";}
+		.searchbox .m .searchbut{background:url(/Public/Home/images/v5_main_img.png) no-repeat 0 -115px; cursor:pointer; border:0; width:154px; height:58px; float:right;}
+	</style>
+	<div class="topline"></div>
+	<div class="width1190">
+		<div class="placenew">
+			<span>您所在位置：</span><a href="/">首页</a></><i></i><a href="javascript:;" >{:get_category_title($_category['id'])}</a><i></i>
+		</div>
+		<div class="topseachDiv">
+			<div class="searchbox">
+				<div class="l">
+					<div class="m">
+						<input name="q" type="text" class="searchkey " style="width:80%;" value="请输入关键词..." onfocus="glb_searchTextOnfocus(this);"  onblur="glb_searchTextOnBlur(this);" id="key" />
+						<a class="searchbut njysearch3" href="javascript:;"></a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			$('.njysearch3').click(function(){
+				var key=$('#key').val();
+				$(this).attr('href','/Home/Article/search3/key/'+key);
+			});
+		</script>
+		<div class="chooseDiv_more">
+			<div class="chooseDiv">
+				<div class="chooseadd">
+					<div class="renjunleft">选择分类</div>
+					<div class="chooseaddDiv">
+						<ul class="shengfeng" style="height:auto;">
+						<span class="newstype" style="display:none;">{$title1}</span>
+						<span class="newstype1" style="display:none;">{$title2}</span>
+						<span class="newstype2" style="display:none;">{$cityname}</span>
+							<volist name=":get_category_lists(48,ture)" id="cpfl" offset="0">
+								<a href="{:U('Article/index?category='.$cpfl['name'])}">
+								<li class="li1 " info="newstype">{$cpfl.title}</li>
+								</a>
+							</volist>
+						</ul>
+						<div class="quyudiv">
+							<ul>
+							</ul>
+						</div>
+					</div>
+				</div>
+                <div class="chooseadd" id="jdmc" style="display:;">
+                    <div class="renjunleft">选择位置</div>
+                    <div class="chooseaddDiv">
+                        <ul>
+                            <volist name=":get_category_lists($newstype,ture)" id="cpfl" offset="0">
+								<a href="/Home/Article/news/newstype/{$newstype}/cityid/{$cpfl.id}">
+								<li class="li1 " info="newstype1">{$cpfl.title}</li>
+								</a>
+							</volist>
+                        </ul>
+                    </div>
+                </div>
+                <div class="chooseadd" id="jdmc" style="display:;">
+                    <div class="renjunleft">具体位置</div>
+                    <div class="chooseaddDiv">
+                        <ul>
+                            <foreach name="shiname" item="vo" >
+								<a href="/Home/Article/news1/newstype/{$newstype}/cityid/{$cityid}/cityname/{$vo}">
+								<li class="li1 " info="newstype2">{$vo}</li>
+								</a>
+							</foreach>
+                        </ul>
+                    </div>
+                </div>
+
+			</div>
+		</div>
+		<div class="width1190">
+			<div class="shanghulist">
+				<div class="listleft" style="width:900px;">
+					<div class="goods_listdiv" style="position: static; top: 0; z-index: 10;">
+						<div class="listtitdiv" style="width:900px;">
+							<div class="leftshangjia on" style="background:#7FAE3B;">全部新闻 </div>
+							<div class="listdivright">
+							</div>
+						</div>
+					</div>
+					<div id="content" class="commonlist">
+						<foreach name="list" item="vo" > 
+						<div class="good_servelist">
+							<div class="shanghulistdiv">
+								<div class="shanghuafter">
+									<a href="{:U('Article/detail?id='.$vo['id'])}"  target="_blank"><div class="shanghuleft"><img src="{$vo.path}"  /></div></a>
+									<div class="shanghuright">
+										<div class="shangafter">
+											<div class="shanghuname">
+												<a href="{:U('Article/detail?id='.$vo['id'])}" target="_blank"><p class="names">{$vo.title}</p></a>
+											</div>
+											<div class="shangstate">
+												<p class="adds">
+													<i class="i1">{$vo.description}</i>
+												</p>
+											</p>
+											<br><br>
+											<p class="adds"><img src="__IMG__/m/startime.png"/>
+												<i class="i1">发布时间:{$vo['create_time']|date="y-m-d",###}</i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</foreach>	
+					<div class="fenyediv">
+						{$show123}
+					</div>
+				</div>
+			</div>
+<script type="text/javascript">
+	$('li[info="newstype"]').each(function(){
+		var newstype=$('.newstype').html();
+		if($(this).html()==newstype){
+			$(this).css('background','#ff8800');
+			$(this).css('color','white');
+		}
+	});
+	$('li[info="newstype1"]').each(function(){
+		var newstype=$('.newstype1').html();
+		if($(this).html()==newstype){
+			$(this).css('background','#ff8800');
+			$(this).css('color','white');
+		}
+	});
+
+	$('li[info="newstype2"]').each(function(){
+		var newstype1=$('.newstype2').html();
+		if($(this).html()==newstype1){
+			$(this).css('background','#ff8800');
+			$(this).css('color','white');
+		}
+		if($(this).html()==''){
+			$(this).parent('a').remove();
+		}
+	});
+
+
+	if($('.newstype').html()!='旅游攻略'){
+		$('#jdmc').css('display','block');
+	}
+</script>
+
+
+
+			<div class="listright" style="width:280px; height:auto;">
+				<div class="mapdivfixed" style="width:280px;">
+					<div class="sy_cen_right" style="width:280px;">
+						<div class="xiangmu" style=" width:260px; height:auto;">
+							<p class="xiang_p">
+								<span class="sp1">{:get_category_title(121)}</span>
+								<a href="{:U('Article/index?category='.zxtj)}"><span class="sp2">更多</span></a>
+							</p>
+							<article:list category="121" row="10" child="true" name="show">
+							<div class="xiangmu_div">
+								<a href="{:U('Article/detail?id='.$show['id'])}" target="_blank">
+									<div class="xiangmu_left">
+										<img src="{:get_cover($show['cover_id'],'path')}" width="120" height="78" onerror="showOtherPic(this)">
+									</div>
+								</a>
+								<div class="xiangmu_right">
+									<a href="{:U('Article/detail?id='.$news['id'])}" target="_blank"><p class="p1">{$show.title}</p></a>
+									<p class="p2">{$show.description}</p>
+								</div>
+							</div>
+						</article:list>	
+					</div>
+					<div class="tuijian" style=" width:280px;position: static; top: 0px;">
+						<p class="p1">{:get_category_title(62)}</p>
+						<div id="tuijian_jingdian" class="tuijian_div" style="display:block;">
+							<article:list category="62" row="10" child="true" name="show">
+							<div class="tuijian_list">
+								<a target="_blank" href="{:U('Article/detail?id='.$show['id'])}">
+									<div class="tuijian_list_left">
+										<img src="{:get_cover($show['cover_id'],'path')}" width="120" height="78">
+									</div>
+									<div class="tuijian_list_right">
+										<p class="p2">{$show.title}</p>
+										<p class="p3"><i class="i1"></i><span class="sp2">	</span><span class="sp3">	</span></p>
+										<p class="p4">{$show.description}</p>
+									</div>
+								</a>
+							</div>
+						</article:list>
+					</div>
+				</div>
+
+				<div class="gonglue">
+					<p class="xiang_p" style="width:270px;">
+						<span class="sp1">{:get_category_title(53)}</span>
+						<a href="{:U('Article/index?category='.companynews)}" target="_blank"><span class="sp2">更多</span></a>
+					</p>
+					<article:list category="53" row="10" child="true" name="news">
+					<p class="p1">
+						<a href="{:U('Article/detail?id='.$news['id'])}" target="_blank">
+							<span class="sp1">{$news.title}</span>
+						</a>
+						<span class="sp2"><i class="i2"></i>{$news.create_time|date="Y-m-d",###}</span>
+					</p>
+				</article:list>
+			</div>
+			<div class="gonglue">
+				<p class="xiang_p">
+					<span class="sp1">{:get_category_title(54)}</span>
+					<a href="{:U('Article/index?category='.TradeNews)}" target="_blank">
+						<span class="sp2">更多</span>
+					</a>
+				</p>
+				<article:list category="54" row="10" child="true" name="news">
+				<p class="p1">
+					<a href="{:U('Article/detail?id='.$news['id'])}" target="_blank">
+						<span class="sp1">{$news.title}</span>
+					</a>
+					<span class="sp2">{$news.create_time|date="Y/m/d",###}</span>
+				</p>
+			</article:list>
+		</div>
+	</div>
+</div>
+</div>
+</div>   
+</div>
+</div>
+</block>

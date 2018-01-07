@@ -1,0 +1,83 @@
+<block name="nav">
+<div class="all">
+    <div id="wrapper">
+      <!--头部-->
+      <style type="text/css">
+        .qnj_wap_headtitle{width: 100%;height: 50px;background: #ff7500;}
+        .qnj_wap_headtitle_son1{width: 15%;height: 50px;float:left;text-align: center;line-height: 50px;}
+        .qnj_wap_headtitle_son1 a{color:#fff;}
+        .qnj_wap_headtitle_son2{width: 55%;height: 30px;float:left;margin-left: 1%;text-align: center;border-radius:7px;background: #fff;margin-top: 3%;}
+        .qnj_wap_headtitle_son3{width: 12%;height: 50px;float:right;text-align: center;color:#fff;line-height: 50px;}
+        #key{width: 95%;height: 30px;border-radius:18px;border: none;margin-left: 5%}
+        #njysearch{width: 35px; height: 30px;border: 0;background: url(/Public/Home/images/btn_search2.png) 8px 4px no-repeat; background-size: auto auto;background-size: 17px 17px;position: relative; left: 80px;top: -25px; }
+        .qnj_nav_nonep{width: 100%;height: 100%;overflow: hidden;background: rgba(0,0,0,0.5);position: absolute;z-index: 999999999999;max-width: 640px;display: none;}
+        .qnj_nav_none{background: #fff;width:100%;height: auto;overflow: hidden;position: absolute;display: none;z-index: 999999999999;}
+      </style>
+      <div class="qnj_wap_headtitle">
+	  <div style="height: 50px;float:left;text-align: center;line-height: 50px; color:#FFFFFF; margin-left:10px; font-weight:bold; font-size:16px;">去农家</div>
+        <div class="qnj_wap_headtitle_son1">
+          <a href="/article/index/category/zdcity.html">
+                全国<img src="__IMG__/wap/箭头.png" style="margin-top: 20px;">
+            </a>
+        </div>
+        <div class="qnj_wap_headtitle_son2">
+         <form class="njysearch0" action="javascript:;">
+                <input id="key" name="key" placeholder="   找景点 找农家院...">
+                <button href="javascript:;" id="njysearch" type="button"></button>
+                </div>
+            </form> 
+        <div class="qnj_wap_headtitle_son3">
+         导航
+        </div>
+      </div>
+  <div class="qnj_nav_nonep">
+  <div class="qnj_nav_none" style="height: 150px;">
+      <ul class="qnj_nav" id="qnj_navindex">
+
+  </ul>
+  </div>
+  </div>
+<div style="height: 1px;background:#ff7500;"></div>
+      <div style="overflow: hidden; visibility: visible; list-style: outside none none; position: relative;" class="banner">
+        <ul style="position: relative; overflow: hidden; transition: left 600ms ease 0s; width: 963px; left: -321px;" id="slider">
+          <volist name=":explode(',', C('WEB_SITE_BANNER_NO1'))" id="imglist">
+            <li style="display: block; float: left; width: 321px;"><img src="{:get_cover($imglist,'path')}" style="height:160px;"></li>
+          </volist>
+        </ul>
+        <div id="pagenavi">
+          <volist name=":explode(',', C('WEB_SITE_BANNER_NO1'))" id="imglist">
+            <a class="" href="#"></a>
+          </volist>
+        </div>
+      </div>
+
+     
+
+      <script type="text/javascript">
+        $('#njysearch').click(function(){
+          var key=$('#key').val();
+          // $(this).attr('href','/Home/Article/search3/key/'+key);
+          window.location.href='/Home/Article/search3/key/'+key;
+        });
+        var g=true;
+        $('.qnj_wap_headtitle_son3').click(function(){
+          if(g){
+            $('.qnj_nav_nonep').css('display','block');
+            $('.qnj_nav_none').css('display','block');
+            g=false;             
+          }else{
+            $('.qnj_nav_nonep').css('display','none');
+            $('.qnj_nav_none').css('display','none'); 
+            g=true;           
+          }
+
+        });
+
+        $('.qnj_nav_nonep').click(function(){
+          $('.qnj_nav_nonep').css('display','none');
+          $('.qnj_nav_none').css('display','none');
+        });
+
+
+      </script>
+</block>

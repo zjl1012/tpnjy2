@@ -1,0 +1,131 @@
+<extend name="Public/base" />
+<block name="sidebar">
+<style type="text/css">
+	.sidebar{padding-top: 12px;}
+	#pic{left: 800px;position: absolute;width: 292px;height: 305px;}
+	.cover{width: 150px;height: 150px;border-radius: 50%;}
+</style>
+	<div class="sidebar">
+		<div id="subnav" class="subnav">
+			<h3><i class="icon icon-unfold"></i>会员管理</h3>                        
+			<ul class="side-sub-menu">
+				<li class="current">
+					<a class="item" href="{:U('Personal/index')}">会员列表</a>
+				</li>
+				<li class="">
+					<a class="item" href="{:U('Personal/jinyong')}">禁用会员列表</a>
+				</li>				
+			</ul>                    
+		</div>
+	</div>
+</block>
+<block name="body">
+<div id="main-content">
+        <div id="top-alert" class="" style="display: ;">
+            <div class="alert-content" style="margin-top:-17px;font-size:20px;font-weight:900;">{$list.username}->个人信息</div>
+        </div>
+        <div id="main" class="main" style="min-height: 412px;">
+
+	<!-- 表单 -->
+	<form id="form" action="{:U('Personal/update')}" method="post" class="form-horizontal">
+		<div id="pic" class="form-item cf">
+			<div class="controls">
+			<img src="{$list.pic}" class="cover">
+			</div>
+		</div>
+
+		<div class="form-item cf">
+			<label class="item-label">用户名<span class="check-tips"></span></label>
+			<div class="controls">
+				<input class="text input-large" name="name" value="{$list.username}" disabled="" type="text">
+			</div>
+		</div>
+		<div class="form-item cf">
+			<label class="item-label">性别<span class="check-tips"></span></label>
+			<div class="controls">
+				<input class="text input-large" name="name" value="<if condition='$list["sex"] eq 1'>男    <else /> 女</if>" disabled="" type="text">
+			</div>
+		</div>
+		<div class="form-item cf">
+			<label class="item-label">QQ<span class="check-tips"></span></label>
+			<div class="controls">
+				<input class="text input-large" name="name" value="{$list.qq}" disabled="" type="text">
+			</div>
+		</div>		
+
+		<div class="form-item cf">
+			<label class="item-label">电话<span class="check-tips"></span></label>
+			<div class="controls">
+				<input class="text input-large" name="name" value="{$list.phone}" disabled="" type="text">
+			</div>
+		</div>
+
+		<div class="form-item cf">
+			<label class="item-label">他的钱包<span class="check-tips"></span></label>
+			<div class="controls">
+				<input class="text input-large" name="money" value="{$list.mymoney}" type="text">
+			</div>
+		</div>		
+		<div class="form-item cf">
+			<label class="item-label">他的农家院<span class="check-tips"></span></label>
+			<div class="controls">
+				<table border="1" width="800">
+					<tr>
+						<th width="540">名称</th>
+						<th width="440">状态</th>
+						<th width="440">置顶/推广/普通</th>
+						<th width="540">会员期限</th>
+						<th width="240">操作</th>
+					</tr>
+					<foreach name="njy" item="vo" >
+					<tr>
+						<td align="center">{$vo.title}</td>
+						<td align="center"><if condition="($vo['up_status'] eq 1)"> 已通过<else/>待审核</if></td>
+						<td align="center"><if condition="($vo['zhuangtai'] eq 0)"> 普通<elseif condition="$vo['zhuangtai'] eq 5"/>推广<elseif condition="$vo['zhuangtai'] eq 10"/>置顶</if></td>
+						<td align="center">{$vo.create_time|date="y-m-d",###}至{$vo.deadline|date="y-m-d",###}</td>
+						<td align="center"><a href="{:U('Personal/webedit?id='.$vo['id'])}">查看</a></td>
+					</tr>
+					</foreach>
+				</table>
+			</div>
+		</div>		
+
+
+<!-- 		<div class="form-item cf">
+			<label class="item-label">他的拓展<span class="check-tips"></span></label>
+			<div class="controls">
+				<table border="1" width="800">
+					<tr>
+						<th width="540">名称</th>
+						<th width="440">状态</th>
+						<th width="540">会员期限</th>
+						<th width="240">操作</th>
+					</tr>
+					<foreach name="tz" item="vo" >
+					<tr>
+						<td align="center">{$vo.title}</td>
+						<td align="center"><if condition="($vo['up_status'] eq 1)"> 已通过<else/>待审核</if></td>
+						<td align="center">{$vo.update_time|date="y-m-d",###}至{$vo.time_long|date="y-m-d",###}</td>
+						<td align="center"><a href="{:U('Personal/tzedit?id='.$vo['id'])}">查看</a></td>
+					</tr>
+					</foreach>
+				</table>
+			</div>
+		</div>	 -->
+
+
+
+
+
+
+
+
+
+		<input type="hidden" name="id" value="{$list.id}">
+	
+		<input class="btn submit-btn" type="submit" value="确 定">
+		<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+	</form>
+        </div>
+    </div>
+</block>

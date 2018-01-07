@@ -1,0 +1,219 @@
+<extend name="Base/common"/>
+<block name="head">
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/public_css.css-v=20170815.1.css"  />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/head_foot.css-v=20170815.1.css"  />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/calendar.css-v=20170815.1.css" />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/njl_main.css-v=20170815.1.css" />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/swiper-3.4.1.min.css"  />
+<script type="text/javascript" src="__JS__/jquery-1.8.3.min.js"></script>
+</block>
+<block name="slide"></block>
+<block name="body">
+<link rel="stylesheet" href="/Public/Home/css/vip.css" />
+<style type="text/css">
+#preview{width: 180px;height: 180px;border: 1px solid gray;overflow: hidden;position: absolute;left:0px;top:75px;z-index: 1;}
+.ttt1{position: absolute;left:384px;top:582px;z-index: 1;display: none;}
+.ttt{color: white;height: 26px;text-align: center;width: 72px;background: #1b843a;position: absolute;left:0px;top:264px;z-index: 10;font-size: 15px;}
+.sx{width: 115px; height: 40px; background: #3680ea none repeat; border: medium none; border-radius: 5px;color:white;position: absolute;top:474px;left:1095px;z-index: 2;}
+.sx:hover{background: #86b0ec none repeat;}
+.zmore{margin-left:595px;margin-top:-153px;}
+.zmore:hover{text-decoration:none;}
+  .z0{border-collapse: collapse;font-size: 15px;}
+  .bbj{font-size: 15px;}
+  .chan{width: 100%;height: 300px;}
+  .ms{float: left;margin-left: 10px;margin-top: 10px;width: 160px;height: 110px;}
+  .xxedit{position: relative; width: 160px;height: 30px; background: #b4a4a4;margin-top:-30px;opacity: 0.8;display: none;}
+  .delete{float: right;color:white;}
+  .upedit{color:white;}
+  .xiugai{background: black;opacity: 0.8;height: 300px;left: 540px;position: absolute;top: 300px; width: 500px;z-index: 999;display: none;}
+  .gb{top:0px; left:480px;position: absolute;}
+</style>
+<section>
+            <div class="memb">
+                <div class="container clearfix">
+                    <div class="memb1">
+                        <ul>
+                            <li class="message"><a class="bbj" href="/Home/Login/vip"><i><img src="__IMG__/center_08.png" alt="" /></i>个人资料</a></li>
+                            <li class="message"><a class="bbj" href="/Home/Vip/myweb"><i><img src="__IMG__/center_08.png" alt="" /></i>我的产品</a></li>
+                        </ul>
+                    </div>
+                    <div class="memb2">
+                        <div class="page personmes">
+                            <div class="person1">
+                                <h1>产品信息</h1>
+                                <div class="chan">
+                                <h3>美食</h3><br>
+                                <foreach name="meishi" item="vo" >
+                                  <div class="ms"><img class="mspic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                                  <div class="xxedit">
+                                  <a class="upedit" href="javascript:;">修改</a><a class="delete" href="javascript:;">删除</a>
+                                  </div>
+  
+                                  </div>
+                                </foreach>
+                                <foreach name="meishi1" item="vo" >
+                                  <div class="ms"><img class="mspic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                                   <div class="xxedit">
+                                  <a class="upedit" href="javascript:;">修改</a><a class="delete" href="javascript:;">删除</a>
+                                  </div> 
+                                  </div>
+                                </foreach>
+                                </div>
+                                <div class="chan">
+                                <h3>住宿</h3><br>
+                                <foreach name="zhusu" item="vo" >
+                                  <div class="ms"><img class="zspic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                                    <div class="xxedit">
+                                  <a class="upedit" href="javascript:;">修改</a><a class="delete" href="javascript:;">删除</a>
+                                  </div>
+                                  </div>
+                                  </foreach>
+                                 <foreach name="zhusu1" item="vo" >
+                                  <div class="ms"><img class="zspic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                                  <div class="xxedit">
+                                  <a class="upedit" href="javascript:;">修改</a><a class="delete" href="javascript:;">删除</a>
+                                  </div>
+                                  </div>
+                                  </foreach>
+                                </div>
+                                <div class="chan">
+                                <h3>风景</h3><br>
+                                <foreach name="fengjing" item="vo" >
+                                  <div class="ms"><img class="fjpic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                                  <div class="xxedit">
+                                  <a class="upedit" href="javascript:;">修改</a><a class="delete" href="javascript:;">删除</a>
+                                  </div>
+                                  </div>
+                                  </foreach>
+                                  <foreach name="fengjing1" item="vo" >
+                                  <div class="ms"><img class="fjpic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                                  <div class="xxedit">
+                                  <a class="upedit" href="javascript:;">修改</a><a class="delete" href="javascript:;">删除</a>
+                                  </div>
+                                  </div>
+                                  </foreach> 
+                                </div>
+
+
+                                <div class="person2">
+                                <a href="javascript:;" class="z"><div class="ttt">上传图片</div></a>
+<div id="preview"></div>
+<form action="/Home/Vip/webadd1" enctype="multipart/form-data" method="post">
+<input type="file" name="t123" onchange="previewImage(this)" class="ttt1"/>
+<input type="hidden" name="id" value="{$id}">
+<input type="hidden" name="ms1" value="{$msnum}">
+<input type="hidden" name="zs1" value="{$zsnum}">
+<input type="hidden" name="fj1" value="{$fjnum}">
+<input type="hidden" name="ms2" value="{$upmsnum}">
+<input type="hidden" name="zs2" value="{$upzsnum}">
+<input type="hidden" name="fj2" value="{$upfjnum}">
+                                        <ul class="renyuanmess">
+                                            <li>
+                                            <label>选择分类</label>
+                                            <select name="flxz" id="flxz">
+                                                <option value='0'>美食</option>
+                                                <option value='1'>房间</option>
+                                                <option value='2'>风景</option>
+                                            </select>
+                                            </li>
+                                            <li>
+                                                <input type="submit" value="保存" class="message_btn" />
+                                            </li>
+                                        </ul>
+                                        </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="xiugai">
+        <p class="fenlei"></p>
+         
+<form action="/Home/Vip/webxiugai" enctype="multipart/form-data" method="post">
+<div id="preview1"></div>
+<input type="file" name="x123" onchange="previewImage1(this)" class="ttt2"/>
+<input type="submit" value="保存" class="message_btn1" />
+<input type="hidden" name="gid" value="{$id}">
+<input type="hidden" name="picid" value="">
+<input type="hidden" name="flmc" value="">
+<a href="javascript:;" class="gb"><img src="/Public/Home/images/pupop_clo.png" alt=""></a>
+</div>
+</from>
+<script type="text/javascript" src="__JS__/tupian1.js"></script>    
+
+<script type="text/javascript">
+$('.z').click(function(){
+$('input[name="t123"]').trigger("click");
+});
+$('.gb').click(function(){
+  $('.xiugai').css('display','none');
+});
+$('.message_btn').click(function(){
+  var flxz=$('#flxz').val();
+  if(flxz==0){
+    var msnum=$('.mspic').length;
+    if(msnum>=10){
+      alert('美食图片数量超出10张');
+      return false;
+    }
+  }else if(flxz==1){
+    var zsnum=$('.zspic').length;
+    if(zsnum>=10){
+      alert('住宿图片数量超出10张');
+      return false;      
+    }
+  }else if(flxz==2){
+    var fjnum=$('.fjpic').length;
+    if(fjnum>=10){
+      alert('风景图片数量超出10张');
+      return false;        
+    }
+  }
+});
+
+$('.ms').mouseover(function(){
+  $(this).find('.xxedit').css('display','block');
+}).mouseout(function(){
+  $(this).find('.xxedit').css('display','none');
+});
+
+
+$('.upedit').click(function(){
+  var img=$('<img src="'+$(this).parent('div').prev('img').attr('src')+'" width="50%" height="50%">');
+  $('#preview1').find('img').remove();
+  $('#preview1').append(img);
+  $('input[name="picid"]').val($(this).parent('div').prev('img').attr('info'));
+  $('input[name="flmc"]').val($(this).parents('.chan').find('h3').html());
+  $('.xiugai').css('display','block');
+});
+
+
+$('.delete').click(function(){
+  var gid=$('input[name="gid"]').val();
+  var picid=$(this).parent('div').prev('img').attr('info');
+  var flmc=$(this).parents('.chan').find('h3').html();
+  $.ajax({
+    url:'/Home/Vip/delete',
+    type:'post',
+    data:{'gid':gid,'picid':picid,'flmc':flmc},
+    success:function(mes){
+      if(mes==''){
+        alert('删除成功');
+        window.location.reload();
+        return false;
+      }else{
+        alert('删除失败');
+        return false;
+      }
+    }
+  });
+return false;
+});
+
+</script>   
+<script type="text/javascript" src="__JS__/tupian.js"></script>    
+
+</block>
+<block name="footer"></block>

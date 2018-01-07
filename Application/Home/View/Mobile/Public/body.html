@@ -1,0 +1,165 @@
+<block name="body">
+  <div class="wrap">
+  <style type="text/css">
+    .titleson1{float:left;width:33%;height: 20px;}
+    .titleson2{width: 34%;float:left;font-size: 145%;color: #000;text-align: center;}
+    .titleson3{float:left;width: 31%;height: 20px;}
+    .titleson1son{float:right;width:60%;height: 20px;border-bottom:1px solid #ff6300;}
+    .titleson3son{float:left;width:63%;height: 20px;border-bottom:1px solid #ff6300;}
+    .titleson1son1{float:right;width:60%;height: 20px;border-bottom:1px solid #00ff1e;}
+    .titleson3son1{float:left;width:63%;height: 20px;border-bottom:1px solid #00ff1e;}
+    .titleson1son2{float:right;width:60%;height: 20px;border-bottom:1px solid #5700ff;}
+    .titleson3son2{float:left;width:63%;height: 20px;border-bottom:1px solid #5700ff;}
+      .qnj_wap_bodytable{width: 96.77%;height: auto;overflow: hidden;margin: 0 auto;}
+      .qnj_wap_bodytable_son a img{width: 100%;height: 115px;}
+      .qnj_wap_bodytable_son p{line-height: 26px;color:#000;}
+      .qnj_wap_bodytable_son:nth-child(odd){width:47%;height: 175px;float:left;overflow: hidden;}
+      .qnj_wap_bodytable_son:nth-child(even){width:47%;height: 175px;float:right;overflow: hidden;}
+      .qnj_body_msgj{width: 96.77%;height: auto;margin:0 auto;overflow: hidden;}
+      .qnj_body_msgj_son:nth-child(1){width: 30%;height: auto;float: left;text-align: center;height: 90px;}
+      .qnj_body_msgj_son:nth-child(2){width: 30%;height: auto;float: left;text-align: center;height: 90px;margin-left: 17px;}
+      .qnj_body_msgj_son:nth-child(4){width: 30%;height: auto;float: left;text-align: center;height: 90px;}
+      .qnj_body_msgj_son:nth-child(5){width: 30%;height: auto;float: left;text-align: center;height: 90px;margin-left: 17px;}
+      .qnj_body_msgj_son:nth-child(3){width: 30%;height: auto;float: right;text-align: center;height: 90px;}
+      .qnj_body_msgj_son:nth-child(6){width: 30%;height: auto;float: right;text-align: center;height: 90px;}
+      .qnj_body_msgj_son img{display: ;width: 100%;}
+      .qnj_wap_titlelimit{overflow: hidden; text-overflow: ellipsis;white-space: nowrap;width: 13em; word-wrap:break-word;}
+  </style>
+  <a href="{:U('Article/index?category='.njy)}">
+    <div class="title">
+        <div class="titleson1">
+          <div class="titleson1son"></div>
+        </div>
+        <div class="titleson2">&nbsp;北京周边游&nbsp;</div>
+        <div class="titleson3">
+          <div class="titleson3son"></div>
+        </div>
+    </div>
+    </a>
+    <div class="qnj_wap_bodytable">
+      <article:list category="116" child="true"  name="img" row="6"> 
+      <div class="qnj_wap_bodytable_son">
+        <a href="{:U('Article/detail?id='.$img['id'])}" >
+          <img src="{:get_cover($img['cover_id'],'path')}">
+          <p>{:get_extmodel_field($img['id'],'city')}─{:get_extmodel_field($img['id'],'fjmc')}</p>
+          <p class="qnj_wap_titlelimit">{$img.title}</p>
+        </a>
+      </div>
+    </article:list>   
+  </div>
+  <br>
+  <a href="{:U('Article/index?category='.njy)}">
+    <div class="title">
+        <div class="titleson1">
+          <div class="titleson1son1"></div>
+        </div>
+        <div class="titleson2">&nbsp;天津周边游&nbsp;</div>
+        <div class="titleson3">
+          <div class="titleson3son1"></div>
+        </div>
+    </div>
+    </a>
+    <div class="qnj_wap_bodytable">
+      <article:list category="120" child="true"  name="img" row="6"> 
+      <div class="qnj_wap_bodytable_son">
+        <a href="{:U('Article/detail?id='.$img['id'])}" >
+          <img src="{:get_cover($img['cover_id'],'path')}">
+          <p>{:get_extmodel_field($img['id'],'city')}─{:get_extmodel_field($img['id'],'fjmc')}</p>
+          <p class="qnj_wap_titlelimit">{$img.title}</p>
+        </a>
+      </div>
+    </article:list>   
+  </div>
+<br>
+  <a href="{:U('Article/index?category='.njy)}">
+    <div class="title">
+        <div class="titleson1">
+          <div class="titleson1son2"></div>
+        </div>
+        <div class="titleson2">&nbsp;河北周边游&nbsp;</div>
+        <div class="titleson3">
+          <div class="titleson3son2"></div>
+        </div>
+    </div>
+    </a>
+    <div class="qnj_wap_bodytable">
+      <article:list category="117" child="true"  name="img" row="6"> 
+      <div class="qnj_wap_bodytable_son">
+        <a href="{:U('Article/detail?id='.$img['id'])}" >
+          <img src="{:get_cover($img['cover_id'],'path')}">
+          <p>{:get_extmodel_field($img['id'],'city')}─{:get_extmodel_field($img['id'],'fjmc')}</p>
+          <p class="qnj_wap_titlelimit">{$img.title}</p>
+        </a>
+      </div>
+    </article:list>   
+  </div>   
+<script language="javascript" src="__JS__/wap/liscroll.js" ></script>
+<link href="__CSS__/wap/style1.css"  rel="stylesheet" type="text/css"/>
+<br>
+<div id="indMain">
+  <div class="proli_index" style="height: auto;">
+  <a href="{:U('Article/index?category='.njy)}">
+    <div class="title">
+        <div class="titleson1" style="width: 31%;">
+        </div>
+        <div class="titleson2" style="width: 38%;">&nbsp;名<span style="color:#69ff00;">/</span>胜<span style="color:#f000ff;">/</span>古<span style="color:#009cff;">/</span>迹&nbsp;</div>
+        <div class="titleson3">
+        </div>
+    </div>
+    </a>
+
+
+      <div class="qnj_body_msgj">
+          <article:list category="56" child="true"  name="img" row="6">
+          <div class="qnj_body_msgj_son">
+            <a href="{:U('Article/detail?id='.$img['id'])}"><img src="{:get_cover($img['cover_id'],'path')}" ></a>
+            <a href="{:U('Article/detail?id='.$img['id'])}" align="center" style="color:#000;">{$img.title}</a>
+          </div>            
+        </article:list> 
+      </div>
+  </div>
+</div>
+<div class="casei">
+  <div class="more_i2"><span>旅<em>/</em>游<em>/</em>攻<em>/</em>略</span><a href="{:U('Article/index?category='.TradeNews)}">&gt;更多</a></div>
+  <div class="clear"></div>
+  <div class="case_c">
+    <ul>
+      <article:list category="54" child="true"  name="news" row="4">
+      <li class="qnj_newsli">
+        <div class="case_c_pic">
+          <a href="{:U('Article/detail?id='.$news['id'])}">
+            <img src="{:get_cover($news['cover_id'],'path')}" style="width:100%;height:130px;">
+          </a>
+        </div>
+        <div class="case_c_content">
+          <a href="{:U('Article/detail?id='.$news['id'])}">
+            <div class="qnj_newstitle">
+              <div class="qnj_newstitle1">{$news.title}</div>
+              <div class="qnj_newstitle2">{$news.create_time|date="Y-m-d H:i:s",###}</div>
+            </div>
+            <span>{:get_extmodel_field($news['id'],'description')}</span>
+          </a>
+          <br>
+          <br>
+        </div>
+      </li>
+    </article:list>
+  </ul>
+</div>
+</div>
+</div>    
+<script type="text/javascript">
+  function myjs(){
+    var mytime=null;
+    mytime=setInterval(function(){
+      var rgb1=parseInt(250*Math.random());
+      var rgb2=parseInt(250*Math.random());
+      var rgb3=parseInt(250*Math.random());
+      $('#qnj_title1').css('color','rgb('+rgb1+','+rgb2+','+rgb3+')');
+      $('#qnj_title2').css('color','rgb('+rgb1+','+rgb2+','+rgb3+')');
+      $('#qnj_title3').css('color','rgb('+rgb1+','+rgb2+','+rgb3+')');
+    },1000);
+  }
+  $('.list_images').find('span').css('text-align','left');
+</script>
+</block>

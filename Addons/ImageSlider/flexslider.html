@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="__ROOT__/Addons/ImageSlider/FlexSlider/flexslider.css" />
+<style type="text/css">.flex-direction-nav li{line-height: 40px;}.flexslider .slides > li {overflow: hidden;}.flex-control-nav{bottom: 10px;}</style>
+<!--<script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>-->
+<script type="text/javascript" src="__ROOT__/Addons/ImageSlider/FlexSlider/jquery.flexslider-min.js"></script>
+
+<div class="flexslider">
+  <ul class="slides">
+      <!-- 插件配置幻灯片-->
+      <foreach name="images" item="images" key="k">
+            <li><img src="{$images.path}" style="height:400px;" />
+            </li>
+      </foreach>
+  </ul>
+</div>
+<script type="text/javascript">
+        $('.flexslider').flexslider({
+            animation: "slide",
+            itemHeight:400
+        });
+</script>

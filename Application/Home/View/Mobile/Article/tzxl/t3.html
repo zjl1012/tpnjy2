@@ -1,0 +1,309 @@
+<extend name="Base/common"/>
+<block name="body">
+<link rel="stylesheet" type="text/css" href="__CSS__/wap/master.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/wap/hzw-city-picker.css">
+<style type="text/css">
+/*城市搜索下拉*/
+    #qnj_none{display: none;}
+    #qnj_block{display: block;}
+    #qnj_none1{display: none;}
+    #qnj_block1{display: block;}
+    #qnj_none2{display: none;}
+    #qnj_block2{display: block;}
+    .qnj_ps,.qnj_ps1,.qnj_ps2{width: 100%;height: 100%;background: black;opacity: 0.2;position: absolute;top:0px;}
+
+
+    .njy_search{width: 100%;height: 30px;}
+    .qnj_search{width: 20%;height: 20px;float: left;}
+    .qnj_search1{width: 23%;height: 20px;float: left;}
+    .qnj_search2{width: 22%;height: 20px;float: left;}
+    .qnj_search  span{ position: relative;top: 4px;}
+    .qnj_search1 span{ position: relative;top: -14px;left:55px;}
+    .qnj_search2 span{ position: relative;top: 4px;}
+</style>
+<!-- 选择省份 -->
+<div class="njy_search">
+    <div class="qnj_search" id="zjl">
+        <label>{$city}</label><span>▼</span>
+        <div class="hzw-city-picker" style="margin-top:10px;" id="qnj_none" >
+            <div class="hzw-wrap">
+                <ul class="hzw-province-wrap" >
+                <volist name=":get_category_lists(127,ture)" id="cpfl" offset="0">
+                    <a href="/Home/Article/tzxl2/city/{$cpfl.title}/id/{$cpfl.id}">
+                        <li class="hzw-province">
+                            <div class="hzw-province-name">{$cpfl.title}</div>
+                        </li>
+                    </a>
+                </volist>
+                </ul>
+            </div>
+        </div>    
+    </div>
+    <!-- 选择基地  -->
+    <div class="qnj_search1" id="zjl1">
+        <li style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 4em;"><label>{$ming}</label></li><span>▼</span>
+        <div class="hzw-city-picker1" style="margin-top:10px;margin-left:-90px;" id="qnj_none1">
+            <div class="hzw-wrap1">
+                <ul class="hzw-province-wrap1" >
+                <foreach name="tzjd" item="vo" > 
+                    <a href="/Home/Article/tzxl3/key/{$vo}/id/{$tzcityid}/city/{$city}">
+                        <li class="hzw-province1">
+                            <div class="hzw-province-name1">{$vo}</div>
+                        </li>
+                    </a>
+                </foreach>
+                </ul>
+            </div>
+        </div>    
+    </div>
+
+    <!-- 选择项目  -->
+    <div class="qnj_search2" id="zjl2">
+        <label>
+        <if condition="$jd eq '' ">拓展项目<else /> {$jd}</if>    
+        </label>
+        <span>▼</span>
+        <div class="hzw-city-picker2" style="margin-top:10px;margin-left:-90px;" id="qnj_none2">
+            <div class="hzw-wrap2">
+                <ul class="hzw-province-wrap2" >
+                <foreach name="tzxm" item="vo" > 
+                    <a href="/Home/Article/tzxl4/key/{$ming}/id/{$tzcityid}/city/{$city}/tzxm0/{$vo}">
+                        <li class="hzw-province2">
+                            <div class="hzw-province-name2">{$vo}</div>
+                        </li>
+                    </a>
+                </foreach>
+                </ul>
+            </div>
+        </div>    
+    </div>
+
+</div>
+<!-- 文档列表 -->
+    <div class="index_sale">
+        <foreach name="list" item="vo" >
+            <dl class="clear-fix">
+                <dt style="margin-top:10%;"><a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}" width="95%" style="height: 90px;"></a></dt>
+                <dd>
+                    <a href="{:U('Article/detail?id='.$vo['id'])}"><h3>{$vo.title}</h3><if condition="$vo['zhuangtai'] eq 10"><img class="zhi" src="__IMG__/m/b.png" style="margin-left: 70px;margin-top:-17px;position:absolute;"><span class="szd" style="display:none;">置顶</span></if> </a>
+                    <h4 class="addpng"><span style="margin-left:20px;">地址:{:get_extmodel_field($img['id'],'address')}</span></h4>
+                    <div class="miaoshu" style="font-size:0.8rem;">{:get_extmodel_field($img['id'],'description')}</div>
+                    <div class="dhhy">
+                        <div class="dianhua">
+                            <span style="margin-left:20px;">{:get_extmodel_field($img['id'],'phone')}</span>
+                        </div>
+<!--                         <div class="hyclass">
+                            <if condition="$vo['viplong'] eq 1"><img src="__IMG__/m/lev1.gif">
+                                <elseif condition="$vo['viplong'] eq 2"/><img src="__IMG__/m/lev2.gif">
+                                <elseif condition="$vo['viplong'] eq 3"/><img src="__IMG__/m/lev3.gif">
+                                <elseif condition="$vo['viplong'] eq 4"/><img src="__IMG__/m/lev4.gif">
+                                <else />
+                                <img src="__IMG__/m/lev5.gif">
+                            </if>
+                        </div> -->
+                    </div>
+                </dd>
+            </dl>
+        </foreach>   
+    </div>
+    <div class="page">
+    {$show} 
+    </div>
+    <span class="citytitle" style="display:none;">{$title}</span>
+    <span class="cityname" style="display:none;">{$name}</span>
+    <span class="qu" style="display:none;">{$qu}</span>
+    <span class="jd" style="display:none;">{$jd}</span>
+
+
+<span style="display:none;" class="tuiguang">
+<foreach name="list1" item="vo">
+<dl class="clear-fix">
+                <dt><a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}" width="100%"></a></dt>
+                <dd>
+                    <a href="{:U('Article/detail?id='.$vo['id'])}"><h3>{$vo.title}</h3></a><img class="zhi" src="/Public/Home/images/m/推.png" style="margin-left:-29px;margin-top:-4px;position:absolute;"> <br>
+                    <h4 class="addpng"><span style="margin-left:20px;">地址:{$vo.address}</span></h4>
+                    <div class="miaoshu" style="font-size:0.8rem;">{$vo.description}</div>
+                    <div class="dhhy">
+                        <div class="dianhua">
+                            <span style="margin-left:20px;">{$vo.phone}</span>
+                        </div>
+                        <div class="hyclass">
+                            <if condition="$vo['viplong'] eq 1"><img src="__IMG__/m/lev1.gif">
+                                <elseif condition="$vo['viplong'] eq 2"/><img src="__IMG__/m/lev2.gif">
+                                <elseif condition="$vo['viplong'] eq 3"/><img src="__IMG__/m/lev3.gif">
+                                <elseif condition="$vo['viplong'] eq 4"/><img src="__IMG__/m/lev4.gif">
+                                <else />
+                                <img src="__IMG__/m/lev5.gif">
+                            </if>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+</foreach>             
+</span>
+    <div class="qnj_ps" style="display:none;"></div>
+    <div class="qnj_ps1" style="display:none;"></div>
+    <div class="qnj_ps2" style="display:none;"></div>
+
+<script type="text/javascript">
+$('.search').click(function(){var key=$('#key').val();if(key==''){return false;}$(this).attr('href','/Home/Index/search/key/'+key);});
+    $('.quming').click(function(){
+            $('.quming').find('li').attr('class','li1');
+            $(this).find('li').attr('class','li1 on');
+            $('.quming').attr('info','0');
+            $(this).attr('info','1');
+            $('#ulQuyuList').find('a').remove();
+            var city=$('.citytitle').html();
+            var name=$('.cityname').html();    
+            var shi=$(this).find('li').html();   
+             $.ajax({
+                url:'/Home/Article/search1',
+                type:'post',
+                dataType:'json',
+                async:false,
+                data:{'city':city,'name':name,'shi':shi},
+                success:function(mes){
+                    $(mes).each(function(i,val){
+                        var op='<a href="javascript:;" class="jd3"><li class="li1 ">'+$(this).attr('fjmc')+'</li></a>';
+                        $('#ulQuyuList').append(op);
+                    });
+                }
+            });
+            return false;
+    });
+        $('.jd3').live('click',function(){
+            var city1=$('.citytitle').html();
+            var name1=$('.cityname').html();
+            var qu=$('.quming[info="1"]').find('li').html();
+            var shi1=$(this).find('li').html();
+            $(this).attr('href','/Home/Article/search2/city/'+city1+'/name/'+name1+'/qu/'+qu+'/jd/'+shi1);
+        });
+        function myfun(){
+            var bj=$('.citytitle').html();//城市名
+            var qu=$('.qu').html();//区或市的名
+            var jd=$('.jd').html();//景点名
+            $('.shengming').find('li').each(function(){
+                if($(this).html()==bj){
+                    $(this).attr('class','li1 no');
+                    $(this).css('color','white');
+                }
+            });
+
+            $('.quming').find('li').each(function(){
+                if($(this).html()==qu){
+                    $(this).parent('a').attr('info','1');
+                    $(this).attr('class','li1 on');
+                }
+            });
+
+            $('.jd3').find('li').each(function(){
+                if($(this).html()==jd){
+                    $(this).attr('class','li1 on');
+                    $(this).css('color','');
+                }
+            });
+        }
+        myfun();  
+
+
+    $(".m_zizhu_screen li").click(function() {
+        var lx = $(this).attr('data-index');
+        $("." + lx).parent(".zizhu_sort_mask").slideToggle('fast');
+        $("." + lx).slideToggle('fast');
+        $(".zizhu_sort_mask").not($("." + lx).parent(".zizhu_sort_mask")).hide();
+        $(".zizhu_sort").not("." + lx).hide();
+        $(window).scrollTop(0);
+    });
+
+        function zd(){
+            if($('.clear-fix').find('.szd').html()=='置顶'){
+                $('span:contains("置顶"):last').parents('.clear-fix').after($('.tuiguang').css('display','block'));
+            }else{
+                $('.clear-fix:eq(0)').after($('.tuiguang').css('display','block'));
+            }
+        }
+zd();
+</script>  
+    <script type="text/javascript">
+    $('.banner').remove();
+    $('.qnj_nav').before($('.njy_search')); 
+    //城市下拉搜索
+    $('.qnj_search').click(function(){
+        if($('.hzw-city-picker').attr('id')=='qnj_none'){
+            $('.hzw-city-picker').attr('id','qnj_block');
+            $('.qnj_ps').css('display','block');
+        }else{
+            $('.hzw-city-picker').attr('id','qnj_none');
+            $('.qnj_ps').css('display','none');
+        }
+    }); 
+    $(document).click(function (e) {
+         var e = e || window.event; //浏览器兼容性   
+                var elem = e.target || e.srcElement;  
+                while (elem) { //循环判断至跟节点，防止点击的是div子元素   
+                    if (elem.id && elem.id == 'zjl') {  
+                        return;  
+                    }  
+                    elem = elem.parentNode;  
+                } 
+        $('.hzw-city-picker').attr('id','qnj_none');
+        $('.qnj_ps').css('display','none');
+    });
+
+//选择城市
+    $('.qnj_search1').click(function(){
+        if($('.hzw-city-picker1').attr('id')=='qnj_none1'){
+            $('.hzw-city-picker1').attr('id','qnj_block1');
+            $('.qnj_ps1').css('display','block');
+        }else{
+            $('.hzw-city-picker1').attr('id','qnj_none1');
+            $('.qnj_ps1').css('display','none');
+        }
+    }); 
+
+    // $('.hzw-province-name1').click(function(){
+    //     $('.qnj_search1').find('label').html($(this).html());
+
+    //     $('.qnj_ps1').css('display','none');
+    // });
+
+
+    $(document).click(function (e) {
+         var e = e || window.event; //浏览器兼容性   
+                var elem = e.target || e.srcElement;  
+                while (elem) { //循环判断至跟节点，防止点击的是div子元素   
+                    if (elem.id && elem.id == 'zjl1') {  
+                        return;  
+                    }  
+                    elem = elem.parentNode;  
+                } 
+        $('.hzw-city-picker1').attr('id','qnj_none1');
+        $('.qnj_ps1').css('display','none');
+    });
+
+
+    $('.qnj_search2').click(function(){
+        if($('.hzw-city-picker2').attr('id')=='qnj_none2'){
+            $('.hzw-city-picker2').attr('id','qnj_block2');
+            $('.qnj_ps2').css('display','block');
+        }else{
+            $('.hzw-city-picker2').attr('id','qnj_none2');
+            $('.qnj_ps2').css('display','none');
+        }
+    }); 
+    $(document).click(function (e) {
+         var e = e || window.event; //浏览器兼容性   
+                var elem = e.target || e.srcElement;  
+                while (elem) { //循环判断至跟节点，防止点击的是div子元素   
+                    if (elem.id && elem.id == 'zjl2') {  
+                        return;  
+                    }  
+                    elem = elem.parentNode;  
+                } 
+        $('.hzw-city-picker2').attr('id','qnj_none2');
+        $('.qnj_ps2').css('display','none');
+    });
+
+
+    </script>
+</block>

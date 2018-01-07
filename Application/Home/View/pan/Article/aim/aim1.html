@@ -1,0 +1,134 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+	<style type="text/css">
+		.qnj_aim1_titleparent{background: #fafafa;}
+		.qnj_aim1_title{width: 1200px;height: 60px;font-size: 14px;margin:0 auto;line-height: 60px;}
+		.aim1_fengmian_parent{height: 400px;background: rgba(0,0,0,.06);}
+		.aim1_fengmian{width: 1200px;height: 430px;margin:0 auto;}
+		.aim1_fengmian_l{width: 800px;height: 430px;float:left;}
+		.aim1_fengmian_l img{width: 100%;height: 400px;}
+		.aim1_fengmian_r{width: 360px;height: 400px;float:left;margin-left: 28px;overflow-y:scroll; }
+		.aim1_fengmian_r p{line-height: 28px;}
+		.qnj_aim1_main_parent{height: auto;background: #fafafa;margin: 0 auto;}
+		.qnj_aim1_main{width: 1200px;height: auto;margin:0 auto;clear: both;overflow: hidden;}
+		.qnj_aim1_son1{width: 330px;height: auto;float:left;display: inline;}
+		.qnj_aim1_son2{width: 330px;height: auto;float:left;display: inline;margin-left: 105px;}
+		.qnj_aim1_son3{width: 330px;height: auto;float:right;display: inline;}
+		.qnj_aim1_son_class{font-size: 24px;font-weight: normal;color:#000;}
+		.qnj_aim1_son_class span{top:10px;position: relative;}
+		.aim1_son1_son{width: 330px;height: 375px;margin-top: -20px;}
+		.aim1_son1_sontitle{position: relative;top: 30px;left:8px;color:#000;font-size: 20px;z-index: 9;}
+		.aim1_son1_son img:hover{transform: scale(1.05);-webkit-transition: all .3s;}
+		.aim1_son_description1{text-indent: 2em;font-size:13px;width: 320px;height: 115px;margin: 0 auto;border-bottom:1px solid #ff7800b3;}
+		.aim1_son_description2{text-indent: 2em;font-size:13px;width: 320px;height: 115px;margin: 0 auto;border-bottom:1px solid #ff53b6b3;}
+		.aim1_son_description3{text-indent: 2em;font-size:13px;width: 320px;height: 115px;margin: 0 auto;border-bottom:1px solid #049bf0b3;}
+		.aim1_news{width: 1200px;height: auto;margin:0 auto;}
+		.aim1_news_son{width: 1200px;height: 200px;padding:5px;margin-top: 10px;}
+		.aim1_news_son:nth-child(even){background: #fafafa;}
+	</style>
+	<div style="width: 1423px;height:3px;background:rgba(0,0,0,.06);margin:0 auto;"></div>
+	<span id="title" style="display:none;">目的地</span>
+	<div class="qnj_aim1_titleparent">
+		<div class="qnj_aim1_title">
+			<a href="/">首页</a>
+			&nbsp;&nbsp;<em>></em>&nbsp;&nbsp;
+			<a href="{:U('Article/index?category='.aim)}">目的地</a>
+			&nbsp;&nbsp;<em>&gt;</em>&nbsp;&nbsp;
+			{$aimcovercon.title}
+		</div>
+	</div>
+	<div style="width: 1423px;height:15px;border-top:1px solid #e4e4e4;margin:0 auto;"></div>
+	<div class="aim1_fengmian">
+		<div class="aim1_fengmian_l"><img src="{:get_cover($aimcovercon['cover_id'],'path')}"></div>
+		<div class="aim1_fengmian_r">
+			<h3>{$aimcovercon.title}</h3>
+			<p>{:get_extmodel_field($aimcovercon['id'],'content')}</p>
+		</div>
+	</div>
+	<div style="width: 1423px;height:30px;border-top:1px solid #e4e4e4;margin:0 auto;background:#f2f2f2;">
+		<marquee onmouseout="this.start();" onmouseover="this.stop();" scrollamount="3" >去农家旅游网欢迎您,服务热线：4000-979-212</marquee>
+	</div>
+	<div class="qnj_aim1_main_parent">
+		<div class="qnj_aim1_main">
+			<div class="qnj_aim1_son1">
+				<p class="qnj_aim1_son_class"><span>住宿推荐</span><img src="__IMG__/pitch.png"></p>
+				<foreach name="aimzhusu" item="vo">
+				<div class="aim1_son1_son">
+					<a class="aim1_son1_sontitle" href="{:U('Article/detail?id='.$vo['id'])}">{$vo.title}</a>
+					<a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}" width="330" height="200"></a>
+					<div style="height: 15px;"></div>
+					<div class="aim1_son_description1">{$vo.description} </div>
+				</div>
+			</foreach> 
+		</div>
+		<div class="qnj_aim1_son2">
+			<p class="qnj_aim1_son_class" align="center"><span>热门景区</span><img src="__IMG__/pitch1.png"></p>
+				<foreach name="aimfengjing" item="vo">
+				<div class="aim1_son1_son">
+					<a class="aim1_son1_sontitle" href="{:U('Article/detail?id='.$vo['id'])}">{$vo.title}</a>
+					<a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}" width="330" height="200"></a>
+					<div style="height: 15px;"></div>
+					<div class="aim1_son_description2">{$vo.description} </div>
+				</div>
+			</foreach>  		
+	</div>
+	<div class="qnj_aim1_son3">
+		<p class="qnj_aim1_son_class" align="right"><span>美食排行</span><img src="__IMG__/pitch2.png"></p>
+				<foreach name="aimmeishi" item="vo">
+				<div class="aim1_son1_son">
+					<a class="aim1_son1_sontitle" href="{:U('Article/detail?id='.$vo['id'])}">{$vo.title}</a>
+					<a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}" width="330" height="200"></a>
+					<div style="height: 15px;"></div>
+					<div class="aim1_son_description3">{$vo.description} </div>
+				</div>
+			</foreach> 	
+</div>		
+</div>
+</div>
+<div style="width: 1423px;height:20px;border-top:1px solid #e4e4e4;margin:0 auto;"></div>
+<style type="text/css">
+	.aim1_news_sonpic{width: 300px;height: 200px;float: left;}
+	.aim1_news_sonpic:hover{transform: scale(1.05);-webkit-transition: all .3s;}
+	.aim1_news_soncon{width: 800px;height: 200px;float: left;margin-left: 20px;}
+	.aim1_news_soncontitle{font-size: 18px;font-weight: bold;color:#000;}
+	.aim1_news_description1{text-indent: 2em;width: 800px;height: 110px;}
+	.aim1_news_contactus{width: ;height: 30px;float: left;margin:0 50px 0 0 ;}
+</style>
+<div class="aim1_news">
+<h2>{:get_category_title($_category['id'])}游玩指南</h2>
+<foreach name="aimnews" item="vo">
+<div class="aim1_news_son">
+	<div class="aim1_news_sonpic">
+		<a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}" width="290" height="190"></a>
+	</div>
+	<div class="aim1_news_soncon">
+		<p><a class="aim1_news_soncontitle" href="{:U('Article/detail?id='.$vo['id'])}">{$vo.title}</a></p>
+		<div class="aim1_news_description1">{$vo.description} </div>
+		<div class="aim1_news_contactus"><img src="__IMG__/new_dl.png">：admin</div>
+		<div class="aim1_news_contactus"><img src="__IMG__/add_dhjl_bg.png">：{$vo.create_time|date="Y-m-d H:i:s",###}</div>
+		<div class="aim1_news_contactus"><img src="__IMG__/eyes_icon.png">：{$vo.view}</div>
+	</div>
+</div>
+</foreach>
+</div>
+<div style="width: 1423px;height:20px;border-bottom:1px solid #e4e4e4;margin:0 auto;"></div>
+
+<style type="text/css">
+	.aim1_they{width: 1200px;height: auto;margin: 0 auto;overflow: hidden;}
+	.aim1_they_son{width: 290px;height: 190px;float: left;margin: 0 8px 45px 0 ;}
+	.aim1_they_son img{width: 100%;height: 190px;}
+	.aim1_they p{font-size: 20px;color:#000;text-align: center;}
+	.aim1_they_son img:hover{transform: scale(1.05);-webkit-transition: all .3s;}
+	a{color:#111;}
+</style>
+<div class="aim1_they">
+	<h2>目的地推荐</h2>
+<volist name="perimeter" id="vo" offset="0" length='8'>
+	<div class="aim1_they_son">
+	<a href="/Article/aimtwo/name/aim/category/{$vo.name}/city/{$vo.city}.html"><img src="{:get_cover($vo['cover_id'],'path')}" ></a>
+	<p><a href="/Article/aimtwo/name/aim/category/{$vo.name}/city/{$vo.city}.html">{$vo.title}</a></p>
+	</div>
+</volist>
+</div>
+</block>

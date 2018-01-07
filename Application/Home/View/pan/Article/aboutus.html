@@ -1,0 +1,61 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+    <div style="width: 1423px;height: 10px;border-bottom:1px solid #DDDDDD;margin: 0 auto;"></div>
+    <div style="width: 1423px;height: 10px;"></div>
+    <style type="text/css">
+        .qnj_news_main{width: 1220px;height: auto;overflow: hidden;margin-right: auto;margin-right: auto;margin: 0 auto;}
+        .qnj_top_li_newsclass{width: 70px;height: 30px;background: ;color:#636363;font-size: 14px;line-height: 30px;text-align: center;}
+        .news_body{width: 1220px;height: auto;overflow: hidden;}
+        .news_son{width: 600px;height: 180px;float:left;border: 1px solid #eaeaea;margin-top: 20px;padding:3px;}
+        .news_son:nth-child(even){margin-left:20px;}
+        .news_content{width: 870px;height: auto;}
+        .news_content p img{text-align: center;}
+        .news_hover:hover{color:#ff6300;}
+    </style>
+    <div class="qnj_news_main">
+        <div style="font-size:12px;">
+            <p>您所在的位置：
+                <a href="/" style="color:#5e5e5e;font-size:12px;">首页</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span id="title">{:get_category_title($_category['id'])}</span>
+            </p>
+        </div>
+        <div class="qnj_qmain_top">
+        </div>  
+        <div style="width: 1423px;height: 10px;"></div>
+        <div class="qnj_qmain_1" style="background:#f7f7f7">
+            <h2 style="text-align:center;color:#000;">{:get_category_title($_category['id'])}</h2>
+            <div class="news_content">
+            <article:list category="$_category['id']" child="true" name="about" row="1">
+            {:get_extmodel_field($about['id'],'content')}
+            </article:list> 
+            </div>
+            <br><br><br>
+
+</div>
+<div class="qnj_qmain_2">
+    <div class="qmain_1_top">
+        <div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;float:left;">{:get_category_title(53)}</div>
+        <div style="float:right;line-height:40px;"><a href="{:U('Article/index?category='.companynews)}">更多</a></div>
+    </div>  
+    <div class="qnj_qmain_news1">
+        <article:position pos="4" cate="53" limit="8" child="true" name="news">
+        <div class="qmain_news1_1"><a href="{:U('Article/detail?id='.$news['id'])}">{$news.title}</a></div>
+        <div class="qmain_news1_2">{$news.create_time|date="Y-m-d",###}</div>
+    </article:position>
+</div>
+<br>
+<div class="qmain_1_top">
+    <div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;float:left;">{:get_category_title(54)}</div>
+    <div style="float:right;line-height:40px;"><a href="{:U('Article/index?category='.TradeNews)}">更多</a></div>
+</div>  
+<div class="qnj_qmain_news1">
+    <article:position pos="4" cate="54" limit="8" child="true" name="news">
+    <div class="qmain_news1_1"><a href="{:U('Article/detail?id='.$news['id'])}">{$news.title}</a></div>
+    <div class="qmain_news1_2">{$news.create_time|date="Y-m-d",###}</div>
+</article:position>
+</div>
+</div>  
+</div>
+</block>

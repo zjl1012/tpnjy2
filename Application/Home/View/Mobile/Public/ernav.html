@@ -1,0 +1,94 @@
+<div class="all">
+    <div id="wrapper">
+      <!--头部-->
+      <style type="text/css">
+        .qnj_wap_headtitle{width: 100%;height: 50px;background: #ff7500;}
+        .qnj_wap_headtitle_son1{width: 15%;height: 50px;float:left;text-align: center;line-height: 50px;}
+        .qnj_wap_headtitle_son1 a{color:#fff;}
+        .qnj_wap_headtitle_son2{width: 55%;height: 30px;float:left;margin-left: 1%;text-align: center;border-radius:7px;background: #fff;margin-top: 3%;}
+        .qnj_wap_headtitle_son3{width: 12%;height: 50px;float:right;text-align: center;color:#fff;line-height: 50px;}
+        #key{width: 95%;height: 30px;border-radius:18px;border: none;margin-left: 5%}
+        #njysearch{width: 35px; height: 30px;border: 0;background: url(/Public/Home/images/btn_search2.png) 8px 4px no-repeat; background-size: auto auto;background-size: 17px 17px;position: relative; left: 80px;top: -25px; }
+        .qnj_nav_nonep{width: 100%;height: 100%;overflow: hidden;background: rgba(0,0,0,0.5);position: absolute;z-index: 999999999999;max-width: 640px;display: none;}
+        .qnj_nav_none{background: #fff;width:100%;height: auto;overflow: hidden;position: absolute;display: none;z-index: 999999999999;}
+      </style>
+      <div class="qnj_wap_headtitle">
+	  <div style="height: 50px;float:left;text-align: center;line-height: 50px; color:#FFFFFF; margin-left:10px; font-weight:bold; font-size:16px;">去农家</div>
+        <div class="qnj_wap_headtitle_son1">
+          <a href="/article/index/category/zdcity.html">
+                全国<img src="__IMG__/wap/箭头.png" style="margin-top: 20px;">
+            </a>
+        </div>
+        <div class="qnj_wap_headtitle_son2">
+         <form class="njysearch0" action="javascript:;">
+                <input id="key" name="key" placeholder="   找景点 找农家院...">
+                <button href="javascript:;" id="njysearch" type="button"></button>
+                </div>
+            </form> 
+        <div class="qnj_wap_headtitle_son3">
+         导航
+        </div>
+      </div>
+  <div class="qnj_nav_nonep">
+  <div class="qnj_nav_none">
+      <ul class="qnj_nav">
+<!--    <think:nav name="nav">
+      <a style="text-align:center;" href="{$nav.url|get_nav_url}">
+        <li>
+          <i style="text-align:center;" class=""></i>
+          <p style="text-align:center;"><span class="sp1">{$nav.title}</span></p>
+        </li>
+      </a>
+    </think:nav>-->
+	<li><a href="{:U('Article/index?category='.njy)}"><i class=""></i><p><span class="sp1">去农家</span></p></a></li>
+		<li><a href="{:U('Article/index?category='.company)}"><i class=""></i><p><span class="sp1">旅行社</span></p></a></li>
+		<li><a href="{:U('Article/index?category='.chartered)}"><i class=""></i><p><span class="sp1">旅游包车</span></p></a></li>
+		<li><a href="{:U('Article/index?category='.tzxl)}"><i class=""></i><p><span class="sp1">拓展训练</span></p></a></li>
+		<li><a href="{:U('Article/index?category='.aim)}"><i class=""></i><p><span class="sp1">目的地</span></p></a></li>
+		<li><a href="{:U('Article/index?category='.news)}"><i class=""></i><p><span class="sp1">旅游攻略</span></p></a></li>
+		<li><a href=""><i class=""></i><p><span class="sp1">星级农家院</span></p></a></li>
+		<li><a href=""><i class=""></i><p><span class="sp1">联系我们</span></p></a></li>
+  </ul>
+<script type="text/javascript">
+  $('.qnj_nav').find('i:eq(0)').attr('class','i1');
+  $('.qnj_nav').find('i:eq(1)').attr('class','i2');
+  $('.qnj_nav').find('i:eq(2)').attr('class','i3');
+  $('.qnj_nav').find('i:eq(3)').attr('class','i4');
+  $('.qnj_nav').find('i:eq(4)').attr('class','i5');
+  $('.qnj_nav').find('i:eq(5)').attr('class','i6');
+  $('.qnj_nav').find('i:eq(6)').attr('class','i7');
+  $('.qnj_nav').find('i:eq(7)').attr('class','i8');
+  $('.qnj_nav').find('i:eq(8)').attr('class','i9');
+</script>
+  </div>
+  </div>
+
+
+     
+
+      <script type="text/javascript">
+        $('#njysearch').click(function(){
+          var key=$('#key').val();
+          window.location.href='/Article/search3/key/'+key;
+        });
+        var g=true;
+        $('.qnj_wap_headtitle_son3').click(function(){
+          if(g){
+            $('.qnj_nav_nonep').css('display','block');
+            $('.qnj_nav_none').css('display','block');
+            g=false;             
+          }else{
+            $('.qnj_nav_nonep').css('display','none');
+            $('.qnj_nav_none').css('display','none'); 
+            g=true;           
+          }
+
+        });
+
+        $('.qnj_nav_nonep').click(function(){
+          $('.qnj_nav_nonep').css('display','none');
+          $('.qnj_nav_none').css('display','none');
+        });
+
+
+      </script>

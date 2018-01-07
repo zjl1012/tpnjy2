@@ -1,0 +1,15 @@
+User-agent: *
+Crawl-delay: 1
+
+Disallow: /admin/
+Disallow: /Addons/
+Disallow: /Data/
+Disallow: /Runtime/
+Disallow: /Thinkphp/
+Disallow: /Public/
+Disallow: /Application/
+Disallow: /Uploads/
+
+
+User-agent: 008
+Disallow: /

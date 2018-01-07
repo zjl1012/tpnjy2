@@ -1,0 +1,223 @@
+<extend name="Base/common"/>
+<block name="nav"><include file="Public/ernav"/></block>
+<block name="slide"></block>
+<block name="body">
+<link rel="stylesheet" type="text/css" href="__CSS__/wap/master.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/wap/hzw-city-picker.css">
+<style type="text/css">
+#qnj_none{display: none;}
+#qnj_block{display: block;}
+.qnj_ps{width: 100%;height: 100%;background: black;opacity: 0.2;position: absolute;top:0px;}
+.qnj_viptime {width: 60px;height: 12px;border-radius: 5px;border: 1px solid #ff3f00;margin: 0px auto;text-align: center;font-size:10px;color:#ff3f00;line-height: 12px;}
+.qnj_viptime1 {width: 60px;height: 12px;border-radius: 5px;border: 1px solid #00c9ff;margin: 0px auto;text-align: center;font-size:10px;color:#00c9ff;line-height: 12px;}
+.miaoshu1{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 100%;height: 14px;margin-top: 3px;}
+.head_nav{position:absolute;top:90px; z-index:9999; display:none;overflow-y: scroll;max-height:325px;width: 100%;overflow-x:hidden;}
+.head_nav li{border-bottom:1px solid #d4d4d4;background: #fff;color:#111;height: 35px;line-height: 35px;padding: 0 5%;width: 100%;overflow-x:hidden;}
+.head_nav1{position:absolute;top:90px; z-index:9999; display:none;overflow-y: scroll;max-height:325px;width: 100%;overflow-x:hidden;}
+.head_nav1 li{border-bottom:1px solid #d4d4d4;background: #fff;color:#111;height: 35px;line-height: 35px;padding: 0 5%;width: 100%;overflow-x:hidden;}
+.head_nav2{position:absolute;top:90px; z-index:9999; display:none;overflow-y: scroll;max-height:325px;width: 100%;overflow-x:hidden;}
+.head_nav2 li{border-bottom:1px solid #d4d4d4;background: #fff;color:#111;height: 35px;line-height: 35px;padding: 0 5%;width: 100%;overflow-x:hidden;}
+.head_nav3{position:absolute;top:90px; z-index:9999; display:none;overflow-y: scroll;max-height:325px;width: 100%;overflow-x:hidden;}
+.head_nav3 li{border-bottom:1px solid #d4d4d4;background: #fff;color:#111;height: 35px;line-height: 35px;padding: 0 5%;width: 100%;overflow-x:hidden;}
+.head_navBg{width:100%; height:100%; position:absolute; top:0; bottom:0; background-color:#fff; z-index:9998; display:none;top:90px;}
+#qnj_search{overflow: hidden;}
+.qnj_search{width: 20%;height: 20px;color:#000;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;float: left;margin: 10px 0 10px 3%;border-radius: 6px;/*border: 1px solid #e1e1e1;*/padding: 2px 0px 2px 2px;font-size: 0.959rem;}
+.qnj_search img{margin-left: 5px;margin-top: 5px;}
+</style>
+    <div class="head_nav">
+		<volist name=":get_category_lists(84,ture)" id="cpfl" offset="0">
+		<volist name=":get_category_lists($cpfl['id'],ture)" id="cpfl1" offset="0">
+				<if condition="$_category['name'] neq '' ">
+					<a href="{:U('Article/qnjsearch?citynum='.$cpfl1['name'].'&category='.$_category['name'])}">
+				<else/>
+					<a href="{:U('Article/qnjsearch?citynum='.$cpfl1['name'].'&category='.$category)}">
+				</if>	
+					<li class="">{$cpfl1.title}</li>
+				</a>
+		</volist>
+		</volist>
+    </div>
+
+    <div class="head_nav1">
+		<foreach name="scity" item="vo" > 
+			<a href="{:U('Article/qnjsearch?citynum='.$citynum.'&city='.$vo['city'].'&category='.$category)}" class="quming">
+				<li class="">{$vo.city}</li>
+			</a>
+		</foreach>
+    </div>
+
+    <div class="head_nav2">
+	<foreach name="scity1" item="vo" > 
+		<a href="{:U('Article/qnjsearch?citynum='.$citynum.'&city='.$city.'&scenic='.$vo['fjmc'].'&category='.$category)}" class="quming">
+			<li class="">{$vo.fjmc}</li>
+		</a>
+	</foreach>
+    </div>
+    <div class="head_nav3">
+	<a href="{:U('Article/qnjsearch?citynum='.$citynum.'&city='.$city.'&scenic='.$scenic.'&category='.$category.'&njyclass=0')}" class="quming">
+		<li class="viewon2" info="0">农家院</li>
+	</a>
+	<a href="{:U('Article/qnjsearch?citynum='.$citynum.'&city='.$city.'&scenic='.$scenic.'&category='.$category.'&njyclass=1')}" class="quming">
+		<li class="viewon2" info="1">渔家乐</li>
+	</a>
+	<a href="{:U('Article/qnjsearch?citynum='.$citynum.'&city='.$city.'&scenic='.$scenic.'&category='.$category.'&njyclass=2')}" class="quming">
+		<li class="viewon2" info="2">民俗客栈</li>
+	</a>
+	<a href="{:U('Article/qnjsearch?citynum='.$citynum.'&city='.$city.'&scenic='.$scenic.'&category='.$category.'&njyclass=3')}" class="quming">
+		<li class="viewon2" info="3">垂钓园</li>
+	</a>
+	<a href="{:U('Article/qnjsearch?citynum='.$citynum.'&city='.$city.'&scenic='.$scenic.'&category='.$category.'&njyclass=4')}" class="quming">
+		<li class="viewon2" info="4">山庄</li>
+	</a>
+	<a href="{:U('Article/qnjsearch?citynum='.$citynum.'&city='.$city.'&scenic='.$scenic.'&category='.$category.'&njyclass=5')}" class="quming">
+		<li class="viewon2" info="5">度假村</li>
+	</a>
+	<a href="{:U('Article/qnjsearch?citynum='.$citynum.'&city='.$city.'&scenic='.$scenic.'&category='.$category.'&njyclass=6')}" class="quming">
+		<li class="viewon2" info="6">采摘园</li>
+	</a>
+	<a href="{:U('Article/qnjsearch?citynum='.$citynum.'&city='.$city.'&scenic='.$scenic.'&category='.$category.'&njyclass=7')}" class="quming">
+		<li class="viewon2" info="7">生态园</li>
+	</a>
+    </div>
+<div class="head_navBg"></div>
+<div id="qnj_search">
+<if condition="$cityname eq ''">
+<div class="qnj_search head_list"><span style="margin-left:12px;">选择位置</span><img src="__IMG__/login.png"></div>
+<else/>
+<div class="qnj_search head_list">{$cityname}<img src="__IMG__/login.png"></div>
+</if>
+
+<if condition="$cityname neq ''">
+<if condition="$city neq ''">
+<div class="qnj_search head_list1">{$city}<img src="__IMG__/login.png"></div>
+<else/>
+<div class="qnj_search head_list1"><span style="margin-left:12px;">具体位置</span><img src="__IMG__/login.png"></div>
+</if>
+</if>
+
+<if condition="$city neq ''">
+<if condition="$scenic neq ''">
+<div class="qnj_search head_list2">{$scenic}<img src="__IMG__/login.png"></div>
+<else/>
+<div class="qnj_search head_list2"><span style="margin-left:12px;">景区名称</span><img src="__IMG__/login.png"></div>
+</if>
+</if>
+
+<if condition="$scenic neq ''">
+<if condition="$njyclass eq ''">
+<div class="qnj_search head_list3">农家类型<img src="__IMG__/login.png"></div>
+<else/>
+<div class="qnj_search head_list3" ><span id="njyclass"></span><img src="__IMG__/login.png"></div>
+</if>
+</if>
+</div>
+    <div class="index_sale">
+        <foreach name="list" item="vo" >
+        <a href="{:U('Article/detail?id='.$vo['id'])}">
+            <dl class="clear-fix" >
+                <dt><img src="{$vo.path}" width="100%" style="height:100px; padding: 0px 0px 2px 0px;"></dt>
+                <dd>
+                	<span style="display:none">{$vo.cityname}</span>
+                    <span class="qnj_biaoti">{$vo.title}</span>
+                    <div class="miaoshu" style="font-size:11px;">{$vo.description}</div>
+					<div class="miaoshu1" style="font-size:12px;">地址:{$vo.address}</div>
+                    <div class="dhhy">
+                        <div class="dianhua">
+                            <div class="qnj_viptime">
+                                会&nbsp;员&nbsp;{$vo.viplong}&nbsp;年
+                            </div>
+                        </div>
+                        <div class="hyclass">
+                            <div class="qnj_viptime1">
+                                农&nbsp;家&nbsp;认&nbsp;证
+                            </div>
+                        </div>
+					<!--<div style="text-align: center;"><img src="__IMG__/wap/tels.png" style="width: 22px;height: 22px;padding: 3px 0px;"></div>-->	
+                    </div>
+                </dd>
+            </dl>
+            </a>
+        </foreach>   
+    </div>
+    <div class="page">{$show}</div>
+    <span class="njyclass" style="display:none;">{$njyclass}</span>
+<script type="text/javascript">
+$(function(){
+	var list=false;
+	var list1=false;
+	var list2=false;
+	var list3=false;
+	$('.head_list').click(function(){
+		if(list==false){
+			$('.head_nav').css('display','block');
+			$('.head_navBg').css('display','block');
+			list=true;			
+		}else{
+			$('.head_nav').css('display','none');
+			$('.head_navBg').css('display','none');
+			list=false;				
+		}
+		$('.head_nav1').css('display','none'); list1=false;
+		$('.head_nav2').css('display','none'); list2=false;
+		$('.head_nav3').css('display','none'); list3=false;
+
+	});
+	$('.head_list1').click(function(){
+		if(list1==false){
+			$('.head_nav1').css('display','block');
+			$('.head_navBg').css('display','block');
+			list1=true;			
+		}else{
+			$('.head_nav1').css('display','none');
+			$('.head_navBg').css('display','none');
+			list1=false;				
+		}
+		$('.head_nav').css('display','none'); list=false;
+		$('.head_nav2').css('display','none'); list2=false;
+		$('.head_nav3').css('display','none'); list3=false;
+	});
+
+	$('.head_list2').click(function(){
+		if(list2==false){
+			$('.head_nav2').css('display','block');
+			$('.head_navBg').css('display','block');
+			list2=true;			
+		}else{
+			$('.head_nav2').css('display','none');
+			$('.head_navBg').css('display','none');
+			list2=false;				
+		}
+		$('.head_nav').css('display','none'); list=false;
+		$('.head_nav1').css('display','none'); list1=false;
+		$('.head_nav3').css('display','none'); list3=false;
+	});
+
+	$('.head_list3').click(function(){
+		if(list3==false){
+			$('.head_nav3').css('display','block');
+			$('.head_navBg').css('display','block');
+			list3=true;	
+		}else{
+			$('.head_nav3').css('display','none');
+			$('.head_navBg').css('display','none');
+			list3=false;
+		}
+		$('.head_nav').css('display','none'); list=false;
+		$('.head_nav1').css('display','none'); list1=false;
+		$('.head_nav2').css('display','none'); list2=false;		
+	});	
+
+	$('.head_navBg').click(function(){
+		$(this).css('display','none');
+		$('.head_nav').css('display','none');
+		$('.head_nav1').css('display','none');
+		$('.head_nav2').css('display','none');
+		$('.head_nav3').css('display','none');
+	});
+});
+$('.viewon2').each(function(){if($(this).attr('info')==$('.njyclass:eq(0)').html()){
+	$('#njyclass').html($(this).html());
+}});
+
+</script>
+</block>

@@ -1,0 +1,637 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+<style type="text/css">
+.qnj_aim{width: 100%;height: 600px;overflow: hidden;margin: 0 auto;background: url('/Public/Home/images/aimbanner.jpg') no-repeat;background-size: 100% 600px;margin-right: auto;margin-left: auto;}
+.qnj_aimbanner{width: 100%;height: 500px;margin-right: auto;margin-left: auto;}
+.qnj_aimmap{width: 557px;height: 480px;background: ;opacity:;margin-left:70px;margin-top:15px;float:left;}
+.qnj_aimsearch{width: 600px;height: 480px;float:left;margin-top:15px;margin-left:270px;}
+.qnj_aimsearchson{width: 550px;height: 60px;margin: 0 auto;}
+.qnj_aimsearchson input{width: 330px;height: 40px;border:none;border-radius: 5px;font-weight: bold;}
+.qnj_aim_input{width: 330px;height: 40px;float:left;}
+.qnj_aim_fdj{width: 40px;height: 40px;background: #ffd800;float:left;border-radius: 5px;margin-left: 5px;text-align: center;line-height: 35px;}
+.qnj_aim_ajaxpic{width: 550px;height: 420px;margin: 0 auto;}
+.ajaxpic_main{width: 400px;height: 420px;}
+.ajaxpic_son1 img{width: 100%;height: 137px;}
+.ajaxpic_son2 img{width: 100%;height: 137px;}
+.ajaxpic_son1{width: 240px;height: 137px;float:left;}
+.ajaxpic_son1:hover,.ajaxpic_son2:hover{transform: scale(1.05);-webkit-transition: all .3s;}
+.ajaxpic_son2{width: 132px;height: 137px;float:left;}
+.ajaxpic_title{width: 100%;height: 30px;background: #000;opacity:0.8;position: relative;top:-30px;color:#fff;}
+.aim_month{width: 1000px;height: 560px;margin:0 auto;}
+.aim_month ul{margin: 0;padding:0;clear: both;height: 80px;}
+.aim_month ul li{list-style: none;float:left;width: 50px;height: 50px;font-size: 18px;text-align: center;line-height: 50px;margin-left:30px;}
+.aim_month_son,.aim_jijie_son{width: 1000px;height: 465px;margin:0 auto;}
+.item1{width: 300px;height: 230px;float: left;margin: 0px 19px 31px 13px;}
+.item2{width: 216px;height: 200px;float: left;margin: 0px 19px 31px 13.5px;}
+.item1:hover,.item2:hover{transform: scale(1.05);-webkit-transition: all .3s;}
+.item1 img{width: 100%;height: 230px;}
+.item2 img{width: 100%;height: 200px;}
+.item1 .month_title{width: 100%;height: 40px;background: #000;opacity: 0.7; margin-top: -40px;color:#fff;font-size: 18px;}
+.item2 .month_title{width: 100%;height: 40px;background: #000;opacity: 0.7; margin-top: -40px;}
+.month_title span{color:#fff;font-size: 19px;margin-left: 20px;}
+.aim_month ul li:nth-child(1){border-bottom: 3px solid #ff7500;color:#ff7500;}
+.aim_month ul li:hover{cursor:pointer;}
+.aim_jijie{width: 1000px;height: 560px;margin:0 auto;}
+.aim_jijie ul{margin: 20px auto;padding:0;clear: both;height: 80px;width: 600px;}
+.aim_jijie ul li:hover{cursor:pointer;}
+.aim_jijie ul li:nth-child(1){border-bottom: 3px solid #ff7500;color:#ff7500;}
+.aim_jijie ul li{list-style: none;float:left;width: 55px;height: 60px;font-size: 18px;text-align: center;margin-left:76px;line-height: 25px;}
+</style>
+<span id="title" style="display:none;">{:get_category_title($_category['id'])}</span>
+<div class="qnj_aim">
+<div class="qnj_aimbanner">
+<div class="qnj_aimmap">
+<img src="__IMG__/aimmap.png" usemap="#Map2" width="557" height="465"   />
+<map name="Map2" >
+<area shape="poly" target="_self" coords="92,233,31,227,18,209,11,190,11,174,3,170,17,155,31,158,42,152,55,151,71,147,79,132,80,107,98,110,105,106,111,91,123,93,131,87,154,69,144,74,139,74,163,88,158,78,171,111,177,123,188,127,198,130,204,139,212,148,221,158,195,178,187,191,194,197,189,190,158,198,161,207,160,221,158,230,155,228" href="javascript:;"  title="aimxinjiang" />
+
+<area shape="poly" target="_self" coords="29,262,41,263,42,254,37,248,41,242,48,242,56,230,63,232,76,232,92,236,105,234,122,232,141,233,146,243,143,254,145,262,155,273,167,281,188,284,203,294,217,298,228,292,229,287,224,297,228,303,234,301,241,325,236,339,222,338,191,328,180,333,163,341,138,335,129,340,127,334,117,336,103,333,87,325,52,292,33,277" href="javascript" title="aimxizang"/>
+
+<area shape="poly"  target="_self" coords="214,292,226,280,246,275,256,274,261,278,276,276,269,265,267,261,275,252,275,235,268,222,250,210,234,207,226,209,213,209,198,202,172,203,166,216,161,230,154,242,151,257,161,273" href="javascript" title="aimqinghai" />
+
+<area shape="poly"  target="_self" coords="238,346,239,370,229,384,230,395,243,400,253,411,248,418,259,424,270,424,270,429,274,414,288,411,300,410,307,402,318,397,299,379,297,369,291,357,304,346,297,339,286,360,274,367,249,343" href="javascript" title="aimyunnan" />
+
+<area shape="poly"  target="_self" coords="275,363,261,345,260,338,250,335,249,328,245,308,237,289,235,279,247,282,255,281,264,286,274,283,282,278,289,274,301,281,311,286,328,287,336,289,353,296,359,298,341,306,324,309,313,319,319,331,317,344" href="javascript:;" title="aimsichuang" />
+
+<area shape="poly"  target="_self" coords="325,311,348,309,356,327,354,337,323,339,313,321" href="javascript:;" title="aimchongqing" />
+
+<area shape="poly"  target="_self" coords="378,366,345,380,329,380,320,387,317,388,324,394,324,400,324,408,338,408,347,415,344,421,336,418,335,413,361,413,365,420,361,418,353,417,372,410,382,400,385,388" href="javascript:;" title="aimguangxi" />
+
+<area shape="poly"  target="_self" coords="309,381,318,381,326,377,335,375,347,364,358,367,364,359,360,356,358,351,355,339,341,337,333,337,323,343,315,353,307,358,300,357" href="javascript:;" title="aimguizhou" />
+
+<area shape="poly"  target="_self" coords="199,198,212,203,220,207,227,203,238,203,246,206,253,207,262,212,270,222,278,221,284,231,286,242,283,253,279,257,276,264,279,269,290,271,299,276,306,281,316,279,318,266,319,258,336,251,340,245,341,239,329,232,324,232,326,242,326,246,322,252,315,253,308,253,303,253,304,240,301,231,299,223,289,215,292,209,288,203,281,208,273,204,258,203,254,194,255,186,241,185,232,182,230,172,232,161,222,161,190,186" href="javascript:;" title="aimgansu" />
+
+<area shape="poly"  target="_self" coords="318,206,323,215,329,223,336,230,321,241,323,248,316,251,308,249,304,233,299,226" href="javascript:;" title="aimningxia"/>
+
+<area shape="poly"  target="_self" coords="332,223,344,235,344,248,337,257,328,261,325,269,318,279,328,284,342,286,351,289,356,292,356,277,359,272,362,265,359,248,359,237,358,220,358,211,362,201,359,199" href="javascript:;" title="aimshanxi" />
+
+<area shape="poly"  target="_self" coords="371,432,375,414,391,397,396,387,395,380,405,375,418,371,428,379,434,376,447,379,449,387" href="javascript:;" title="aimguangdong" />
+
+<area shape="poly"  target="_self" coords="394,375,404,367,413,365,412,355,406,344,403,334,409,331,405,323,398,318,384,319,379,319,373,316,368,318,362,324,358,334,358,343,359,352,362,357,359,363,381,365" href="javascript:;" title="aimhunan" />
+
+<area shape="poly"  target="_self" coords="433,373,439,352,444,334,451,330,456,329,453,318,451,314,442,313,434,310,427,312,418,321,422,317,416,319,412,322,409,326,408,339,415,350,418,362,424,370" href="javascript:;" tilte="aimjiangxi" />
+
+<area shape="poly"  target="_self" coords="233,160,238,178,255,180,262,188,257,193,270,200,282,202,290,199,298,205,298,213,297,222,309,216,311,204,320,198,329,209,334,218,344,203,352,198,374,184,389,177,389,163,395,157,401,161,420,151,434,155,436,161,441,146,447,146,458,132,466,133,468,123,455,119,451,103,454,87,458,69,467,46,469,28,455,29,438,25,428,11,420,39,422,52,405,61,398,66,399,76,409,81,424,81,433,94,405,111,389,124,373,135,358,149,331,163,303,174" href="javascript:;" title="aimneimenggu" />
+
+<area shape="poly"  target="_self" coords="348,314,363,301,359,289,365,280,376,282,390,286,402,287,417,296,424,308,406,318" href="javascript:;" title="aimhubei" />
+
+<area shape="poly"  target="_self" coords="439,372,451,337,448,335,460,331,470,341,470,360,459,375,455,380" href="javascript:;" tilte="aimfujian" />
+
+<area shape="poly"  target="_self" coords="462,314,461,323,468,331,476,330,484,333,494,321,493,314,498,301,484,292,469,291,466,291" href="javascript:;" title="aimzhejiang"/>
+
+<area shape="rect"  target="_self" coords="472,269,498,290" href="javascript:;" title="aimshanghai" />
+
+<area shape="poly"  target="_self" coords="428,251,444,259,451,267,461,274,455,275,454,282,464,287,476,287,469,274,472,266,464,257,453,249,457,246,450,241" href="javascript:;" title="aimjiangsu" />
+
+<area shape="poly"  target="_self" coords="419,261,414,274,424,278,426,288,419,293,431,309,444,311,460,312,461,306,467,296,461,291,451,284,451,278,454,273,445,270,441,262,434,258,425,252" href="javascript:;" title="aimanhui" />
+
+<area shape="poly"  target="_self" coords="366,257,381,249,394,246,395,241,394,235,405,234,414,234,409,244,414,252,420,257,414,262,412,277,422,281,417,287,407,284,397,285,385,281,373,281,366,264" href="javascript:;" title="aimhenan" />
+
+<area shape="poly"  target="_self" coords="366,254,376,247,386,245,391,237,389,229,391,218,389,211,388,196,393,190,389,182,380,187,368,195,364,207,361,217,362,235" href="javascript:;" title="aimshanxi"/>
+
+<area shape="rect"  target="_self" coords="425,181,464,204" href="javascript:;" title="aimtianjian" />
+
+<area shape="rect"  target="_self" coords="405,159,442,177" href="javascript:;" title="aimbeijing"/>
+
+<area shape="poly"  target="_self" coords="408,231,397,230,396,216,397,203,399,195,398,185,393,176,394,165,416,182,420,199,427,204" href="javascript:;" title="aimhebei" />
+
+<area shape="poly"  target="_self" coords="421,250,429,247,434,247,451,238,458,226,467,213,477,207,467,206,457,203,447,210,440,208,436,206,428,206,423,213,417,230,415,230,417,240" href="/javascript:;" title="aimshandong" />
+
+<area shape="poly"  target="_self" coords="464,187,490,172,505,159,506,144,490,133,484,136,479,132,473,132,452,147,445,154,439,163,448,176,462,163,469,165" href="javascript:;" title="aimliaoning" />
+
+<area shape="poly"  target="_self" coords="457,102,460,116,473,118,483,126,498,140,502,150,511,140,521,138,533,122,539,112,509,111,497,103,466,97" href="javascript:;" title="aimjilin" />
+
+<area shape="poly"  target="_self" coords="466,91,478,96,495,98,509,106,520,106,532,108,537,107,539,102,536,93,545,86,552,81,552,68,553,51,553,41,530,56,520,51,514,47,502,45,489,40,486,35,472,11,455,5,443,5,432,5,445,17,453,23,465,22,470,34,472,60,465,68,458,82" href="javascript:;" title="aimheilongjiang" />
+</map>
+</div>
+<div class="qnj_aimsearch">
+<div class="qnj_aimsearchson">
+<div class="qnj_aim_input">
+<input type="text" name="" placeholder="我要去...">
+</div>  
+<div class="qnj_aim_fdj">
+<img src="__IMG__/seach_btn.png" >
+</div> 
+</div>
+<div class="qnj_aim_ajaxpic">
+<div class="ajaxpic_main">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="aim_main">
+<h2 style="text-align:center;">当月推荐</h2>
+<div class="aim_month">
+<ul>
+<li>1月</li>
+<li>2月</li>
+<li>3月</li>
+<li>4月</li>
+<li>5月</li>
+<li>6月</li>
+<li>7月</li>
+<li>8月</li>
+<li>9月</li>
+<li>10月</li>
+<li>11月</li>
+<li>12月</li>
+</ul>
+<div class="aim_month_main">
+<div class="aim_month_son">
+<!--<volist name="aim1" id="vo" offset="0" length='3'>
+<a href="{:U('Article/detail?id='.$vo['id'])}"><div class="month_pic item1"><img src="{$vo.path}"><div class="month_title"><span>{$vo.title}</span></div></div></a>
+</volist>-->
+<article:list category="$_category['id']" child="true" name="show" row="$_category['list_row']">
+<a href="{:U('Article/detail?id='.$show['id'])}"><div class="month_pic item2"><img src="{:get_cover($show['cover_id'],'path')}"><div class="month_title"><span>{$vo.title}</span></div></div></a>
+</article:list>
+</div>
+</div>
+</div>
+<hr>
+
+<h2 style="text-align:center;">季节精选</h2>
+<div class="aim_jijie">
+<ul>
+<li info="chun">春<p>spring</p></li>
+<li info="xia">夏<p>summer</p></li>
+<li info="qiu">秋<p>autumn</p></li>
+<li info="dong">冬<p>winter</p></li>
+</ul>
+<div class="aim_jijie_main">
+<div class="aim_jijie_son">
+<foreach name="seares" item="vo" >
+<a href="{:U('Article/detail?id='.$vo['id'])}"><div class="month_pic item2"><img src="{$vo.path}"><div class="month_title"><span>{$vo.title}</span></div></div></a>
+</foreach>
+</div>
+</div>
+</div>
+<hr>
+<style type="text/css">
+.qnj_aim_every{width: 1300px;height: auto;margin:0 auto; overflow: hidden;}
+.qnj_aim_everyson{width: 1200px;height: 40px;}
+.qnj_aim_everyson span{font-size: 16px;font-weight: bold;color:#666;letter-spacing: 8px;}
+.cityaim{margin-left: 15px;}
+</style>
+<div class="qnj_aim_every">
+<h2>全国目的地推荐：</h2>
+<div class="qnj_aim_everyson">
+<span >北京：</span>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimchangping/city/昌平.html">昌平</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimpinggu/city/昌平.html">平谷</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimfangshang/city/房山.html">房山</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimhuairou/city/怀柔.html">怀柔</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimmiyun/city/密云.html">密云</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimyanqing/city/延庆.html">延庆</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimmentougou/city/门头沟.html">门头沟</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimhaidian/city/海淀.html">海淀</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimshunyi/city/顺义.html">顺义</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimfengtai/city/丰台.html">丰台</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimchaoyang/city/朝阳.html">朝阳</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >上海：</span>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimchaoyang/city/朝阳.html">崇明</a>
+<a class="cityaim" href="/Article/index/category/aim-fengxian.html">奉贤</a>
+<a class="cityaim" href="/Article/index/category/aim-qingpu.html">青浦</a>
+<a class="cityaim" href="/Article/index/category/aim-songjiang.html">松江</a>
+<a class="cityaim" href="/Article/index/category/aim-jinshan.html">金山</a>
+<a class="cityaim" href="/Article/index/category/aim-pudongxinqu.html">浦东新区</a>
+<a class="cityaim" href="/Article/index/category/aim-jingding.html">嘉定</a>
+<a class="cityaim" href="/Article/index/category/aim-huangpuqu.html">黄浦区</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >重庆：</span>
+<a class="cityaim" href="/Article/index/category/aim-yubei.html">渝北</a>
+<a class="cityaim" href="/Article/index/category/aim-jiulongpo.html">九龙坡</a>
+<a class="cityaim" href="/Article/index/category/aim-shapingba.html">沙坪坝</a>
+<a class="cityaim" href="/Article/index/category/aim-nanan.html">南岸</a>
+<a class="cityaim" href="/Article/index/category/aim-banan.html">巴南</a>
+<a class="cityaim" href="/Article/index/category/aim-beibei.html">北碚</a>
+<a class="cityaim" href="/Article/index/category/aim-yongchuan.html">永川</a>
+<a class="cityaim" href="/Article/index/category/aim-dazu.html">大足</a>
+<a class="cityaim" href="/Article/index/category/aim-fengjie.html">奉节</a>
+<a class="cityaim" href="/Article/index/category/aim-nanchuan.html">南川</a>
+<a class="cityaim" href="/Article/index/category/aim-fuling.html">涪陵</a>
+<a class="cityaim" href="/Article/index/category/aim-wulong.html">武隆</a>
+<a class="cityaim" href="/Article/index/category/aim-wanzhou.html">万州</a>
+<a class="cityaim" href="/Article/index/category/aim-kaixian.html">开县</a>
+<a class="cityaim" href="/Article/index/category/aim-wuxi.html">巫溪</a>
+<a class="cityaim" href="/Article/index/category/aim-zhizhu.html">石柱</a>
+<a class="cityaim" href="/Article/index/category/aim-youyang.html">酉阳</a>
+<a class="cityaim" href="/Article/index/category/aim-xiushan.html">秀山</a>
+<a class="cityaim" href="/Article/index/category/aim-yunyang.html">云阳</a>
+<a class="cityaim" href="/Article/index/category/aim-fengdou.html">丰都</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >天津：</span>
+<a class="cityaim" href="/Article/index/category/aim-jixian.html">蓟县</a>
+<a class="cityaim" href="/Article/index/category/aim-tanggu.html">塘沽</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >河北：</span>
+<a class="cityaim" href="/Article/index/category/aim-shijiazhuang.html">石家庄</a>
+<a class="cityaim" href="/Article/index/category/aim-tangshan.html">唐山</a>
+<a class="cityaim" href="/Article/index/category/aim-qinhuangdao.html">秦皇岛</a>
+<a class="cityaim" href="/Article/index/category/aim-baoding.html">保定</a>
+<a class="cityaim" href="/Article/index/category/aim-miyun.html">张家口</a>
+<a class="cityaim" href="/Article/index/category/aim-yanqing.html">承德</a>
+<a class="cityaim" href="/Article/index/category/aim-mentougou.html">邯郸</a>
+<a class="cityaim" href="/Article/index/category/aim-haidian.html">廊坊</a>
+<a class="cityaim" href="/Article/index/category/aim-shunyi.html">沧州</a>
+<a class="cityaim" href="/Article/index/category/aim-fengtai.html">邢台</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >山西：</span>
+<a class="cityaim" href="/Article/index/category/aim-datong.html">大同</a>
+<a class="cityaim" href="/Article/index/category/aim-changzhi.html">长治</a>
+<a class="cityaim" href="/Article/index/category/aim-jincheng.html">晋城</a>
+<a class="cityaim" href="/Article/index/category/aim-qizhou.html">忻州</a>
+<a class="cityaim" href="/Article/index/category/aim-jinzhong.html">晋中</a>
+<a class="cityaim" href="/Article/index/category/aim-linfen.html">临汾</a>
+<a class="cityaim" href="/Article/index/category/aim-yuncheng.html">运城</a>
+<a class="cityaim" href="/Article/index/category/aim-shuozhou.html">朔州</a>
+<a class="cityaim" href="/Article/index/category/aim-lvliang.html">吕梁</a>
+<a class="cityaim" href="/Article/index/category/aim-yangquan.html">阳泉</a>
+<a class="cityaim" href="/Article/index/category/aim-taiyuan.html">太原</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >内蒙古：</span>
+<a class="cityaim" href="/Article/index/category/aim-huhehaote.html">呼和浩特</a>
+<a class="cityaim" href="/Article/index/category/aim-baotou.html">包头</a>
+<a class="cityaim" href="/Article/index/category/aim-hulunbeier.html">呼伦贝尔</a>
+<a class="cityaim" href="/Article/index/category/aim-wulanchabu.html">乌兰察布</a>
+<a class="cityaim" href="/Article/index/category/aim-xinganmeng.html">兴安盟</a>
+<a class="cityaim" href="/Article/index/category/aim-xilinguole.html">锡林郭勒</a>
+<a class="cityaim" href="/Article/index/category/aim-chifeng.html">赤峰</a>
+<a class="cityaim" href="/Article/index/category/aim-eerduosi.html">鄂尔多斯</a>
+<a class="cityaim" href="/Article/index/category/aim-alashanmeng.html">阿拉善盟</a>
+<a class="cityaim" href="/Article/index/category/aim-aershan.html">阿尔山</a>
+<a class="cityaim" href="/Article/index/category/aim-tongliao.html">通辽</a>
+<a class="cityaim" href="/Article/index/category/aim-genhe.html">根河</a>
+</div>
+
+
+
+<div class="qnj_aim_everyson">
+<span >浙江：</span>
+<a class="cityaim" href="/Article/index/category/aim-hangzhou.html">杭州</a>
+<a class="cityaim" href="/Article/index/category/aim-ningbo.html">宁波</a>
+<a class="cityaim" href="/Article/index/category/aim-wenzhou.html">温州</a>
+<a class="cityaim" href="/Article/index/category/aim-jiaxing.html">嘉兴</a>
+<a class="cityaim" href="/Article/index/category/aim-jinhua.html">金华</a>
+<a class="cityaim" href="/Article/index/category/aim-lishui.html">丽水</a>
+<a class="cityaim" href="/Article/index/category/aim-huzhou.html">湖州</a>
+<a class="cityaim" href="/Article/index/category/aim-taizhou.html">台州</a>
+<a class="cityaim" href="/Article/index/category/aim-zhoushan.html">舟山</a>
+<a class="cityaim" href="/Article/index/category/aim-zhuji.html">诸暨</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >安徽：</span>
+<a class="cityaim" href="/Article/index/category/aim-hefei.html">合肥</a>
+<a class="cityaim" href="/Article/index/category/aim-wuhu.html">芜湖</a>
+<a class="cityaim" href="/Article/index/category/aim-huangshan.html">黄山</a>
+<a class="cityaim" href="/Article/index/category/aim-anqing.html">安庆</a>
+<a class="cityaim" href="/Article/index/category/aim-liuan.html">六安</a>
+<a class="cityaim" href="/Article/index/category/aim-xuancheng.html">宣城</a>
+<a class="cityaim" href="/Article/index/category/aim-bengbu.html">蚌埠</a>
+<a class="cityaim" href="/Article/index/category/aim-huainan.html">淮南</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >江苏：</span>
+<a class="cityaim" href="/Article/index/category/aim-nanjing.html">南京</a>
+<a class="cityaim" href="/Article/index/category/aim-wuxi.html">无锡</a>
+<a class="cityaim" href="/Article/index/category/aim-linyungang.html">连云港</a>
+<a class="cityaim" href="/Article/index/category/aim-suzhou.html">苏州</a>
+<a class="cityaim" href="/Article/index/category/aim-zhenjiang.html">镇江</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >福建：</span>
+<a class="cityaim" href="/Article/index/category/aim-fuzhou.html">福州</a>
+<a class="cityaim" href="/Article/index/category/aim-xiameng.html">厦门</a>
+<a class="cityaim" href="/Article/index/category/aim-quanzhou.html">泉州</a>
+<a class="cityaim" href="/Article/index/category/aim-nanping.html">南平</a>
+<a class="cityaim" href="/Article/index/category/aim-zhangzhou.html">漳州</a>
+<a class="cityaim" href="/Article/index/category/aim-sanming.html">三明</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >山东：</span>
+<a class="cityaim" href="/Article/index/category/aim-jinan.html">济南</a>
+<a class="cityaim" href="/Article/index/category/aim-qingdao.html">青岛</a>
+<a class="cityaim" href="/Article/index/category/aim-zibo.html">淄博</a>
+<a class="cityaim" href="/Article/index/category/aim-yantai.html">烟台</a>
+<a class="cityaim" href="/Article/index/category/aim-taian.html">泰安</a>
+<a class="cityaim" href="/Article/index/category/aim-weihai.html">威海</a>
+<a class="cityaim" href="/Article/index/category/aim-linxi.html">临沂</a>
+<a class="cityaim" href="/Article/index/category/aim-rzhao.html">日照</a>
+<a class="cityaim" href="/Article/index/category/aim-jining.html">济宁</a>
+<a class="cityaim" href="/Article/index/category/aim-heze.html">菏泽</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >江西：</span>
+<a class="cityaim" href="/Article/index/category/aim-nanchang.html">南昌</a>
+<a class="cityaim" href="/Article/index/category/aim-shangrao.html">上饶</a>
+<a class="cityaim" href="/Article/index/category/aim-jiujiang.html">九江</a>
+<a class="cityaim" href="/Article/index/category/aim-jinggangshan.html">井冈山</a>
+<a class="cityaim" href="/Article/index/category/aim-yichun.html">宜春</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >四川：</span>
+<a class="cityaim" href="/Article/index/category/aim-chengdou.html">成都</a>
+<a class="cityaim" href="/Article/index/category/aim-leshan.html">乐山</a>
+<a class="cityaim" href="/Article/index/category/aim-yaan.html">雅安</a>
+<a class="cityaim" href="/Article/index/category/aim-yibin.html">宜宾</a>
+<a class="cityaim" href="/Article/index/category/aim-abazhou.html">阿坝州</a>
+<a class="cityaim" href="/Article/index/category/aim-ganzizhou.html">甘孜州</a>
+<a class="cityaim" href="/Article/index/category/aim-liangshanzhou.html">凉山州</a>
+<a class="cityaim" href="/Article/index/category/aim-guangyuan.html">广元</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >云南：</span>
+<a class="cityaim" href="/Article/index/category/aim-kunming.html">昆明</a>
+<a class="cityaim" href="/Article/index/category/aim-qujing.html">曲靖</a>
+<a class="cityaim" href="/Article/index/category/aim-dali.html">大理</a>
+<a class="cityaim" href="/Article/index/category/aim-honghe.html">红河</a>
+<a class="cityaim" href="/Article/index/category/aim-diqingzhou.html">迪庆州</a>
+<a class="cityaim" href="/Article/index/category/aim-xishuangbanna.html">西双版纳</a>
+<a class="cityaim" href="/Article/index/category/aim-lijiang.html">丽江</a>
+<a class="cityaim" href="/Article/index/category/aim-baoshan.html">保山</a>
+<a class="cityaim" href="/Article/index/category/aim-jinghong.html">景洪</a>
+<a class="cityaim" href="/Article/index/category/aim-wenshan.html">文山</a>
+<a class="cityaim" href="/Article/index/category/aim-yuxi.html">玉溪</a>
+<a class="cityaim" href="/Article/index/category/aim-dehong.html">德宏</a>
+<a class="cityaim" href="/Article/index/category/aim-puer.html">普洱</a>
+<a class="cityaim" href="/Article/index/category/aim-chuxiong.html">楚雄</a>
+<a class="cityaim" href="/Article/index/category/aim-nujiang.html">怒江</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >贵州：</span>
+<a class="cityaim" href="/Article/index/category/aim-guiyang.html">贵阳</a>
+<a class="cityaim" href="/Article/index/category/aim-zuyi.html">遵义</a>
+<a class="cityaim" href="/Article/index/category/aim-anshun.html">安顺</a>
+<a class="cityaim" href="/Article/index/category/aim-qiannan.html">黔南</a>
+<a class="cityaim" href="/Article/index/category/aim-bijie.html">毕节</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >西藏：</span>
+<a class="cityaim" href="/Article/index/category/aim-lasa.html">拉萨</a>
+<a class="cityaim" href="/Article/index/category/aim-changdu.html">昌都</a>
+<a class="cityaim" href="/Article/index/category/aim-naqu.html">那曲</a>
+<a class="cityaim" href="/Article/index/category/aim-ali.html">阿里</a>
+<a class="cityaim" href="/Article/index/category/aim-linzhi.html">林芝</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >黑龙江：</span>
+<a class="cityaim" href="/Article/index/category/aim-haerbin.html">哈尔滨</a>
+<a class="cityaim" href="/Article/index/category/aim-mudanjiang.html">牡丹江</a>
+<a class="cityaim" href="/Article/index/category/aim-jiamusi.html">佳木斯</a>
+<a class="cityaim" href="/Article/index/category/aim-hehei.html">黑河</a>
+<a class="cityaim" href="/Article/index/category/aim-jixi.html">鸡西</a>
+<a class="cityaim" href="/Article/index/category/aim-yichun.html">伊春</a>
+<a class="cityaim" href="/Article/index/category/aim-daqing.html">大庆</a>
+<a class="cityaim" href="/Article/index/category/aim-qiqihaer.html">齐齐哈尔</a>
+<a class="cityaim" href="/Article/index/category/aim-daxinganling.html">大兴安岭</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >吉林：</span>
+<a class="cityaim" href="/Article/index/category/aim-changchun.html">长春</a>
+<a class="cityaim" href="/Article/index/category/aim-jilin.html">吉林</a>
+<a class="cityaim" href="/Article/index/category/aim-yanbian.html">延边</a>
+<a class="cityaim" href="/Article/index/category/aim-jiaohe.html">蛟河</a>
+<a class="cityaim" href="/Article/index/category/aim-jian.html">集安</a>
+<a class="cityaim" href="/Article/index/category/aim-siping.html">四平</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >辽宁：</span>
+<a class="cityaim" href="/Article/index/category/aim-dalian.html">大连</a>
+<a class="cityaim" href="/Article/aimtwo/name/{$_category['name']}/category/aimshenyang/city/沈阳.html">沈阳</a>
+<a class="cityaim" href="/Article/index/category/aim-huludao.html">葫芦岛</a>
+<a class="cityaim" href="/Article/index/category/aim-dandong.html">丹东</a>
+<a class="cityaim" href="/Article/index/category/aim-yingkou.html">营口</a>
+<a class="cityaim" href="/Article/index/category/aim-anshan.html">鞍山</a>
+<a class="cityaim" href="/Article/index/category/aim-fushun.html">抚顺</a>
+<a class="cityaim" href="/Article/index/category/aim-benxi.html">本溪</a>
+<a class="cityaim" href="/Article/index/category/aim-jinzhou.html">锦州</a>
+<a class="cityaim" href="/Article/index/category/aim-fuxin.html">阜新</a>
+<a class="cityaim" href="/Article/index/category/aim-lchaoyang.html">朝阳</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >海南：</span>
+<a class="cityaim" href="/Article/index/category/aim-haikou.html">海口</a>
+<a class="cityaim" href="/Article/index/category/aim-wuzhishan.html">五指山</a>
+<a class="cityaim" href="/Article/index/category/aim-sanya.html">三亚</a>
+<a class="cityaim" href="/Article/index/category/aim-wenchang.html">文昌</a>
+<a class="cityaim" href="/Article/index/category/aim-qionghai.html">琼海</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >广东：</span>
+<a class="cityaim" href="/Article/index/category/aim-guangzhou.html">广州</a>
+<a class="cityaim" href="/Article/index/category/aim-shenzhen.html">深圳</a>
+<a class="cityaim" href="/Article/index/category/aim-zhuhai.html">珠海</a>
+<a class="cityaim" href="/Article/index/category/aim-huizhou.html">惠州</a>
+<a class="cityaim" href="/Article/index/category/aim-shaoguan.html">韶关</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >广西：</span>
+<a class="cityaim" href="/Article/index/category/aim-baise.html">百色</a>
+<a class="cityaim" href="/Article/index/category/aim-hezhou.html">贺州</a>
+<a class="cityaim" href="/Article/index/category/aim-fangchenggang.html">防城港</a>
+<a class="cityaim" href="/Article/index/category/aim-hechi.html">河池</a>
+<a class="cityaim" href="/Article/index/category/aim-beihai.html">北海</a>
+<a class="cityaim" href="/Article/index/category/aim-nanning.html">南宁</a>
+<a class="cityaim" href="/Article/index/category/aim-guilin.html">桂林</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >湖南：</span>
+<a class="cityaim" href="/Article/index/category/aim-changsha.html">长沙</a>
+<a class="cityaim" href="/Article/index/category/aim-hengyang.html">衡阳</a>
+<a class="cityaim" href="/Article/index/category/aim-yiyang.html">益阳</a>
+<a class="cityaim" href="/Article/index/category/aim-zhangjiajie.html">张家界</a>
+<a class="cityaim" href="/Article/index/category/aim-loudi.html">娄底</a>
+<a class="cityaim" href="/Article/index/category/aim-xiangxi.html">湘西</a>
+<a class="cityaim" href="/Article/index/category/aim-huaihua.html">怀化</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >湖北：</span>
+<a class="cityaim" href="/Article/index/category/aim-wuhan.html">武汉</a>
+<a class="cityaim" href="/Article/index/category/aim-yichang.html">宜昌</a>
+<a class="cityaim" href="/Article/index/category/aim-enshi.html">恩施</a>
+<a class="cityaim" href="/Article/index/category/aim-shikan.html">十堰</a>
+<a class="cityaim" href="/Article/index/category/aim-xianning.html">咸宁</a>
+<a class="cityaim" href="/Article/index/category/aim-jingzhoushi.html">荆州市</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >河南：</span>
+<a class="cityaim" href="/Article/index/category/aim-zhengzhou.html">郑州</a>
+<a class="cityaim" href="/Article/index/category/aim-luoyang.html">洛阳</a>
+<a class="cityaim" href="/Article/index/category/aim-anyang.html">安阳</a>
+<a class="cityaim" href="/Article/index/category/aim-nanyang.html">南阳</a>
+<a class="cityaim" href="/Article/index/category/aim-sanmenxia.html">三门峡</a>
+<a class="cityaim" href="/Article/index/category/aim-xiaojiao.html">焦作</a>
+<a class="cityaim" href="/Article/index/category/aim-jiyuan.html">济源</a>
+<a class="cityaim" href="/Article/index/category/aim-xinxiang.html">新乡</a>
+</div>
+
+
+<div class="qnj_aim_everyson">
+<span >陕西：</span>
+<a class="cityaim" href="/Article/index/category/aim-xian.html">西安</a>
+<a class="cityaim" href="/Article/index/category/aim-baoji.html">宝鸡</a>
+<a class="cityaim" href="/Article/index/category/aim-xianyang.html">咸阳</a>
+<a class="cityaim" href="/Article/index/category/aim-weinan.html">渭南</a>
+<a class="cityaim" href="/Article/index/category/aim-yanan.html">延安</a>
+<a class="cityaim" href="/Article/index/category/aim-hanzhong.html">汉中</a>
+<a class="cityaim" href="/Article/index/category/aim-ankang.html">安康</a>
+<a class="cityaim" href="/Article/index/category/aim-shangluo.html">商洛</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >甘肃：</span>
+<a class="cityaim" href="/Article/index/category/aim-lanzhou.html">兰州</a>
+<a class="cityaim" href="/Article/index/category/aim-wuwei.html">武威</a>
+<a class="cityaim" href="/Article/index/category/aim-zhangye.html">张掖</a>
+<a class="cityaim" href="/Article/index/category/aim-jiuquan.html">酒泉</a>
+<a class="cityaim" href="/Article/index/category/aim-longnan.html">陇南</a>
+<a class="cityaim" href="/Article/index/category/aim-gannan.html">甘南</a>
+<a class="cityaim" href="/Article/index/category/aim-tianshui.html">天水</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >青海：</span>
+<a class="cityaim" href="/Article/index/category/aim-xining.html">西宁</a>
+<a class="cityaim" href="/Article/index/category/aim-haibeizhou.html">海北州</a>
+<a class="cityaim" href="/Article/index/category/aim-hainanzhou.html">海南州</a>
+<a class="cityaim" href="/Article/index/category/aim-haixizhou.html">海西州</a>
+<a class="cityaim" href="/Article/index/category/aim-guoluo.html">果洛</a>
+<a class="cityaim" href="/Article/index/category/aim-yushu.html">玉树</a>
+</div>
+
+<div class="qnj_aim_everyson">
+<span >新疆：</span>
+<a class="cityaim" href="/Article/index/category/aim-wulumuqi.html">乌鲁木齐</a>
+<a class="cityaim" href="/Article/index/category/aim-kelamayi.html">克拉玛依</a>
+<a class="cityaim" href="/Article/index/category/aim-toulufan.html">吐鲁番</a>
+<a class="cityaim" href="/Article/index/category/aim-hami.html">哈密</a>
+<a class="cityaim" href="/Article/index/category/aim-kashi.html">喀什</a>
+<a class="cityaim" href="/Article/index/category/aim-yilihasaike.html">伊犁哈萨克</a>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('.aim_month').find('ul').find('li').mouseover(function(){
+$('.aim_month').find('ul').find('li').css({'border-bottom':'3px solid #fff','color':'#000'});
+$(this).css({'border-bottom':'3px solid #ff7500','color':'#ff7500'});
+var month=$(this).html();
+$.ajax({
+url:'/Article/aimmonth1',
+type:'post',
+data:{'month':month},
+dataType:'json',
+success:function(mes){
+$('.aim_month_son').find('a').remove();
+$(mes).each(function(i){
+if(i==0 || i==1 || i==2){
+var yue=$('<a href="/Article/detail/id/'+$(this).attr('id')+'.html"><div class="month_pic item1"><img src="'+$(this).attr('path')+'"><div class="month_title"><span>'+$(this).attr('title')+'</span></div></div></a>');
+}else{
+var yue=$('<a href="/Article/detail/id/'+$(this).attr('id')+'.html"><div class="month_pic item2"><img src="'+$(this).attr('path')+'"><div class="month_title"><span>'+$(this).attr('title')+'</span></div></div></a>');
+}
+$('.aim_month_son').append(yue);
+});
+}
+});
+});
+
+$('.aim_jijie').find('ul').find('li').mouseover(function(){
+$('.aim_jijie').find('ul').find('li').css({'border-bottom':'3px solid #fff','color':'#000'});
+$(this).css({'border-bottom':'3px solid #ff7500','color':'#ff7500'});    
+var season=$(this).attr('info');
+$.ajax({
+url:'/Article/season',
+type:'post',
+data:{'season':season},
+dataType:'json',
+success:function(mes){
+$('.aim_jijie_son').find('a').remove();
+$(mes).each(function(i){
+var jijie=$('<a href="/Article/detail/id/'+$(this).attr('id')+'.html"><div class="month_pic item2"><img src="'+$(this).attr('path')+'"><div class="month_title"><span>'+$(this).attr('title')+'</span></div></div></a>');
+$('.aim_jijie_son').append(jijie);
+});
+}
+});
+});
+$(function(){
+$.ajax({
+url:'/Article/aimmap',
+data:{'name':'aimbeijing'},
+type:'post',
+dataType:'json',
+success:function(mes){
+$('.ajaxpic_main').find('a').remove();
+$(mes).each(function(i){
+if(i==0 || i==3 || i==4){
+var b=$('<a href="/Article/detail/id/'+$(this).attr('id')+'.html" target="_blank"><div class="ajaxpic_son1"><img src="'+$(this).attr('path')+'" /><div class="ajaxpic_title">'+$(this).attr('title')+'</div></div></a>');
+}else{
+var b=$('<a href="/Article/detail/id/'+$(this).attr('id')+'.html" target="_blank"><div class="ajaxpic_son2"><img src="'+$(this).attr('path')+'" /><div class="ajaxpic_title">'+$(this).attr('title')+'</div></div></a>');
+}
+$('.ajaxpic_main').append(b);   
+});
+}
+});
+return false;
+});
+
+$('area').live('click',function(){
+var a=$(this).attr('title');
+$.ajax({
+url:'/Article/aimmap',
+data:{'name':a},
+type:'post',
+dataType:'json',
+success:function(mes){
+$('.ajaxpic_main').find('a').remove();
+$(mes).each(function(i){
+if(i==0 || i==3 || i==4){
+var b=$('<a href="/Article/detail/id/'+$(this).attr('id')+'.html" target="_blank"><div class="ajaxpic_son1"><img src="'+$(this).attr('path')+'" /><div class="ajaxpic_title">'+$(this).attr('title')+'</div></div></a>');
+}else{
+var b=$('<a href="/Article/detail/id/'+$(this).attr('id')+'.html" target="_blank"><div class="ajaxpic_son2"><img src="'+$(this).attr('path')+'" /><div class="ajaxpic_title">'+$(this).attr('title')+'</div></div></a>');
+}
+$('.ajaxpic_main').append(b);           
+});
+}
+});
+return false;
+});
+
+$('.qnj_aim_nav').mouseover(function(){
+$(this).css({'background':'#fff','white':'1423px'});
+}).mouseout(function(){
+$(this).css({'background':''});
+});
+</script>
+</block>

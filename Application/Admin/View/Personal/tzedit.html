@@ -1,0 +1,125 @@
+<extend name="Public/base" />
+<block name="sidebar">
+<style type="text/css">
+	.sidebar{padding-top: 12px;}
+	#pic{left: 800px;position: absolute; width: 292px;height: 305px;}
+	.current{margin-left: 5px;border-bottom:1px solid red;	 }
+	.num{margin-left: 5px;}
+	.next{margin-left: 5px;}
+	.prev{margin-left: 5px;}
+	  .chan{width: 100%;height: 300px;}
+  .ms{float: left;margin-left: 10px;margin-top: 10px;width: 160px;height: 110px;}
+</style>
+	<div class="sidebar">
+		<div id="subnav" class="subnav">
+			<h3><i class="icon icon-unfold"></i>会员管理</h3>                        
+			<ul class="side-sub-menu">
+				<li class="current">
+					<a class="item" href="{:U('Personal/index')}">会员列表</a>
+				</li>
+				<li class="">
+					<a class="item" href="{:U('Personal/jinyong')}">禁用会员列表</a>
+				</li>				
+			</ul>                    
+		</div>
+	</div>
+</block>
+<block name="body">
+<div id="main-content">
+        <div id="top-alert" class="" style="display: ;">
+            <div class="alert-content" style="margin-top:-17px;font-size:20px;font-weight:900;">{$njy.meta_title}->{$njy.title}</div>
+        </div>
+        <div id="main" class="main" style="min-height: 412px;">
+
+	<!-- 表单 -->
+	<form id="form" action="{:U('Personal/webupdate1')}" method="post" class="form-horizontal">
+		<div id="pic" class="form-item cf">
+			<div class="controls">
+			<img src="{$njy.path}" max-width="100%">
+			</div>
+		</div>
+
+		<div class="form-item cf">
+			<label class="item-label">名称<span class="check-tips"></span></label>
+			<div class="controls">
+				<input class="text input-large" name="name" value="{$njy.title}" disabled="" type="text">
+			</div>
+		</div>
+		<div class="form-item cf">
+			<label class="item-label">联系电话<span class="check-tips"></span></label>
+			<div class="controls">
+				<input class="text input-large" name="phone" value="{$njy.phone}" readonly="" type="text">
+			</div>
+		</div>
+		<div class="form-item cf">
+			<label class="item-label">创建时间<span class="check-tips"></span></label>
+			<div class="controls">
+				<input class="text input-large" name="name" value="{$njy.create_time|date="y-m-d",###}" disabled="" type="text">
+			</div>
+		</div>
+		<div class="form-item cf">
+			<label class="item-label">描述<span class="check-tips"></span></label>
+			<div class="controls">
+				<textarea name="miaoshu" id="" cols="52" readonly="" rows="8">{$njy.description}</textarea>
+			</div>
+		</div>
+
+		<div class="form-item cf">
+			<label class="item-label">状态<span class="check-tips"></span></label>
+			<div class="controls">
+				<input type="radio" name="check" value="1" <if condition="($njy['up_status'] eq 1)"> checked</if>>已通过
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="check" value="0" <if condition="($njy['up_status'] eq 0)"> checked</if>>待审核
+			</div>
+		</div>
+<input type="hidden" name="pathid" value="{$njy.pathid}">
+<!-- 		<div class="form-item cf">
+			<label class="item-label">普通/推广/置顶<span class="check-tips"></span></label>
+			<div class="controls">
+				<input type="radio" name="zhuangtai" value="0" <if condition="($njy['zhuangtai'] eq 0)"> checked</if>>普通
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="zhuangtai" value="5" <if condition="($njy['zhuangtai'] eq 5)"> checked</if>>推广
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="zhuangtai" value="10" <if condition="($njy['zhuangtai'] eq 10)"> checked</if>>置顶				
+			</div>
+		</div> -->
+		<div class="form-item cf">
+			<label class="item-label">选择年限<span class="check-tips"></span></label>
+			<div class="controls">
+				<select name="time_long" id="">
+					<option value="1" <if condition="($njy['time_long'] eq 1)"> selected</if>>1月</option>
+					<option value="2" <if condition="($njy['time_long'] eq 2)"> selected</if>>2月</option>
+					<option value="3" <if condition="($njy['time_long'] eq 3)"> selected</if>>3月</option>
+					<option value="4" <if condition="($njy['time_long'] eq 4)"> selected</if>>4月</option>
+					<option value="5" <if condition="($njy['time_long'] eq 5)"> selected</if>>5月</option>
+					<option value="6" <if condition="($njy['time_long'] eq 6)"> selected</if>>6月</option>
+					<option value="7" <if condition="($njy['time_long'] eq 7)"> selected</if>>7月</option>
+					<option value="8" <if condition="($njy['time_long'] eq 8)"> selected</if>>8月</option>
+					<option value="9" <if condition="($njy['time_long'] eq 9)"> selected</if>>9月</option>
+					<option value="10" <if condition="($njy['time_long'] eq 10)"> selected</if>>10月</option>
+					<option value="11" <if condition="($njy['time_long'] eq 11)"> selected</if>>11月</option>
+					<option value="12" <if condition="($njy['time_long'] eq 12)"> selected</if>>1年</option>
+					<option value="24" <if condition="($njy['time_long'] eq 24)"> selected</if>>2年</option>
+					<option value="36" <if condition="($njy['time_long'] eq 36)"> selected</if>>3年</option>
+				</select>		
+			</div>
+		</div>
+
+		<div class="form-item cf">
+			<label class="item-label">{$njy.title}->下产品<span class="check-tips"></span></label>
+			<div class="controls">
+
+
+			</div>
+				<input type="hidden" name="id" value="{$njy.id}">
+		<input class="btn submit-btn" type="submit" value="确 定">
+		<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+	</form>
+
+
+
+		</div>		
+
+        </div>
+    </div>
+</block>

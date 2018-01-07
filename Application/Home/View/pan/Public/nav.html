@@ -1,0 +1,46 @@
+<block name="nav">
+<div class="qnj_nav">
+    <div class="qnj_logo">
+        <a href="/"><img src="{:get_cover(C('WEB_SITE_LOGO'),'path')}" style="width: 230px;height: 82px;"></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="qgmouseover" id="qnj_quanguo" style="font-size:13px;position:relative;top:-17px;">[全国农家]
+            <div class="qnj_quanguo" >
+                <foreach name="cheng3" item="vo" >   
+                    <div class="qnj_quanguo2">
+                        <p style="margin-top: 15px;">{$key}</p>
+                        <ul class="qnj_quanguo1">
+                            <foreach name="vo" item="vo1" >   
+                                <li><a target="_blank" href="{:U('Article/qnjsearch?citynum='.$vo1['name'].'&category=njy')}">{$vo1.title}</a></li>
+                            </foreach>
+                        </ul>
+                        <p><br></p>
+                    </div> 
+                </foreach>
+            </div>
+        </a>
+    </div>
+    <div class="qnj_title">
+        <ul class="qnj_nav_title">
+            <think:nav name="nav">
+            <li class="active1"><a href="{$nav.url|get_nav_url}">{$nav.title}</a></li>
+        </think:nav>
+    </ul>
+	
+	<div class="qnj_login">
+    <if condition="$username eq ''">
+        <a href="{:U('/Home/Login/login')}" style="color:#000">登录</a>
+        &nbsp;<span style="color:#000">｜</span>&nbsp;
+        <a href="/home/login/register" style="color:#ff7500">注册</a>
+        <else/>  
+        <a href="/Home/Login/vip" style="color:#000">欢迎：{$username}</a>
+        &nbsp;<span style="color:#000">｜</span>&nbsp;
+        <a href="/home/login/quit" style="color:#ff7500">退出</a>
+    </if>  
+    <p style="color:#f7c06c;"><img src="__IMG__/more_phone.png">&nbsp;电话：{:C('WEB_SITE_TEL')}</p>
+</div>
+</div>
+
+</div>
+
+
+</block>

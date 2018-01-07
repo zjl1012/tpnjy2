@@ -1,0 +1,39 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+<div class="allpage">
+    <div class="black-fixed commonfont">&#xe607;</div>
+    <div class="header">
+        <div class="head">
+            <a href="javascript:history.go(-1);" title="返回列表" class="home-btn commonfont">&#xe609;</a>
+            <p class="top-title">{:get_category_title($_category['id'])}</p>
+            <div class="class-btn"><span class="commonfont">&#xe60a;</span></div>
+            <div class="nav-btn commonfont">&#xe60b;</div>
+        </div>
+        <div class="type">
+            <h1>搜索：</h1>
+            <div class="common-pro-search">
+                <form action="" method="post">
+                    <input type="text" class="common-text" name="kws" placeholder="请输入搜索关键词"/>
+                    <input type="submit" class="common-submit commonfont" value="&#xe602;"/>
+                </form>
+            </div>
+
+           
+        </div>
+    </div>
+    <div class="content">
+        <div class="about">
+                <h1>{:get_category_title($_category['id'])}</h1>
+                                <center></center>
+                                <span class="picContent"><p>
+                                  <article:list category="$_category['id']" child="true" name="about" row="1">
+                                                             {:get_extmodel_field($about['id'],'content')}
+          </article:list>
+
+                                </p>
+</span>
+          
+    </div>
+
+</block>

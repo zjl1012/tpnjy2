@@ -1,0 +1,35 @@
+<extend name="Base/common"/>
+<block name="nav"><include file="Public/ernav"/></block>
+<block name="slide"></block>
+<block name="body">
+  <div class="wrap">
+  &nbsp;&nbsp;&nbsp;<a href="/">首页：</a><a href="javascript:;">{$wapnews}：</a><a href="javascript:;">{:get_category_title($category['id'])}</a>
+   <div class="title2"><h3></h3></div>
+   <div class="picture">
+    <div class="ptitle" style="font-size:1.8rem;font-weight:bold;">{$info.title}</div>
+    <div class="ptitle">来源：Admin&nbsp;&nbsp;&nbsp;点击数：{$info.view}&nbsp;&nbsp;&nbsp;<br>发布时间：{:date("Y-m-d",$info['create_time'])}</div>
+
+    <div class="about_pg">
+            {$info.content}
+        </div>
+    <div class="show_next">
+    <article:prev name="prev" info="info">
+           <span>上一篇：<a href="{:U('?id='.$prev['id'])}" title="{$prev.title}">{$prev.title}</a></span>
+    </article:prev>
+
+<article:next name="next" info="info">
+    <span>下一篇：<a href="{:U('?id='.$next['id'])}" title="{$next.title}">{$next.title}</a></span>
+</article:next>
+
+
+
+           </div>
+   </div>
+  </div>
+  <script type="text/javascript">
+    $('.about_pg').find('img').css('width','100%');
+    $('.about_pg').find('img').css('height','200px');
+    $('.about_pg').find('img').css('float','left');
+</script>
+</block>
+

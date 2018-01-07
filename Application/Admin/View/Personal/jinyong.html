@@ -1,0 +1,103 @@
+<extend name="Public/base" />
+<block name="sidebar">
+<style type="text/css">
+	.sidebar{
+		padding-top: 12px;
+	}
+</style>
+	<div class="sidebar">
+		<div id="subnav" class="subnav">
+			<h3><i class="icon icon-unfold"></i>会员管理</h3>                        
+			<ul class="side-sub-menu">
+				<li class="">
+					<a class="item" href="{:U('Personal/index')}">会员列表</a>
+				</li>
+				<li class="current">
+					<a class="item" href="{:U('Personal/jinyong')}">禁用会员列表</a>
+				</li>				
+			</ul>                    
+		</div>
+	</div>
+</block>
+<block name="body">
+<style type="text/css">
+	.main{
+		padding:10px;
+	}
+	#z{
+		position: absolute;
+		top:66px;
+	}
+	.cf{
+		margin-top:20px;
+	}
+</style>
+<div id="main-content">
+        <div id="top-alert" class="fixed alert alert-error" style="display: none;">
+            <button class="close fixed" style="margin-top: 4px;">×</button>
+            <div class="alert-content"></div>
+        </div>
+        <div id="main" class="main" style="min-height: 412px;">
+	<!-- 标题栏 -->
+	<div class="cf">
+       <div class="main-title" id="z"><h2>禁用列表</h2></div>
+		<form action="" method="get" id="tj">
+		<div class="search-form fr cf">
+			<div class="sleft">
+				<input name="nickname" id="key1" class="search-input" value="{$keyword}" placeholder="请输入用户昵称" type="text">
+				<input type="hidden" value="{$count}" class="count">
+			</div>
+			<input class="btn" type="submit" value="搜索">
+		</div>
+		</form>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"></th>
+		<th class="">UID</th>
+		<th class="">用户名</th>
+		<th class="">教员类型</th>
+		<th class="">所在城市</th>
+		<th class="">最后登录时间</th>
+		<th class="">状态</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+
+    <foreach name="list" item="vo" key="k" >   
+		<tr>
+            <td><input class="ids" name="id[]" value="2" type="checkbox"></td>
+			<td>{$vo.id}</td>
+			<td>{$vo.username}</td>
+			<td>{$vo.type}</td>
+			<td>{$vo.city}</td>
+			<td><span>{$vo.login_time}</span></td>
+			<td>{$vo.status}</td>
+			<td>
+				<a href="{:U('Personal/recovery?id='.$vo['id'])}">还原</a>
+				|
+				<a href="{:U('Personal/del?id='.$vo['id'])}" >删除</a>
+            </td>
+		</tr>
+</foreach>
+		</tbody>
+    </table>
+	</div>
+    <div class="page">
+       {$page} 
+       </div>
+        </div>
+    </div>
+	<script type="text/javascript">
+	$('.bgz').css('background','#7963df');
+	$('#key1').blur(function(){
+		var tj=$(this).val();
+		$('#tj').attr('action','/admin/personal/jinyong/where/'+tj+'.html');
+	});
+	$('.page').append('<span class="rows">共 '+$('.count').val()+' 条记录</span>');
+	</script>
+</block>

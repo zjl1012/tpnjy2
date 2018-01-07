@@ -1,0 +1,85 @@
+<extend name="Base/common"/>
+<block name="body">
+<link rel="stylesheet" type="text/css" href="__CSS__/wap/master.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/wap/hzw-city-picker.css">
+<style type="text/css">
+    .qnj_search span{ position: relative;top: 4px;}
+    .qnj_search{width: 20%;height: 20px;}
+    #qnj_none{display: none;}
+    #qnj_block{display: block;}
+    .qnj_ps{width: 100%;height: 100%;background: black;opacity: 0.2;position: absolute;top:0px;}
+</style>
+<div class="qnj_search" id="zjl">
+    选择省份<span>▼</span>
+<div class="hzw-city-picker" style="margin-top:10px;" id="qnj_none" >
+    <div class="hzw-wrap">
+        <ul class="hzw-province-wrap" >
+        <foreach name="cityclass" item="vo" > 
+            <a href="/Home/Article/scity/title/{$vo.title}/name/{$vo.name}">
+                <li class="hzw-province">
+                    <div class="hzw-province-name">{$vo.title}</div>
+                </li>
+            </a>
+        </foreach>
+        </ul>
+    </div>
+</div>    
+</div>
+    <div class="index_sale">
+        <foreach name="list" item="vo" >
+            <dl class="clear-fix">
+                <dt style="margin-top:10%;"><a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}" width="95%" style="height: 90px;"></a></dt>
+                <dd>
+                    <a href="{:U('Article/detail?id='.$vo['id'])}"><h3 >{$vo.title}</h3></a><br>
+                    <h4 class="addpng"><span style="margin-left:20px;font-size:0.8rem;">地址:{$vo.address}</span></h4>
+                    <div class="miaoshu" style="font-size:0.8rem;">{$vo.description}</div>
+                    <div class="dhhy">
+                        <div class="dianhua">
+                            <span style="margin-left:20px;">{$vo.phone}</span>
+                        </div>
+                        <div class="hyclass">
+                            <if condition="$vo['viplong'] eq 1"><img src="__IMG__/m/lev1.gif">
+                                <elseif condition="$vo['viplong'] eq 2"/><img src="__IMG__/m/lev2.gif">
+                                <elseif condition="$vo['viplong'] eq 3"/><img src="__IMG__/m/lev3.gif">
+                                <elseif condition="$vo['viplong'] eq 4"/><img src="__IMG__/m/lev4.gif">
+                                <else />
+                                <img src="__IMG__/m/lev5.gif">
+                            </if>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </foreach>   
+    </div>
+    <div class="page">
+        {$show}       
+    </div>
+    <div class="qnj_ps" style="display:none;"></div>
+    <script type="text/javascript">
+    $('.banner').remove();
+    $('.qnj_nav').before($('.qnj_search')); 
+
+    $('.qnj_search').click(function(){
+        if($('.hzw-city-picker').attr('id')=='qnj_none'){
+            $('.hzw-city-picker').attr('id','qnj_block');
+            $('.qnj_ps').css('display','block');
+        }else{
+            $('.hzw-city-picker').attr('id','qnj_none');
+            $('.qnj_ps').css('display','none');
+        }
+    }); 
+    $(document).click(function (e) {
+         var e = e || window.event; //浏览器兼容性   
+                var elem = e.target || e.srcElement;  
+                while (elem) { //循环判断至跟节点，防止点击的是div子元素   
+                    if (elem.id && elem.id == 'zjl') {  
+                        return;  
+                    }  
+                    elem = elem.parentNode;  
+                } 
+        $('.hzw-city-picker').attr('id','qnj_none');
+        $('.qnj_ps').css('display','none');
+    });
+
+    </script>
+</block>

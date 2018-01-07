@@ -1,0 +1,155 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+    <link rel="stylesheet" type="text/css" href="__CSS__/pc/qnjuser.css">
+    <div style="width: 1423px;height: 20px;border-top:1px solid #eaeaea;margin:0 auto;"></div>
+    <div class="vip_main">
+        <div class="vip_main1">
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Login/vip')}" style="text-decoration: none;font-size:18px;">个人资料</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/vipint')}" style="text-decoration: none;font-size:18px;">会员积分</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/mymoney')}" style="text-decoration: none;font-size:18px;">我的钱包</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/myweb')}" style="text-decoration: none;font-size:18px;color:#ff7500">我的农家院</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/njyzhiding')}" style="text-decoration: none;font-size:18px;">农家置顶</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/njytuiguang')}" style="text-decoration: none;font-size:18px;">农家推广</a>
+        </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/expanduser')}" style="text-decoration: none;font-size:18px;">推广专员</a>
+      </div>
+        </div> 
+        <div class="vip_main2">
+            <h2 align="center">{$title}---详细修改</h2>
+            <style type="text/css">
+                .chan{width: 100%;height: 300px;}
+                .ms{float: left;margin-left: 10px;margin-top: 10px;width: 160px;height: 110px;}
+                .xxedit{position: relative; width: 160px;height: 30px; background: #000;margin-top:-30px;opacity: 0.9;display: none;}
+                .delete{float: right;color:white;}
+                .upedit{color:white;}
+                .xiugai{position: fixed;width: 100%;height: 100%;background: #000;z-index: 99;top: 0px;display:none;z-index: 9999999999;margin-left: auto;margin-right: auto;overflow: hidden;clear: both;}
+                .xiugai_son{width: 1000px;height: 600px;background: #fff;margin:0 auto;margin-top: 80px;}
+                .gb{width: 80px;height: 30px;background: #ff7500;border:none;color:#fff;float:right;text-align: center;}
+                .gb:hover{cursor: pointer;}
+                .message_btn1{width: 80px;height: 30px;background: #ff7500;border:none;color:#fff;}
+            </style>  
+            <div class="chan">
+                <h3>美食</h3><br>
+                <foreach name="meishi" item="vo" >
+                    <div class="ms"><img class="mspic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                        <div class="xxedit">
+                            <a class="upedit" href="javascript:;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/0.html">删除</a>
+                        </div>
+                    </div>
+                </foreach>
+                <foreach name="meishi1" item="vo" >
+                    <div class="ms"><img class="mspic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                        <div class="xxedit">
+                            <a class="upedit" href="javascript:;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/0.html">删除</a>
+                        </div> 
+                    </div>
+                </foreach>
+            </div>
+            <div class="chan">
+                <h3>住宿</h3><br>
+                <foreach name="zhusu" item="vo" >
+                    <div class="ms"><img class="zspic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                        <div class="xxedit">
+                            <a class="upedit" href="javascript:;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/1.html">删除</a>
+                        </div>
+                    </div>
+                </foreach>
+                <foreach name="zhusu1" item="vo" >
+                    <div class="ms"><img class="zspic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                        <div class="xxedit">
+                            <a class="upedit" href="javascript:;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/1.html">删除</a>
+                        </div>
+                    </div>
+                </foreach>
+            </div>
+            <div class="chan">
+                <h3>风景</h3><br>
+                <foreach name="fengjing" item="vo" >
+                    <div class="ms"><img class="fjpic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                        <div class="xxedit">
+                            <a class="upedit" href="javascript:;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/2.html">删除</a>
+                        </div>
+                    </div>
+                </foreach>
+                <foreach name="fengjing1" item="vo" >
+                    <div class="ms"><img class="fjpic" info="{$vo.id}" src="{$vo.path}" width="100%" height="100%">
+                        <div class="xxedit">
+                            <a class="upedit" href="javascript:;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/2.html">删除</a>
+                        </div>
+                    </div>
+                </foreach> 
+            </div>
+            <div class="vip_add">
+                <form action="{:U('Vip/webadd1')}" enctype="multipart/form-data" method="post">
+                    <div id="preview"></div>
+                    <input type="file" name="t123" onchange="previewImage(this)" class="ttt1"/>
+                    <input type="hidden" name="id" value="{$id}">
+                    <label>选择分类</label>
+                    <select name="flxz" id="flxz">
+                        <option value='0'>美食</option>
+                        <option value='1'>房间</option>
+                        <option value='2'>风景</option>
+                    </select>
+                    <input type="submit" value="保存" class="message_btn" />
+                </form>  
+            </div>
+        </div>
+    </div>
+    <div class="xiugai">
+        <div class="xiugai_son">
+            <form action="{:U('Vip/webxiugai')}" enctype="multipart/form-data" method="post">
+                <div id="preview1" style="margin:0 auto;text-align:center;"></div>
+                <input type="file" name="x123" onchange="previewImage1(this)" class="ttt2"/>
+                <br>
+                <input type="hidden" name="gid" value="{$id}">
+                <input type="hidden" name="picid" value="">
+                <input type="hidden" name="flmc" value="">
+                <input type="submit" value="保&nbsp;&nbsp;&nbsp;存" class="message_btn1" />
+                <div class="gb">关&nbsp;&nbsp;&nbsp;闭</div>
+            </from>
+        </div>
+    </div>
+    <script type="text/javascript" src="__JS__/pc/tupian1.js"></script>    
+    <script type="text/javascript">
+        $('.z').click(function(){
+            $('input[name="t123"]').trigger("click");
+        });
+        $('.gb').click(function(){
+            $('.xiugai').css('display','none');
+        });
+
+        $('.ms').mouseover(function(){
+            $(this).find('.xxedit').css('display','block');
+        }).mouseout(function(){
+            $(this).find('.xxedit').css('display','none');
+        });
+
+
+        $('.upedit').click(function(){
+            var img=$('<img src="'+$(this).parent('div').prev('img').attr('src')+'" width="50%" height="50%">');
+            $('#preview1').find('img').remove();
+            $('#preview1').append(img);
+            $('input[name="picid"]').val($(this).parent('div').prev('img').attr('info'));
+            $('input[name="flmc"]').val($(this).parents('.chan').find('h3').html());
+            $('.xiugai').css('display','block');
+        });
+        $(function(){
+            $('.tel').attr('style','position:relative;left:0px;top:-25px;');
+            $('.tel').prev('img').attr('style','position:relative;left:64px;top:0px;');
+        });
+    </script>   
+    <script type="text/javascript" src="__JS__/tupian.js"></script> 
+</block>

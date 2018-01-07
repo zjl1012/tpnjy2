@@ -1,0 +1,32 @@
+@charset "utf-8";
+body{background: url(/Public/Home/images/loginbg.jpg) no-repeat;/*background-size: 100% 5000px;*/overflow: hidden;margin-right: auto;margin-left:auto;margin:0 auto;}
+.qnj_register_main{width: 1100px;height: 700px; margin:0 auto;overflow: hidden;margin-right: auto;margin-left:auto;}
+.qnj_joinus_nav{width: 1100px;height: 80px;margin:0 auto;overflow: hidden;}
+.qnj_joinus_navl{float:left;width: 300px;height: 80px;}
+.qnj_joinus_navr{float:left;width: 795px;height: 80px;}
+.qnj_joinus_navr div{width: 120px;height: 35px;border: 2px solid #fff;float:left;margin:28px 17px;font-size: 18px;color:#fff;text-align: center;line-height: 35px;border-radius:10px;}
+.qnj_register_son{width: 600px;height: 630px;margin:0 auto;}
+.qnj_register_title{font-size: 28px;color:#ff3f00;text-align: center;}
+
+
+input{outline:none} 
+.regj_pic{width: 50px;height: 50px;float: left;margin-left: 85px;text-align: center;line-height: 50px;background: #a22b2b;}
+.qnj_reg_detail{width: 430px;height: 500px;margin: 0 auto;text-align: center;}
+.qnj_reg_details{clear:both;overflow: hidden;}
+.res_sons{height: auto;overflow: hidden;}
+.reg_pic{width: 80px;height: 50px;float:left;text-align: center;line-height: 50px;clear:both;overflow: hidden;}
+.reg_pic img{width:28px;height: 30px;margin-top:10px;}
+.reg_input{width:280px;height: 50px;float:left; }
+.reg_input input{width: 280px;height: 50px;font-size: 20px;border:none;background-color:transparent;}
+.tjpic{float: left;height: 50px;width: 38px;}
+.tjpic img{display: none;margin-top: 10px;}
+.reg_pic1{width: 200px;height: 35px;float: left;border-bottom: 1px solid #ff7500;}
+.reg_pic1 input{width: 200px;height: 35px;font-size: 20px;border:none;background-color:transparent;}
+.reg_input1{width: 110px;height: 35px;float: left;text-align: center;line-height: 35px;font-size: 14px;margin-left: 14px;color:#fc5406;border:1px solid #fc5406;cursor: pointer;}
+
+
+#submit{width: 430px;height: 45px;background: #ff7500;margin:0 auto;border: none;text-align: center;font-size: 22px;color:#fff;}
+#submit:hover{background: #fc5406;}
+.error_tishi{width: 650px;height: 240px;background: ;margin:0 auto;position: relative;top:26px;text-align: center;color:red;font-size: 20px;line-height: 240px;}
+.dj:hover{cursor:pointer;}
+a{text-decoration: none;}

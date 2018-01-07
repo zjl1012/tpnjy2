@@ -1,0 +1,191 @@
+<extend name="Base/common"/>
+<block name="nav">
+<div class="qnj_nav">
+    <div class="qnj_logo">
+        <a href="/"><img src="{:get_cover(C('WEB_SITE_LOGO'),'path')}" style="width: 230px;height: 82px;"></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="qgmouseover" id="qnj_quanguo" style="font-size:13px;position:relative;top:-55px;">[全国农家]
+            <div class="qnj_quanguo" >
+                <foreach name="cheng3" item="vo" >   
+                    <div class="qnj_quanguo2">
+                        <p style="margin-top: 15px;">{$key}</p>
+                        <ul class="qnj_quanguo1">
+                            <foreach name="vo" item="vo1" >   
+                                <li><a target="_blank" href="/Home/Article/scity/title/{$vo1.title}/name/{$vo1.name}">{$vo1.title}</a></li>
+                            </foreach>
+                        </ul>
+                        <p><br></p>
+                    </div> 
+                </foreach>
+            </div>
+        </a>
+    </div>
+    <div class="qnj_title">
+        <ul class="qnj_nav_title">
+                <volist name=":get_category_lists(142,ture)" id="cpfl" offset="0">
+            <li class="active1"><a href="{:U('Article/index?category='.$cpfl['name'])}">{$cpfl.title}</a></li>
+                </volist>
+    </ul>
+    
+    <div class="qnj_login">
+    <if condition="$username eq ''">
+        <a href="{:U('/Home/Login/login')}" style="color:#000">登录</a>
+        &nbsp;<span style="color:#000">｜</span>&nbsp;
+        <a href="/home/login/register" style="color:#ff7500">注册</a>
+        <else/>  
+        <a href="/Home/Login/vip" style="color:#000">欢迎：{$username}</a>
+        &nbsp;<span style="color:#000">｜</span>&nbsp;
+        <a href="/home/login/quit" style="color:#ff7500">退出</a>
+    </if>  
+    <p style="color:#f7c06c;"><img src="__IMG__/more_phone.png">&nbsp;电话：{:C('WEB_SITE_TEL')}</p>
+</div>
+</div>
+
+</div>
+
+
+</block>
+
+<block name="slide"></block>
+<block name="body">
+    <link rel="stylesheet" href="__CSS__/pc/tuiguang/tui.css"/>
+<div class="zhidingBanner jumpTarget">
+    <img src="__IMG__/tuiguang/zhidingBannerImg.png" />
+    <div>
+        <p class="zhidingSlogan">只是因为在人群中多看了你一眼</p>
+        <a href="" class="toAccess">立即咨询</a>
+    </div>
+</div>
+<ul class="zhidingList">
+    <li class="zhidingLi1 jumpTarget">
+        <div class="displayPic"></div>
+        <p class="advHead">信息置顶</p>
+        <div class="quotationBox">
+            <!--<i></i>-->
+            <p>抢占黄金位置，信息头条展示</p>
+            <!--<i></i>-->
+        </div>
+    </li>
+    <li class="zhidingLi2 jumpTarget">
+        <i class="triangle"></i>
+        <p class="advHead">特权一：至尊展位&nbsp;&nbsp;永远高于同行</p>
+        <div class="displayPic">
+            <span class="label">在列表页首位</span>
+        </div>
+    </li>
+    <li class="zhidingLi3 jumpTarget">
+        <i class="triangle"></i>
+        <p class="advHead">特权二：顶字标识&nbsp;&nbsp;让信息与众不同</p>
+        <div class="displayPic">
+            <span class="label">置顶标识</span>
+        </div>
+    </li>
+</ul>
+<!--<div class="process zhidingProcess jumpTarget">
+    <i class="triangle"></i>
+    <p class="processHead">开通流程</p>
+    <ul class="steps zhidingSteps">
+        <li>
+            <i class="stepI1"></i>
+            <p>第1步<br />在“个人中心”找到要置顶的信息</p>
+        </li>
+        <li>
+            <span class="nextArrow"></span>
+            <i class="stepI2"></i>
+            <p>第2步<br />点击置顶</p>
+        </li>
+        <li class="stepLi3">
+            <span class="nextArrow"></span>
+            <i class="stepI3"></i>
+            <p>第3步<br />选择置顶位置与时间</p>
+        </li>
+        <li>
+            <span class="nextArrow"></span>
+            <i class="stepI4"></i>
+            <p>第4步<br />开通成功</p>
+        </li>
+        <li class="clearBox"></li>
+    </ul>
+    <a href="http://my.liebiao.com/post/index?source=display_post" class="toAccess">立即开通</a>
+</div>-->
+<ul class="sideBar zhidingSideBar">
+    <li><a href="javascript:;">信息置顶</a></li>
+    <li><a href="javascript:;">名列前茅</a></li>
+    <li><a href="javascript:;">至尊展位</a></li>
+    <li><a href="javascript:;">顶字标识</a></li>
+    <li><a href="javascript:;">全国置顶</a></li>
+    <li><a href="javascript:;">立即开通</a></li>
+</ul>
+<div id="float_bottom_link"></div>
+
+<div class="bottomBarBg"></div>
+<div class="bottomBar">
+    <div class="centerBox">
+        <div>列表网推广&nbsp;&nbsp;一键实现！</div>
+        <ul class="tg-bottomRight">
+            <li class="bottomQQ">
+                <a target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDAyNDgxNV8xNjgzNDZfODAwMDI0ODE1XzJf">
+                    <i class="barQQIcon"></i>
+                    QQ咨询
+                </a>
+            </li>
+            <li class="hot-tel"><span>推广咨询热线：</span><span class="telNum">400-678-6632</span></li>
+        </ul>
+    </div>
+</div>
+<script>
+    function showBar(sellector,showTop){
+        $(window).on('scroll',function(){
+            var scrollTop = $(window).scrollTop();
+            var windowHeight = document.documentElement.clientHeight;
+            if(scrollTop > showTop - windowHeight/2){
+                $(sellector).fadeIn(300);
+            }else{
+                $(sellector).fadeOut(300);
+            }
+        });
+    }
+    function jumpTo(jumper,target,top,bindEvent){     //jumper:点击目标[选择器]、target:滚动至何处[选择器]、bandEvent：指定触发事件,jumper  和  target  的个数要一致,top为数组
+        $(jumper).each(function(index){
+            $(this).on(bindEvent,function(){
+                $(jumper).removeClass('current');
+                $(this).addClass('current');
+                if($(this).hasClass('backTop')){
+                    $(window).scrollTop(0);
+                    return;
+                }
+                var scrollTop = $($(target)[index]).offset().top + top[index];
+                $(window).scrollTop(scrollTop);
+            });
+        });
+    }
+    function changeTab(taber,target,bindEvent,move){      //taber:点击目标[选择器]、target:切换模块[选择器]、bandEvent：指定触发事件,jumper  和  target  的个数要一致,move：模块向下移动的距离
+        $(taber).each(function(index){
+            $(this).on(bindEvent,function(){
+                $(this).addClass('current').siblings('li').removeClass('current');
+                $(target).css({opacity:0,top:0,position:'relative'}).hide(0,function(){
+                    $($(target)[index]).show(0,function(){
+                        $($(target)[index]).stop().animate({top:move + 'px',opacity:1},500);
+                    });
+                });
+            });
+        });
+    }
+    function changeCurrent(changer,target){     //changer为按钮,target为分界点,top为数组
+        $(window).on('scroll',function(){
+            var scrollTop = $(window).scrollTop();
+            $(target).each(function(index){
+                if(scrollTop > $(this).offset().top - document.documentElement.clientHeight/4){
+                    $(changer).removeClass('current');
+                    $($(changer)[index]).addClass('current');
+                }
+            });
+        });
+    }
+    showBar('.sideBar,.bottomBar,.bottomBarBg',800);
+</script>
+<script>
+    jumpTo('.sideBar a','.jumpTarget',[-40,0,0],'click');
+    changeCurrent('.sideBar a','.jumpTarget');
+</script>
+</block>

@@ -1,0 +1,144 @@
+<extend name="Public/base" />
+<block name="sidebar">
+<style type="text/css">
+	.sidebar{
+		padding-top: 12px;
+	}
+</style>
+	<div class="sidebar">
+		<div id="subnav" class="subnav">
+			<h3><i class="icon icon-unfold"></i>会员管理</h3>                        
+			<ul class="side-sub-menu">
+				<li class="current">
+					<a class="item" href="{:U('Personal/index')}">会员列表</a>
+				</li>
+				<li class="">
+					<a class="item" href="{:U('Personal/jinyong')}">禁用会员列表</a>
+				</li>				
+			</ul>                    
+		</div>
+	</div>
+</block>
+<block name="body">
+<style type="text/css">
+	.main{
+		padding:10px;
+	}
+	#z{
+		position: absolute;
+		top:66px;
+	}
+	.cf{
+		margin-top:20px;
+	}
+</style>
+<div id="main-content">
+        <div id="top-alert" class="fixed alert alert-error" style="display: none;">
+            <button class="close fixed" style="margin-top: 4px;">×</button>
+            <div class="alert-content">这是内容</div>
+        </div>
+        <div id="main" class="main" style="min-height: 412px;">
+	<!-- 标题栏 -->
+	<div class="cf">
+       <div class="main-title" id="z"><h2>会员列表</h2></div>
+           <div class="cf">
+		<!-- 高级搜索 -->
+		<div class="search-form fr cf" style="position:absolute;left:1056px;"> 
+			<div class="sleft">
+				<div class="drop-down" id="zjl">
+					<span id="sch-sort-txt" class="sort-txt" data="">所有</span>
+					<i class="arrow arrow-down"></i>
+					<ul id="sub-sch-menu" class="nav-list hidden">
+						<li><a href="javascript:;" value="1">已通过</a></li>
+						<li><a href="javascript:;" value="0">待审核</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	$('.drop-down').click(function(){
+		$('#sub-sch-menu').slideDown();
+	});	
+	$(document).click(function (e) {
+		 var e = e || window.event; //浏览器兼容性   
+                var elem = e.target || e.srcElement;  
+                while (elem) { //循环判断至跟节点，防止点击的是div子元素   
+                    if (elem.id && elem.id == 'zjl') {  
+                        return;  
+                    }  
+                    elem = elem.parentNode;  
+                } 
+		$('#sub-sch-menu').slideUp();
+	});
+	$('#sub-sch-menu').find('li').click(function(){
+		$(this).find('a').attr('href','/Admin/Personal/indexkey/key/'+$(this).find('a').attr('value'));
+	});
+
+
+
+	</script>
+		<form action="" method="get" id="tj">
+		<div class="search-form fr cf">
+			<div class="sleft">
+				<input name="where" id="key1" class="search-input" value="{$keyword}" placeholder="请输入用户昵称" type="text">
+				<input type="hidden" value="{$count}" class="count">
+			</div>
+			<input class="btn" type="submit" value="搜索">
+		</div>
+		</form>
+    </div>
+    <!-- 数据列表 -->
+
+    <div class="data-table table-striped">
+
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"></th>
+		<th class="">UID</th>
+		<th class="">用户名</th>
+		<th class="">注册IP</th>
+		<th class="">登录IP</th>
+		<th class="">最后登录时间</th>
+		<th class="">产品状态</th>
+		<th class="">会员状态</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+
+    <foreach name="list" item="vo" key="k" >   
+		<tr>
+            <td><input class="ids" name="id[]" value="2" type="checkbox"></td>
+			<td>{$vo.id}</td>
+			<td>{$vo.username}</td>
+			<td>{$vo.ip}</td>
+			<td>{$vo.login_ip}</td>
+			<td><span>{$vo['login_time']|date="y-m-d H:i",###}</span></td>
+			<td><if condition="$vo['up_status'] eq 1"> 已通过<else /> 待审核</if></td>
+			<td><if condition="$vo['status'] eq 1"> 正常<else /> 禁用</if></td>
+			<td>
+				<a href="{:U('Personal/edit?id='.$vo['id'])}">编辑</a>
+				|
+				<a href="{:U('Personal/status?id='.$vo['id'])}" >禁用</a>
+            </td>
+		</tr>
+</foreach>
+		</tbody>
+    </table>
+	</div>
+    <div class="page">
+       {$page} 
+       </div>
+        </div>
+    </div>
+	<script type="text/javascript">
+	$('.bgz').css('background','#7963df');
+	$('#key1').blur(function(){
+		var tj=$(this).val();
+		$('#tj').attr('action','/admin/personal/index/where/'+tj+'.html');
+	});
+	$('.page').append('<span class="rows">共 '+$('.count').val()+' 条记录</span>');
+	</script>
+</block>

@@ -1,0 +1,54 @@
+<extend name="Base/common1"/>
+<block name="body">
+<style type="text/css">
+    input{border:none;outline: none;}
+    .qnj_dl1,.qnj_dl2{
+        width: 98%;
+        height: 40px;
+        margin:0 auto;
+        text-align: center;
+        margin:13px auto;
+    }
+    .qnj_zhang,.qnj_pass{
+        width: 90%;
+        height: 40px;
+        padding: 0px 0px 0px 25px;
+        font-size: 16px;
+		border: none;
+		background-color: transparent;
+    }
+    .qnj_deng{
+        width: 98%;
+        height: 40px;
+        background: #ff7500;
+        border: none;
+        margin:0 auto;
+        text-align: center;
+    }
+    .qnj_deng_l{
+        float: left;
+    }
+    .qnj_deng_r{
+        float: right;
+    }
+	.qhj_hx{width: 88%;height: 5px;border-bottom:1px solid #CCC;margin:0 auto;}
+</style>
+    <div style="width: 90%;margin: auto;">
+    <form action="{:U('Login/dologin')}" method="post">
+        <div class="qnj_dl1"><input type="text" name="username1" placeholder="用户名" value=""  class="qnj_zhang"/><div class="qhj_hx"></div></div>
+        <div class="qnj_dl2"><input type="password" name="password1" placeholder="密码" value="" class="qnj_pass" maxlength="6" /> <div class="qhj_hx"></div></div>
+        <div style="margin:0 auto;width: 98%;text-align:center;">
+        <input class="qnj_deng" type="submit" value="登&nbsp;&nbsp;&nbsp;录" style="border:none;background:#ff7500;color:white;line-height:30px;font-size:18px;">
+        </div>
+		<div style="width: 80%;margin: auto;height: 40px; line-height: 50px;">
+			<div class="qnj_deng_l"><a href="/Home/Login/register" style="color:#f55d27;">立即注册</a></div>
+			<div class="qnj_deng_r"><a href="javascript:;" style="color:#f55d27;">找回密码</a></div>
+		</div>
+    </form>
+    </div>
+<br>
+<script type="text/javascript">
+    $('.qnj_wap_headtitle_vipson2').find('h1').html('会员登录');
+    $('title').html('会员登录');
+</script>
+</block>

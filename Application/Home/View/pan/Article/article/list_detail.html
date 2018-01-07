@@ -1,0 +1,521 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+    <link rel="stylesheet" type="text/css" href="__CSS__/qnj/public_css.css-v=20170815.1.css"  />
+    <link rel="stylesheet" type="text/css" href="__CSS__/qnj/head_foot.css-v=20170815.1.css"  />
+    <link rel="stylesheet" type="text/css" href="__CSS__/qnj/calendar.css-v=20170815.1.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/qnj/njl_main.css-v=20170815.1.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/qnj/swiper-3.4.1.min.css"  />
+    <link rel="stylesheet" type="text/css" id="SL_Style" href="__CSS__/qnj/translator.css">
+    <div class="top_line_bc"></div>
+    <div class="width11_div">
+        <div class="place_new">
+            <span>您所在位置：</span>
+            <a href="/" target="_blank">首页 </a><i></i><span class="tan_show">
+            <a href="javascript:;">{:get_category_title($category['id'])}</a><span class="triangle_down"></span>
+        </span>
+    </div>
+    <div class="yz_main_div">
+        <div class="yz_main_left">
+            <div class="yz_name_tit">
+                <a href="javascript:;"><span class="sp1">{$info.title}</span></a><i class="i_1 grade_3"></i>
+            </div>
+            <div class="s_vista_div_mask">
+                <div class="s_vista_div"><div id="allmap"></div><i class="cloosemap"></i></div>
+                <div class="s_panorama_div"><div id="panorama"></div><i class="cloosemap"></i><i class="open_bigmap"></i></div>
+            </div>
+                <div class="yx_top_img">
+<div class="yx_top_img_left" style="width:900px;">
+ <volist name=":explode(',', $info['njyzs'])" id="imagelist">
+<a class="pupop_img_btn"><img class="infopic" src="{:get_cover($imagelist, 'path')}" style="width: 900px; height:233px; "></a>
+</volist>
+</div>
+<!--<div class="yx_top_img_right"></div>-->
+</div>
+        </div>
+        <div class="yz_main_right">
+            <div class="yz_shang_tel">
+                <p class="p1">商家服务热线</p>
+                <p class="p2">{$info.phone}</p>
+            </div>
+            <p class="remind_p">联系我时，说去农家旅游网推荐到店的可获得优惠哟！</p>
+            <!-- <p class="price_p"><i>￥</i>200</p> -->
+            <!-- <p class="renjun_p">人均消费</p> -->
+            <div class="yz_right_bot">
+                <p class="p1"><label>浏 览 量：</label><i>{$info.view}</i></p>
+                <p class="p1"><label>咨询电话：</label><i>{$info.phone}</i></p>
+                <p class="p3"><span class="sp1"></span><span class="sp2"><i>{$lycount}</i>条评论</span><a href="#page7"><span class="ping_sp2">查看评论></span></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="yz_nav_btn">
+        <ul class="nav_ul">
+            <li data-index="page2">商家展示</li>
+            <li data-index="page3">位置交通</li>
+            <li data-index="page5">住宿信息</li>
+            <li data-index="page6">美食信息</li>
+            <li data-index="page7">游点评({$lycount})</li>
+        </ul>
+    </div>
+    <div class="yx_public_tit" id="page2">
+        风景展示
+    </div>
+    <div class="yx_zhan_main">
+        <div class="yx_img_list">
+
+            <ul>
+                <volist name=":explode(',', $info['fengjing'])" id="imagelist">
+                    <img src="" alt=""/>
+                    <li class="imgSm" style="float:left; width:237; height:185px;"><a class="fjimg" data-val="47365"><img src="{:get_cover($imagelist, 'path')}" width="223" height="168" data-echo="{:get_cover($imagelist, 'path')}" /></a><div class="imgSm_mask"></div></li>
+
+                </volist>
+            </ul>
+        </div>
+
+    </div>
+    <div class="yz_main_bottom">
+        <div class="yz_bottom_left">
+            <div class="yz_shang_cen">
+                <div class="yz_shang_jie">商家介绍</div>
+                <div class="yz_jieshao">
+                    {$info.content}
+                </div>
+            </div>
+            <div class="yz_shang_add">
+                <div class="yz_shang_jie" id="page3">地图位置<span class="sp1">商家地址：<a href="javascript:;" class="span_adds">
+    {$info.address}<span class="jwd" style="display:none;">{$info.jingwei}</span>
+                </a></span></div>
+       
+                <div class="yz_right_map" style="width: 867px;"><div id="allmap_div"><div style="width:865px;height:311px;border:#ccc solid 1px;font-size:12px" id="map"></div></div></div>
+            </div>
+            <style>
+                .imgSm2 {
+                    width: 268px;
+                    height: 164px;
+                    float:left;
+                    border: 1px solid #eaeaea;
+                    border-top-width: 1px;
+                    border-left-width: 1px;
+                    border-top-style: solid;
+                    border-left-style: solid;
+                    border-top-color: rgb(234, 234, 234);
+                    border-left-color: rgb(234, 234, 234);
+                    border-top: none;
+                    border-left: none;
+                    padding: 10px;
+                    position: relative;
+                }
+                .yx_img_list a {
+                    cursor: pointer;
+                }
+                a {
+                    text-decoration: none;
+                    outline: none;
+                    color: #333;
+                }
+
+                .imgSm2 img:hover {
+                    transform: scale(1.05);
+                    -moz-transform: scale(1.05)-webkit-transform: scale(1.05)-o-transform: scale(1.05);
+                }
+
+                .imgSm2 img, .imgOne img {
+                    width: 100%;
+                    height: 100%;
+                    transition: all .3s;
+                    -moz-transition: all .3s;
+                    -webkit-transition: all .3s;
+                    -o-transition: all .3s;
+                }
+
+                img {
+                    border: 0;
+                }
+
+
+                .imgSm2 .imgSm_mask {
+                    width: 265px;
+                    height: 38px;
+                    position: absolute;
+                    bottom: 10px;
+                    left: 10px;
+                    line-height: 38px;
+                    text-indent: 20px;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+                .liuyanpj{width: 100%;height: 130px;border-bottom:1px solid #eaeaea;}
+                .remark_div{height: auto;}
+            </style>
+
+
+            <div class="yz_shang_news">
+                <div class="yz_shang_jie" id="page5">住宿信息</div>
+                <div class="yx_img_list">
+                    <ul>
+                        <volist name=":explode(',', $info['fangjian'])" id="imagelist">
+                            <li class="imgSm2"><a data-val="47365" class="zsimg"><img src="{:get_cover($imagelist, 'path')}" width="223" height="168" data-echo="{:get_cover($imagelist, 'path')}" /></a><div class="imgSm_mask"></div></li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+
+            
+<div class="popup_fixed" id="zjlfj">
+    <div class="popup_fixed_main">
+        <i class="popup_img_close"><img src="__IMG__/pupop_clo.png" /></i>
+        <div class="img-box">
+         <span></span>
+         <volist name=":explode(',', $info['fengjing'])" id="imagelist">
+          <div class="zjlnb1"><a href="javascript:;"><img src="{:get_cover($imagelist, 'path')}" /></a></div>
+         </volist>
+</div>
+<div class="btn-box">
+    <div class="btn-margin">
+        <div class="btn" id="btn-prev">上一张</div>
+        <div class="btn" id="btn-next">下一张</div>
+    </div>
+</div>
+    </div>
+</div>
+
+<div class="popup_fixed" id="zslfj">
+    <div class="popup_fixed_main">
+        <i class="popup_img_close"><img src="__IMG__/pupop_clo.png" /></i>
+        <div class="img-box1">
+         <span></span>
+         <volist name=":explode(',', $info['fangjian'])" id="imagelist">
+          <div class="zjlnb1"><a href="javascript:;"><img src="{:get_cover($imagelist, 'path')}" /></a></div>
+         </volist>
+</div>
+<div class="btn-box1">
+    <div class="btn-margin1">
+        <div class="btn1" id="btn-prev1">上一张</div>
+        <div class="btn1" id="btn-next1">下一张</div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<div class="popup_fixed" id="mslfj">
+    <div class="popup_fixed_main">
+        <i class="popup_img_close"><img src="__IMG__/pupop_clo.png" /></i>
+        <div class="img-box2">
+         <span></span>
+         <volist name=":explode(',', $info['meishi'])" id="imagelist">
+          <div class="zjlnb2"><a href="javascript:;"><img src="{:get_cover($imagelist, 'path')}" /></a></div>
+         </volist>
+</div>
+<div class="btn-box2">
+    <div class="btn-margin2">
+        <div class="btn2" id="btn-prev2">上一张</div>
+        <div class="btn2" id="btn-next2">下一张</div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+
+            <div class="yz_shang_news">
+                <div class="yz_shang_jie" id="page6">美食信息</div>
+                <div class="yx_img_list">
+                    <ul>
+                        <volist name=":explode(',', $info['meishi'])" id="imagelist">
+                            <li class="imgSm2"><a data-val="47365" class="msimg"><img src="{:get_cover($imagelist, 'path')}" width="223" height="168" data-echo="{:get_cover($imagelist, 'path')}" /></a><div class="imgSm_mask"></div></li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+            <script type="text/javascript" src="__JS__/jquery-1.8.3.min.js"></script>
+            <script src="__JS__/jquery.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="__CSS__/css.css"/>
+<script type="text/javascript" src="__JS__/js.js"></script>
+            <div class="yz_shang_remark">
+                <div class="yz_shang_jie" id="page7">游点评</div>
+                <div class="remark_div">
+                    <br>
+                    <foreach name="liuyan" item="vo" >   
+                        <div class="liuyanpj">
+                            &nbsp;&nbsp;&nbsp;<img src="{$vo.picpath}" width="100">
+                            <p>&nbsp;&nbsp;&nbsp;{$vo.uid}:{$vo.text}</p>
+                        </div>
+                        <br>
+                    </foreach>
+                    <a href="#pingluns"><div class="remark_div_right">我要点评</div></a>
+                </div>
+                <div>
+                    {$show}
+                </div>
+            </div>
+            <style type="text/css">
+                .pinglunf{width:100%;height: 200px;border: 1px solid #eaeaea;}
+                #preview{border: 1px solid #eaeaea;width: 21%;height:177px;}
+                .filepic{display: none;}
+                .ttt{color: white;height: 26px;text-align: center;width: 72px;background: #1b843a;z-index: 10;font-size: 15px;}
+                .pii{width: 100%;height: 198px;border: 1px solid #eaeaea;}
+                #textcon{resize:none;border: none;}
+            </style>
+            <div id="pingluns" class="sy_pinglun_main">
+            <span class="xqypl">
+                <br>
+                <a href="javascript:;" class="z"><div class="ttt">上传图片</div></a>
+                <div id="preview"></div>
+                <form action="/Home/Words/words" enctype="multipart/form-data" method="post">
+                    <input class="filepic" type="file" name="t123" onchange="previewImage(this)" class="ttt1"/>
+                    <div class="pii">
+                        <textarea name="ppcon" id="textcon" cols="105" rows="10"></textarea>
+                    </div>
+                    <input type="hidden" name="gid" value="{$info.title}">
+                    <input type="hidden" name="ggid" value="{$info.id}">
+                    <input type="submit" value="提交">&nbsp;&nbsp;
+                    <input type="reset" value="重置">
+                </form>
+            </span>    
+            <div id="pping" class="sy_enter_lun" style="margin-top:30px;">
+                            点击这里<a href="/Home/Login/login" rel="nofollow">登录</a>后方才可以评论
+                        </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('.z').click(function(){
+                $('input[name="t123"]').trigger("click");
+            });
+            if($('.den').html()=='退出'){
+                $('#pping').css('display','none');
+                $('.xqypl').css('display','block');
+            }else{
+                $('#pping').css('display','block');
+                $('.xqypl').css('display','none');
+            }
+        </script>   
+        <script type="text/javascript" src="__JS__/tupian.js"></script>    
+        <div class="yz_bottom_right">
+            <div class="yz_shang_lately" style="height:auto;">
+                <div class="yz_lately_jie">{:get_category_title(53)}<a target="_blank" href=""><span class="sp1">更多</span></a></div>
+                <article:list category="53" row="10" child="true" name="news">
+                <div class="yz_hotel_list">
+                    <span class="numm_1"></span>
+                    <a target="_blank" href="{:U('Article/detail?id='.$news['id'])}" title="{$news.title}"><span class="sp1">{$news.title}</span></a>
+                </div>
+                </article:list>
+          
+            </div>
+            <div class="yz_icon_div" style="height:auto;">
+                <div class="yz_icon_list">
+                    <img src="__IMG__/sea_1.png" />
+                    <div class="sp1">更优惠的价格</div>
+                    <div class="sp2">没有任何隐形服务费</div>
+                </div>
+                <div class="yz_icon_list">
+                    <img src="__IMG__/sea_2.png" />
+                    <div class="sp1">更多入住选择</div>
+                    <div class="sp2">覆盖全国大部分城市</div>
+                </div>
+                <div class="yz_icon_list">
+                    <img src="__IMG__/sea_3.png" />
+                    <div class="sp1">真实住客点评</div>
+                    <div class="sp2">真实住客入住体验点评</div>
+                </div>
+                <div class="yz_icon_list last_s">
+                    <img src="__IMG__/sea_4.png" />
+                    <div class="sp1">官方服务热线</div>
+                    <div class="sp2">{:C('WEB_SITE_TEL')}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="popup_fixed">
+    <div class="popup_fixed_main">
+        <i class="popup_img_close"><img src="__IMG__/pupop_clo.png" /></i>
+        <img src="" class="public_src" />
+        <div class="img-box">
+         <span></span>
+          <div><a href="http://sc.chinaz.com/"><img src="images/1.jpg" /></a></div>
+          <div><a href="http://sc.chinaz.com/"><img src="images/2.jpg" /></a></div> 
+          <div><a href="http://sc.chinaz.com/"><img src="images/3.jpg" /></a></div>
+          <div><a href="http://sc.chinaz.com/"><img src="images/2.jpg" /></a></div>
+
+</div>
+<div class="btn-box">
+    <div class="btn-margin">
+        <div class="btn" id="btn-prev">上一张</div>
+        <div class="btn" id="btn-next">下一张</div>
+    </div>
+</div>
+    </div>
+</div> -->
+
+
+
+<script src="__JS__/qnj/jquery-1.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="__JS__/qnj/getscript"></script>
+<script type="text/javascript">
+    $(".open_bigmap").toggle(function() {
+        $(".s_panorama_div").addClass("open_panorama");
+    }, function() {
+        $(".s_panorama_div").removeClass("open_panorama");
+    });
+
+    $(".nav_ul li").click(function() {
+        $(".nav_ul li").each(function() {
+            $(this).removeClass("on");
+        });
+        $(this).addClass("on");
+        var el = $(this).attr('data-index');
+        $('html, body').animate({
+            scrollTop: $("#" + el).offset().top - 45
+        }, 500);
+    });
+
+
+    $(function () {
+        $('.yz_nav_btn').posfixed({
+            distance: 0,
+            pos: 'top',
+            type: 'while',
+            hide: false
+        });
+
+    });
+    $(".detailed_list .k1").hover(function(){
+        $(this).find(".img_div").show()
+    },function(){
+        $(this).find(".img_div").hide()
+    })
+
+
+    $(".detailed_list_btn").toggle(function(){
+        $(this).prev(".detailed_list").css({"height":"auto"});
+    },function(){
+        $(this).prev(".detailed_list").css({"height":"300px"});
+    })
+
+    $(".yx_go_way span").click(function(){
+        $(".yx_go_way span").each(function(){
+            $(this).removeClass("on");
+            var id = $(this).attr("data-val");
+            $("#go_way_p"+id).attr("style","display:none;");
+        })
+        $(this).addClass("on");
+        var id = $(this).attr("data-val");
+        $("#go_way_p"+id).attr("style","display:block;");
+    })
+
+    $("#screen").hover(function(){
+        $("#screen .prev").show();
+        $("#screen .next").show();
+    },function(){
+        $("#screen .prev").hide();
+        $("#screen .next").hide();
+    })
+
+    $(".pupop_img_btn").click(function(){
+        var img_src=$(this).find("img")[0].src;
+        $(".public_src").attr('src',img_src);
+        $(".popup_fixed").show();
+    })
+    // $(".yx_img_list a").click(function(){
+    //     var img_src=$(this).find("img")[0].src;
+    //     $(".public_src").attr('src',img_src);
+    //     $(".popup_fixed").show();
+    // })
+    $(".popup_img_close").click(function(){
+        $(".popup_fixed").hide();
+    });
+
+    $('.fjimg').live('click',function(){
+        // $('.zjlnb2').remove();
+        // $('.zjlnb3').remove();
+        $("#zjlfj").show();
+    });
+    $('.zsimg').live('click',function(){
+        // $('.zjlnb2').remove();
+        // $('.zjlnb3').remove();
+        $("#zslfj").show();
+    });   
+    $('.msimg').live('click',function(){
+        // $('.zjlnb2').remove();
+        // $('.zjlnb3').remove();
+        $("#mslfj").show();
+    });
+</script>
+ <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Fdnycl6YbGGSBWdPjd0mlD3l"></script>
+    <!--百度地图容器-->
+  <script type="text/javascript">
+        var jing=$('.jwd').html();
+        var arr=jing.split(',');
+        var address=$('.span_adds').html();
+    //创建和初始化地图函数：
+    function initMap(){
+      createMap();//创建地图
+      setMapEvent();//设置地图事件
+      addMapControl();//向地图添加控件
+      addMapOverlay();//向地图添加覆盖物
+    }
+    function createMap(){ 
+      map = new BMap.Map("map"); 
+      map.centerAndZoom(new BMap.Point(arr[0],arr[1]),19);
+    }
+    function setMapEvent(){
+      map.enableScrollWheelZoom();
+      map.enableKeyboard();
+      map.enableDragging();
+      map.enableDoubleClickZoom()
+    }
+    function addClickHandler(target,window){
+      target.addEventListener("click",function(){
+        target.openInfoWindow(window);
+      });
+    }
+    function addMapOverlay(){
+      var markers = [
+        {content:"",title:address,imageOffset: {width:-46,height:-21},position:{lat:arr[1],lng:arr[0]}}
+      ];
+      for(var index = 0; index < markers.length; index++ ){
+        var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+        var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+          imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+        })});
+        var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+        var opts = {
+          width: 200,
+          title: markers[index].title,
+          enableMessage: false
+        };
+        var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+        marker.setLabel(label);
+        addClickHandler(marker,infoWindow);
+        map.addOverlay(marker);
+      };
+      var labels = [
+      ];
+      for(var index = 0; index < labels.length; index++){
+        var opt = { position: new BMap.Point(labels[index].position.lng,labels[index].position.lat )};
+        var label = new BMap.Label(labels[index].content,opt);
+        map.addOverlay(label);
+      };
+    }
+    //向地图添加控件
+    function addMapControl(){
+      var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+      scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+      map.addControl(scaleControl);
+      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+      map.addControl(navControl);
+      var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+      map.addControl(overviewControl);
+    }
+    var map;
+      initMap();
+  </script>
+</block>

@@ -1,0 +1,9 @@
+@charset "utf-8";
+.vip_main{width: 1240px;height: auto;margin-left: auto;margin-right: auto;margin:0 auto;overflow: hidden;}
+.vip_main1{width: 240px;float:left;background: #f8f8f8;}
+.vip_main2{width: 980px;height: auto;float:left;margin-left: 19px;text-decoration: none;background: #f8f8f8;}
+.vip_main2_l{float: left;width: 250px;height: 350px;margin-left: 170px;border: 1px #b8cadd;}
+.vip_main2_r{float: left;width: 450px;height: 350px;margin-left: 50px;}
+.vip_main2_r li{list-style: none;margin-left: 20px;height: 50px;width: 400px;margin-bottom:10px;}
+.message_btn{width: 80px;height: 35px;background: #ff7500;border:none;color:#fff;}
+.vipqq,.vipming,.vipphone{border-radius: 3px;border: 1px solid #ccc;width: 260px;height: 35px;}

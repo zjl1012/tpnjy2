@@ -1,0 +1,92 @@
+<block name="footer">
+<script type="text/javascript" src="__JS__/wap/scroll.js"></script>
+<!--<div class="baoming">
+     <div class="baodiv">
+          <a href="javascript:scroll(0,0)"><label style="color:#01021E;">︽</label><label style="color:#01021E;">返回顶部</label></a><br>
+          <label>{:C('WEB_SITE_TEL')}</label>
+          <span>地址：{:C('WEB_SITE_ADDRESS')}</span>
+          <span>邮箱：{:C('WEB_SITE_EMALL')}</span>
+     </div>
+     <div class="c"></div>
+</div>-->
+
+<style>
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    width: 100%;
+    overflow: inherit;
+    max-width: 640px;
+    background: #FFF;
+    border-top: 1px solid #e8e8e8;
+}
+
+#footer li {
+    list-style-type: none;
+    float: left;
+    width: 25%;
+    text-align: center;
+    padding: 5px 0;
+    color: #666;
+}
+
+#footer li img {
+    width: 25px;
+    height: 25px;
+    display: block;
+    margin: auto;
+}
+
+#footer li .none {
+    display: none;
+}
+.toTop {
+    z-index: 997;
+    position: absolute;
+    bottom: 62px;
+    right: 12px;
+    width: 35px;
+    height: 35px;
+}
+</style>
+<div style="height: 70px;">
+<ul id="footer">
+    <a href="/">
+        <li>
+            <img src="__IMG__/wap/2.png" class="pre">
+            <!--当前页面显示-->
+            <img src="__IMG__/wap/21.png" class="none repre"> 首页
+        </li>
+    </a>
+
+                <a href="{:U('Article/index?category='.njy)}">
+                    <li>
+                        <img src="__IMG__/wap/11.png" class="repre">
+                        <img src="__IMG__/wap/1.png" class="none pre"> 农家
+                    </li>
+                </a>
+
+            <a href="{:U('Login/vip')}">
+                <li>
+                    <img src="__IMG__/wap/31.png" class="repre">
+                    <img src="__IMG__/wap/3.png" class="none pre"> 个人
+                </li>
+            </a>
+    
+    <a href="tel:{:C('WEB_SITE_TEL')}">
+        <li>
+            <img src="__IMG__/wap/41.png" class="repre">
+            <img src="__IMG__/wap/4.png" class="none pre"> 客服
+
+        </li>
+    </a>
+    
+
+<!--    <div class="toTop" id="roll_top" style="display: block;">
+        <img src="__IMG__/wap/scroll-to-top_1.png">
+    </div>-->
+</ul>
+</div>
+</block>
