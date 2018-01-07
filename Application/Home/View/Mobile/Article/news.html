@@ -1,0 +1,48 @@
+<extend name="Base/common"/>
+<block name="nav"><include file="Public/ernav"/></block>
+<block name="slide"></block>
+<block name="body">
+<link rel="stylesheet" type="text/css" href="__CSS__/wap/master.css">
+<style type="text/css">
+    .qnj_news{width: 100%;height: 40px;}
+    .wap_news{float:left;width: 30%;padding-right: 1%;padding-left: 2%;line-height: 40px;text-align: center;font-family: '黑体';font-size: 1rem;font-weight: bold;}
+</style>
+<div class="qnj_news">
+    <volist name=":get_category_lists(48,ture)" id="cpfl" offset="0">
+        <div class="wap_news">
+            <a href="{:U('Article/index?category='.$cpfl['name'])}" style="color:black;">{$cpfl.title}</a>
+        </div>
+    </volist>
+</div>
+<div class="case_c">
+    <ul style="margin-right: 3.125%;margin-left: 3.125%; margin-top: 10px;">
+      <article:list category="54" child="true"  name="news" row="4">
+      <li class="qnj_newsli">
+        <div class="case_c_pic">
+          <a href="{:U('Article/detail?id='.$news['id'])}">
+            <img src="{:get_cover($news['cover_id'],'path')}" style="max-width:100%;">
+          </a>
+        </div>
+        <div class="case_c_content" style=" margin-top:5px;">
+          <a href="{:U('Article/detail?id='.$news['id'])}">
+            <div class="qnj_newstitle">
+              <div class="qnj_newstitle1" style="width:50%; height:24px; overflow:hidden">{$news.title}</div>
+              <div class="qnj_newstitle2" style="width:40%;">{$news.create_time|date="Y-m-d H:i:s",###}</div>
+            </div>
+            <span>{:get_extmodel_field($news['id'],'description')}</span>
+          </a>
+          <hr>
+        </div>
+      </li>
+    </article:list>
+  </ul>
+</div>
+<div class="page">
+   <article:page cate="$_category['id']" listrow="$_category['list_row']" child="true"/> 
+</div>
+
+
+<script type="text/javascript">
+    $('.banner').remove();
+</script>
+</block>

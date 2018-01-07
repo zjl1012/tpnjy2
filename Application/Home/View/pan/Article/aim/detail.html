@@ -1,0 +1,310 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+  <style type="text/css">
+    .qnj_aim1_titleparent{background: #fafafa;}
+    .qnj_aim1_title{width: 1200px;height: 60px;font-size: 14px;margin:0 auto;line-height: 60px;}
+    .aim_detail_main{width: 1200px;height: auto;margin: 0 auto;overflow: hidden;}
+    .aim_detail_l{width: 330px;height: 800px;float:left;}
+    .aim_detail_r{width: 800px;height: auto;float:right;}
+    .qnj_aim1_menu{width: 330px;height: 284px;overflow: hidden;}
+    .qnj_aim1_menu1{width: 330px;height: 430px;overflow: hidden;}
+    .qnj_aim1_menu2{width: 330px;height: auto;overflow: hidden;}
+    .qnj_aim1_titlep{font-size: 18px;font-weight: normal;height: 50px;}
+    .qnj_aim1_titlep1{font-size: 18px;font-weight: normal;height: 50px;}
+    .qnj_aim1_titlep2{font-size: 18px;font-weight: normal;height: 50px;}
+    .qnj_aim1_titlep3{font-size: 18px;font-weight: normal;height: 50px;}
+    .qnj_aim1_titlep i{background: url(/Public/Home/images/aimicon.png) no-repeat;background-position: -10px -186px;width: 46px;height: 39px;float: left;}
+    .qnj_aim1_titlep1 i{background: url(/Public/Home/images/aimicon.png) no-repeat;background-position: -10px -64px;width: 46px;height: 39px;float: left;}
+    .qnj_aim1_titlep2 i{background: url(/Public/Home/images/aimicon.png) no-repeat;background-position: -10px -122px;width: 46px;height: 39px;float: left;}
+    .qnj_aim1_titlep3 i{background: url(/Public/Home/images/aimicon.png) no-repeat;background-position: -10px -10px;width: 46px;height: 39px;float: left;}
+    .aim_detail_lson{width: 330px;height: 40px;margin: 0 auto; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;word-wrap:break-word;line-height: 40px;background: #f8f8f8;margin-bottom: 8px;font-size: 15px;}
+    .aim_detail_lson1{width: 330px;height: 40px;margin: 0 auto; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;word-wrap:break-word;line-height: 40px;background: #f8f8f8;margin-bottom: 8px;font-size: 15px;}
+    .aim_detail_lson:hover{cursor: pointer;}
+    .aim_detail_lson1:hover{cursor: pointer;}
+    .aim_detail_lson_span{font-weight: bold;color:#f8f8f8;}
+    .aim_detail_lson_span1{font-weight: bold;color:#f8f8f8;}
+    .contenttext{text-indent: 2em;}
+    .contenttext img{text-align: center;}
+    .aim_qiehuan:hover{cursor: pointer;}
+  </style>
+  <span id="title" style="display:none;">目的地</span>
+  <span id="categoryid" style="display:none;">{$info['category_id']}</span>
+  <span id="detailid" style="display:none;">{$info['id']}</span>
+  <div class="qnj_aim1_titleparent">
+    <div class="qnj_aim1_title">
+      <a href="/">首页</a>
+      &nbsp;&nbsp;<em>></em>&nbsp;&nbsp;
+      <a href="{:U('Article/index?category='.aim)}">目的地</a>
+      &nbsp;&nbsp;<em>&gt;</em>&nbsp;&nbsp;
+      <a href="javascript:;">{:get_category_title($category['id'])}</a>
+      &nbsp;&nbsp;<em>&gt;</em>&nbsp;&nbsp;
+      <if condition="$info.aimclass eq 3 ">攻略指南 <elseif condition="$info.aimclass eq 1"/>住宿推荐   <elseif condition="$info.aimclass eq 0"/>美食排行  <else /> 热门景区</if>
+    </div>
+  </div>
+  <div style="height: 20px;"></div>
+  <switch name="info.aimclass">    
+    <case value="3">
+      <div class="aim_detail_main">
+        <div class="aim_detail_l">
+          <div class="qnj_aim1_menu2">
+            <div class="qnj_aim1_titlep3">
+              <i></i>{:get_category_title($category['id'])}攻略指南
+            </div>
+            <span class="aim_charu">
+              <foreach name="aimmres1" item="vo">
+                <div class="aim_detail_lson" info="{$vo.id}">
+                  <span class="aim_detail_lson_span">|</span>
+                  <span style="margin-left:38px;">{$vo.title}</span>
+                </div>
+              </foreach> 
+            </span>
+          </div>
+        </div>
+        <div class="aim_detail_r">
+          <span class="detailmain">
+            <span>  
+              <h2 class="detailtitle" align="center">{$info.title}</h2>
+              <p align="center"><img class="detailpic" src="{:get_cover($info['cover_id'],'path')}" width="600" height="350"></p>
+              <br>
+              <div class="contenttext">
+                {$info.content}   
+              </div>
+            </span>
+          </span>
+        </div>
+      </div>       
+    </case>    
+    <case value="1">
+      <div class="aim_detail_main">
+        <div class="aim_detail_l">
+          <div class="qnj_aim1_menu">
+            <div class="qnj_aim1_titlep">
+              <i></i>{:get_category_title($category['id'])}住宿推荐
+              <span class="aim_qiehuan" style="float:right;font-size:14px;" info="5" pos="1">换一批<img src="__IMG__/sx.jpg" width="20" height="20"></span>
+            </div>
+            <span class="aim_charu">
+              <foreach name="aimmres" item="vo">
+                <div class="aim_detail_lson" info="{$vo.id}">
+                  <span class="aim_detail_lson_span">|</span>
+                  <span style="margin-left:38px;">{$vo.title}</span>
+                </div>
+              </foreach> 
+            </span>
+          </div>
+          <div style="height: 80px;"></div>
+          <div class="qnj_aim1_menu1">
+            <div class="qnj_aim1_titlep1">
+              <i></i>{:get_category_title($category['id'])}攻略指南
+            </div>
+            <volist name="aimmres1" id="vo" offset="0" length='8'>
+              <a href="{$vo.id}">
+                <div class="aim_detail_lson1" info="{$vo.id}">
+                  <span class="aim_detail_lson_span1">|</span>
+                  <span style="margin-left:38px;">{$vo.title}</span>
+                </div>
+              </a>  
+              </volist>
+          </div>
+        </div>
+        <div class="aim_detail_r">
+          <span class="detailmain">
+            <span>  
+              <h2 class="detailtitle" align="center">{$info.title}</h2>
+              <p align="center"><img class="detailpic" src="{:get_cover($info['cover_id'],'path')}" width="600" height="350"></p>
+              <br>
+              <div class="contenttext">
+                {$info.content}   
+              </div>
+            </span>
+          </span>
+        </div>
+      </div>
+</case>    
+<case value="0">
+      <div class="aim_detail_main">
+        <div class="aim_detail_l">
+          <div class="qnj_aim1_menu">
+            <div class="qnj_aim1_titlep2">
+              <i></i>{:get_category_title($category['id'])}美食排行
+              <span class="aim_qiehuan" style="float:right;font-size:14px;" info="5" pos="0">换一批<img src="__IMG__/sx.jpg" width="20" height="20"></span>
+            </div>
+            <span class="aim_charu">
+              <foreach name="aimmres2" item="vo">
+                <div class="aim_detail_lson" info="{$vo.id}">
+                  <span class="aim_detail_lson_span">|</span>
+                  <span style="margin-left:38px;">{$vo.title}</span>
+                </div>
+              </foreach> 
+            </span>
+          </div>
+          <div style="height: 80px;"></div>
+          <div class="qnj_aim1_menu1">
+            <div class="qnj_aim1_titlep1">
+              <i></i>{:get_category_title($category['id'])}攻略指南
+            </div>
+            <volist name="aimmres1" id="vo" offset="0" length='8'>
+              <a href="{$vo.id}">
+                <div class="aim_detail_lson1" info="{$vo.id}">
+                  <span class="aim_detail_lson_span1">|</span>
+                  <span style="margin-left:38px;">{$vo.title}</span>
+                </div>
+              </a>  
+              </volist>
+          </div>
+
+
+        </div>
+        <div class="aim_detail_r">
+          <span class="detailmain">
+            <span>  
+              <h2 class="detailtitle" align="center">{$info.title}</h2>
+              <p align="center"><img class="detailpic" src="{:get_cover($info['cover_id'],'path')}" width="600" height="350"></p>
+              <br>
+              <div class="contenttext">
+                {$info.content}   
+              </div>
+            </span>
+          </span>
+        </div>
+      </div>  
+</case>    
+<case value="2">
+      <div class="aim_detail_main">
+        <div class="aim_detail_l">
+          <div class="qnj_aim1_menu">
+            <div class="qnj_aim1_titlep3">
+              <i></i>{:get_category_title($category['id'])}热门景区
+              <span class="aim_qiehuan" style="float:right;font-size:14px;" info="5" pos="2">换一批<img src="__IMG__/sx.jpg" width="20" height="20"></span>
+            </div>
+            <span class="aim_charu">
+              <foreach name="aimmres3" item="vo">
+                <div class="aim_detail_lson" info="{$vo.id}">
+                  <span class="aim_detail_lson_span">|</span>
+                  <span style="margin-left:38px;">{$vo.title}</span>
+                </div>
+              </foreach> 
+            </span>
+          </div>
+          <div style="height: 80px;"></div>
+          <div class="qnj_aim1_menu1">
+            <div class="qnj_aim1_titlep1">
+              <i></i>{:get_category_title($category['id'])}攻略指南
+            </div>
+            <volist name="aimmres1" id="vo" offset="0" length='8'>
+              <a href="{$vo.id}">
+                <div class="aim_detail_lson1" info="{$vo.id}">
+                  <span class="aim_detail_lson_span1">|</span>
+                  <span style="margin-left:38px;">{$vo.title}</span>
+                </div>
+              </a>  
+              </volist>
+          </div>
+
+
+        </div>
+        <div class="aim_detail_r">
+          <span class="detailmain">
+            <span>  
+              <h2 class="detailtitle" align="center">{$info.title}</h2>
+              <p align="center"><img class="detailpic" src="{:get_cover($info['cover_id'],'path')}" width="600" height="350"></p>
+              <br>
+              <div class="contenttext">
+                {$info.content}   
+              </div>
+            </span>
+          </span>
+        </div>
+      </div>   
+</case>    
+</switch>
+      <script type="text/javascript">
+        $('.aim_detail_lson').live('mouseover',function(){
+          $(this).find('span').css('color','#ff2d00');
+          $(this).css('background','#ff90004d');
+        }).live('mouseout',function(){
+          if($(this).attr('mouse')=='on'){
+            $(this).find('span').css('color','#ff2d00');
+            $(this).css('background','#ff90004d');
+          }else{
+            $(this).find('span:eq(0)').css('color','#f8f8f8');
+            $(this).find('span:eq(1)').css('color','#636363');
+            $(this).css('background','#f8f8f8');        
+          }
+        });
+        $('.aim_detail_lson1').live('mouseover',function(){
+          $(this).find('span').css('color','#ff2d00');
+          $(this).css('background','#ff90004d');
+        }).live('mouseout',function(){
+          if($(this).attr('mouse')=='on'){
+            $(this).find('span').css('color','#ff2d00');
+            $(this).css('background','#ff90004d');
+          }else{
+            $(this).find('span:eq(0)').css('color','#f8f8f8');
+            $(this).find('span:eq(1)').css('color','#636363');
+            $(this).css('background','#f8f8f8');        
+          }
+        });
+
+        $('.aim_qiehuan').live('click',function(){
+          var i=$(this).attr('info');
+          var pos=$(this).attr('pos');
+          var categoryid=$('#categoryid').html();
+          $.ajax({
+            url:'/Article/aimhuan',
+            type:'post',
+            data:{'i':i,'pos':pos,'categoryid':categoryid},
+            dataType:'json',
+            success:function(mes){
+              $('.aim_qiehuan').attr('info',parseInt(i)+5);
+              $('.aim_charu').find('div').remove();
+              $(mes).each(function(i){
+                if($(this).attr('info')==1){$('.aim_qiehuan').attr('info','5');}
+                var aima=$('<div class="aim_detail_lson" info="'+$(this).attr('id')+'"><span class="aim_detail_lson_span">|</span><span style="margin-left:38px;">'+$(this).attr('title')+'</span></div>');
+                $('.aim_charu').append(aima);
+              });
+              mygao();
+            }
+          });
+        });
+
+        $('.aim_detail_lson').live('click',function(){
+          $('.aim_detail_lson').find('span:eq(0)').css('color','#f8f8f8');
+          $('.aim_detail_lson').find('span:eq(1)').css('color','#636363');
+          $('.aim_detail_lson').css('background','#f8f8f8');   
+          $('.aim_detail_lson').attr('mouse','off');   
+          $(this).find('span').css('color','#ff2d00');
+          $(this).css('background','#ff90004d');
+          $(this).attr('mouse','on');
+          $('#detailid').html($(this).attr('info'));
+          var id=$(this).attr('info');
+          $.ajax({
+            url:'/Article/aimdetail',
+            type:'post',
+            data:{'id':id},
+            dataType:'json',
+            success:function(mes){
+              $('.detailmain').find('span').remove();
+              $(mes).each(function(){
+                var detaila=$('<span><h2 class="detailtitle" align="center">'+$(this).attr('title')+'</h2><p align="center"><img class="detailpic" src="'+$(this).attr('path')+'" width="600" height="350"></p><br><div class="contenttext">'+$(this).attr('content')+'</div></span>');
+                $('.detailmain').append(detaila);
+              });
+            }
+          });
+          return false;
+        });
+function mygao(){
+  $(function(){
+    $('.aim_detail_lson').each(function(){
+      if($(this).attr('info')==$('#detailid').html()){
+        $(this).find('span').css('color','#ff2d00');
+        $(this).css('background','#ff90004d');
+        $(this).attr('mouse','on');
+      }
+    });
+  });  
+}
+mygao();
+</script>
+
+</block>

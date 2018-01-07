@@ -1,0 +1,437 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="nav"></block>
+<block name="body">
+<include file="Public/ernav"/>
+  <div class="banner" >
+ <a href="" ><img src="{:get_cover(C('DESTINATION'),'path')}"></a>
+  </div>
+		
+<link href="__CSS__/wap/mdd/wap_style.css" rel="stylesheet" type="text/css">
+<link href="__CSS__/wap/mdd/wap_index.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="__JS__/wap/mdd/mobilejsjquery-2.js" type="text/javascript" crossorigin="anonymous"></script>
+
+<div id="pos38"></div>
+
+<script language="javascript" src="__JS__/wap/mdd/jquery.js" type="text/javascript" crossorigin="anonymous"></script>
+
+<div class="warpper">
+
+<div class="hide" id="_j_pushmdds">	</div>		
+<!---------------------1--------------------------->		
+		
+        <section class="block">
+        <a class="item-hd" href="">
+            <h2>热门目的地</h2>
+            <p class="dec">最受大家喜欢的目的地推荐</p>
+        </a>
+        <div class="scopebar">
+            <div class="scrollview">
+                <div class="conbox">
+                                            <a href="javascript:void(0);" class="cur">全国</a>
+                                            <a href="javascript:void(0);">区域</a>
+                                            <a href="javascript:void(0);">景区</a>
+                                            <a href="javascript:void(0);">类别</a>
+<!--                                            <a href="javascript:void(0);">上海</a>
+                                            <a href="javascript:void(0);">南京</a>
+                                            <a href="javascript:void(0);">江苏</a>-->
+              </div>
+            </div>
+        </div>
+                    <div class="tab-con" data-tabname="国内">
+                <div class="item-list clearfix">
+                      <a href="{:U('Article/index?category='.aimbeijing)}">
+                            <img src="__IMG__/wKgB6lSgx0KAAtuCAAVoSPI1DUk40.jpg" data-original="" style="display: inline;">
+                            <div class="title">北京</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__/wKgBpVYfQ3qAW4lGAADfj5rcROU25.jpg" data-original="" style="display: inline;">
+                            <div class="title">厦门</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__/wKgB3FYu57iAeKCZAADn6gzPV2o53.jpg" data-original="" style="display: inline;">
+                            <div class="title">上海</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__/wKgBs1dP15aAEhYRAARtahavugY95.jpg" data-original="" style="display: inline;">
+                            <div class="title">三亚</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__/wKgBpVYfRkqAIeUVAAIhvcm_97Y75.jpg" data-original="" style="display: inline;">
+                            <div class="title">成都</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__/wKgBpVYTyVOANQpnAAqOoQQfTZQ40.jpg" data-original="" style="display: inline;">
+                            <div class="title">杭州</div>
+                        </a>
+                      </div>
+                <div class="showmore"><a href="">更多目的地</a></div>
+            </div>
+			
+                    <div class="tab-con" data-tabname="港澳台" style="display:none;">
+                <div class="item-list clearfix">
+                       <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">香港</div>
+                        </a>
+                         <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">台北</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">澳门</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">垦丁</div>
+                        </a>
+                        <a href="/mdd/15325">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">花莲</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">高雄</div>
+                        </a>
+                      </div>
+                <div class="showmore"><a href="">更多目的地</a></div>
+				
+            </div>
+                    <div class="tab-con" data-tabname="日韩" style="display:none;">
+                <div class="item-list clearfix">
+                       <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">首尔</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">东京</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">大阪</div>
+                        </a>
+                         <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">济州岛</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">京都</div>
+                        </a>
+                         <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">札幌</div>
+                        </a>
+                      </div>
+                <div class="showmore">
+                    <a href="">更多目的地</a>
+                </div>
+            </div>
+                    <div class="tab-con" data-tabname="东南亚" style="display:none;">
+                <div class="item-list clearfix">
+                       <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">曼谷</div>
+                        </a>
+                        <a href="/mdd/11047">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">普吉岛</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">清迈</div>
+                        </a>
+                        <a href="/mdd/10754">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">新加坡</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">巴厘岛</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">吉隆坡</div>
+                        </a>
+                      </div>
+                <div class="showmore">
+                    <a href="">更多目的地</a>
+                </div>
+            </div>
+                    <div class="tab-con" data-tabname="南亚 西亚" style="display:none;">
+                <div class="item-list clearfix">
+                       <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">迪拜</div>
+                        </a>
+                        <a href="/mdd/11275">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">加德满都</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">科伦坡</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">博卡拉</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">康提</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">努沃勒埃利耶</div>
+                        </a>
+                      </div>
+                <div class="showmore">
+                    <a href="">更多目的地</a>
+                </div>
+            </div>
+                    <div class="tab-con" data-tabname="欧洲 美洲" style="display:none;">
+                <div class="item-list clearfix">
+                       <a href="/mdd/10573">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">巴黎</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">塞班岛</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">洛杉矶</div>
+                        </a>
+                         <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">伦敦</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">旧金山</div>
+                        </a>
+                                            <a href="/mdd/10063">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">罗马</div>
+                        </a>
+                      </div>
+                <div class="showmore">
+                    <a href="">更多目的地</a>
+                </div>
+            </div>
+                    <div class="tab-con" data-tabname="澳洲 非洲" style="display:none;">
+                <div class="item-list clearfix">
+                       <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">悉尼</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">墨尔本</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">奥克兰</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">黄金海岸</div>
+                        </a>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">皇后镇</div>
+                        <a href="">
+                            <img src="__IMG__" data-original="">
+                            <div class="title">布里斯班</div>
+                        </a>
+                      </div>
+                <div class="showmore">
+                    <a href="">更多目的地</a>
+                </div>
+            </div>
+  </section>
+  
+  <!-------------------1 end-------------------------->
+  
+  <!-------------------2-------------------------->
+            <section class="block">
+        <a class="item-hd" href="">
+            <h2>当季推荐</h2>
+            <p class="dec">每月最适合前往的目的地推荐</p>
+        </a>
+        <div class="scopebar">
+            <div class="scrollview">
+                <div class="conbox" id="aim_month">
+                                            <a href="javascript:void(0);" class="cur">1月</a>
+                                            <a href="javascript:void(0);">2月</a>
+                                            <a href="javascript:void(0);">3月</a>
+                                            <a href="javascript:void(0);">4月</a>
+                                            <a href="javascript:void(0);">5月</a>
+                                            <a href="javascript:void(0);">6月</a>
+                                            <a href="javascript:void(0);">7月</a>
+                                            <a href="javascript:void(0);">8月</a>
+                                            <a href="javascript:void(0);">9月</a>
+                                            <a href="javascript:void(0);">10月</a>
+                                            <a href="javascript:void(0);">11月</a>
+                                            <a href="javascript:void(0);">12月</a>
+              </div>
+            </div>
+        </div>
+            <div class="item-list clearfix" id="aim_month_son">
+			<volist name="aim1" id="vo" offset="0" length='6'>
+                   <a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}" data-original=""><div class="title">{$vo.title}</div></a>
+			</volist>
+                  </div>
+            <div class="showmore">
+                <a href="/">更多目的地</a>
+            </div>
+            </section>			
+<!-------------------2 end-------------------------->
+
+<!-------------------3 -------------------------->
+            <section class="block">
+        <a class="item-hd" href="/mdd/filter.html">
+            <h2>主题精选</h2>
+            <p class="dec">大量主题出行，个性化你的旅行</p>
+        </a>
+        <div class="scopebar">
+            <div class="scrollview">
+                <div class="conbox">
+                                            <a href="javascript:void(0);" class="cur">春&nbsp;&nbsp;spring</a>
+                                            <a href="javascript:void(0);">夏&nbsp;&nbsp;summer</a>
+                                            <a href="javascript:void(0);">秋&nbsp;&nbsp;autumn</a>
+                                            <a href="javascript:void(0);">冬&nbsp;&nbsp;winter</a>
+              </div>
+            </div>
+        </div>
+                <div class="tab-con" data-tabname="春&nbsp;&nbsp;spring">
+            <div class="item-list clearfix ">
+			<foreach name="seares" item="vo" >
+                    <a href="{:U('Article/detail?id='.$vo['id'])}">
+                        <img src="{$vo.path}" data-original="" style="display: inline;">
+                        <div class="title">{$vo.title}</div>
+                    </a>
+			</foreach>
+                  </div>
+            <div class="showmore">
+                <a href="/">更多主题</a>
+            </div>
+        </div>
+                <div class="tab-con" data-tabname="夏&nbsp;&nbsp;summer" style="display:none;">
+            <div class="item-list clearfix ">
+           <foreach name="seares" item="vo" >
+                    <a href="{:U('Article/detail?id='.$vo['id'])}">
+                        <img src="{$vo.path}" data-original="" style="display: inline;">
+                        <div class="title">{$vo.title}</div>
+                    </a>
+			</foreach>
+                  </div>
+            <div class="showmore">
+                <a href="/">更多主题</a>
+            </div>
+        </div>
+                <div class="tab-con" data-tabname="秋&nbsp;&nbsp;autumn" style="display:none;">
+            <div class="item-list clearfix ">
+             <foreach name="seares" item="vo" >
+                    <a href="{:U('Article/detail?id='.$vo['id'])}">
+                        <img src="{$vo.path}" data-original="" style="display: inline;">
+                        <div class="title">{$vo.title}</div>
+                    </a>
+			</foreach>
+                  </div>
+            <div class="showmore">
+                <a href="/">更多主题</a>
+            </div>
+        </div>
+                <div class="tab-con" data-tabname="冬&nbsp;&nbsp;winter" style="display:none;">
+            <div class="item-list clearfix ">
+             <foreach name="seares" item="vo" >
+                    <a href="{:U('Article/detail?id='.$vo['id'])}">
+                        <img src="{$vo.path}" data-original="" style="display: inline;">
+                        <div class="title">{$vo.title}</div>
+                    </a>
+			</foreach>
+                  </div>
+            <div class="showmore">
+                <a href="/">更多主题</a>
+            </div>
+        </div>
+            </section>
+			
+<!-------------------3 end-------------------------->			
+			
+			
+</div>
+<script type="text/javascript">
+    $('img').lazyload({
+        threshold: 30,
+        skip_invisible:true,
+        placeHolder: ''
+    });
+    $('.scrollview a').click(function () {
+        var $this = $(this), index = $this.index();
+        $this.addClass('cur').siblings().removeClass('cur').end().closest('.block').find('.tab-con').hide().eq(index).show();
+        $(window).trigger('scroll');
+    }).filter('.cur').each(function(){
+        var $this =$(this),$con = $this.closest('.scrollview');
+        if ($con[0].scrollLeft + $con.width() < $this.offset().left + $this.outerWidth()) {
+            $con[0].scrollLeft = $this.offset().left + $this.outerWidth() - $con.width();
+        }
+    });
+    function pageEventStat(block, kind, mdd) {
+        mfwPageEvent('mdd', 'mdd_m_index', {
+            block: block != undefined ? $.trim(block) : block,
+            kind: kind != undefined ? $.trim(kind) : kind,
+            mdd: mdd != undefined ? $.trim(mdd) : mdd
+        });
+    }
+    $(function () {
+        pageEventStat('页面访问');
+        $(document).delegate('.block a[href]', 'click', function (e) {
+            pageEventStat($(this).closest('.block').find('.item-hd h2').text(),
+                    $(this).find('h2').length ? '标题' : ($(this).closest('.tab-con').data('tabname') || '标签切换'),
+                    $(this).find('h2').length ? undefined : ($(this).find('.title').text() || $(this).text())
+            );
+        }).delegate('.focus a[href]', 'click', function (e) {
+            pageEventStat('头图');
+        });
+    });
+
+$('#aim_month').find('a').click(function(){
+    var month=$(this).html();
+    $.ajax({
+    url:'/Article/aimmonth1',
+    type:'post',
+    data:{'month':month},
+    dataType:'json',
+    success:function(mes){
+    $('#aim_month_son').find('a').remove();
+            $(mes).each(function(i){
+                var yue=$('<a href="/Article/detail/id/'+$(this).attr('id')+'.html"><img src="'+$(this).attr('path')+'"><div class="title">'+$(this).attr('title')+'</div></a>');
+                $('#aim_month_son').append(yue);
+            });
+        }
+    });
+});
+
+</script>
+
+<!--<script language="javascript" type="text/javascript">
+if (typeof M !== "undefined" && typeof M.loadResource === "function") {
+M.loadResource("https://js.mafengwo.net/js/cv/js+M+module+Storage:mobile+js+ALogin:js+ACnzzGaLog:js+ARecruit:js+ALazyLoad:mobile+js+wakeApp:mobile+js+omc.global^YlRX^1512699850.js");
+}
+</script>-->
+
+
+
+<link href="__IMG__/css/search_ad.css" rel="stylesheet" type="text/css">
+
+
+
+
+    
+
+</block>

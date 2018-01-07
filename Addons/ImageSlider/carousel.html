@@ -1,0 +1,24 @@
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+        <volist name="images" id="vo">
+            <if condition="$key eq 0">
+                <div class="item active">
+                    <else/>
+                <div class="item">
+            </if>
+            <img src="{$vo.path}" alt="">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>{$h[$key]}</h1>
+                    <p class="lead">{$p[$key]}</p>
+                </div>
+            </div>
+        </div>
+        </volist>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+<!-- /.carousel -->

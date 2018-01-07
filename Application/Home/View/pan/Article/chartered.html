@@ -1,0 +1,180 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+	<div style="border-top:1px solid #dddddd;width: 1423px;height: 20px;margin-left: auto;margin-right: auto;"></div>
+	<div class="qnj_qmain">
+		<div style="font-size:12px;">
+			<p>您所在的位置：
+				<a href="/" style="color:#5e5e5e;font-size:12px;">首页</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<if condition="$_category['id'] neq '' ">
+				<span id="title">{:get_category_title($_category['id'])}</span>
+				<else/>
+				<span id="title">旅游包车</span>
+				</if>
+			</p>
+		</div>
+
+		<div class="qnj_qmain_top">
+			<ul>
+				<li class="qnj_qamin_top-li">选择位置</li>
+				<li class="qnj_qamin_top-li1" ><a href="{:U('Article/index?category='.chartered)}">不限</a></li>
+                <volist name=":get_category_lists(139,ture)" id="cpfl1" offset="0">
+                    <if condition="$_category['name'] neq '' ">
+                        <a href="{:U('Words/qnjcar?citynum='.$cpfl1['name'].'&category='.$_category['name'])}">
+                            <else/>
+                            <a href="{:U('Words/qnjcar?citynum='.$cpfl1['name'].'&category='.$category)}">
+                            </if>   
+                            <li class="qnj_top_li">{$cpfl1.title}</li>
+                        </a>
+                    </volist>
+				</ul>
+			</div>	
+			<if condition="$cityname neq ''">
+			<if condition="$scity neq ''">
+				<div class="qnj_qmain_top">
+					<ul>
+						<li class="qnj_qamin_top-li">具体位置</li>
+						<foreach name="scity" item="vo" > 
+							<a href="{:U('Words/qnjcar?citynum='.$citynum.'&city='.$vo['rentcarcity'].'&category='.$category)}" class="quming">
+								<li class="qnj_top_li viewon">{$vo.rentcarcity}</li>
+							</a>
+						</foreach>
+					</ul>
+				</div>
+			</if>	
+			</if>	
+			<if condition="$cityname neq ''">
+			<if condition="$city neq ''">
+				<div class="qnj_qmain_top" id="jdmc">
+					<ul>
+						<li class="qnj_qamin_top-li">包车类型</li>
+						<span id="jingdian">
+							<foreach name="scity1" item="vo" > 
+								<a href="{:U('Words/qnjcar?citynum='.$citynum.'&city='.$city.'&scenic='.$vo['fjmc'].'&category='.$category)}" class="quming">
+									<li class="qnj_top_li viewon1">{$vo.fjmc}</li>
+								</a>
+							</foreach>
+						</span>
+					</ul>
+				</div>	
+			</if>	
+			</if>	
+			<if condition="$cityname neq ''">
+			<if condition="$carpricezu neq ''">
+				<div class="qnj_qmain_top" id="jdmc">
+					<ul>
+						<li class="qnj_qamin_top-li">包车价格</li>
+						<span id="jingdian">
+							<foreach name="carpricezu" item="vo" > 
+								<a href="{:U('Words/qnjcar?citynum='.$citynum.'&city='.$city.'&scenic='.$scenic.'&carprice='.$vo['carprice'].'&category='.$category)}" class="quming">
+									<li class="qnj_top_li viewon5">{$vo.carprice}</li>
+								</a>
+							</foreach>			
+						</span>
+					</ul>
+				</div>	
+			</if>	
+			</if>	
+			
+			<div style="height: 60px;"></div>
+			<div class="qnj_qmain_1">
+				<div class="qmain_1_top"><div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;">全部租车</div></div>
+				<foreach name="rentcarlist" item="vo" >
+					<div class="qmain_1_main">
+						<div class="qmain_1_main_1">
+							<a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}"></a>
+						</div>
+						<div class="qmain_1_main_12"></div>
+						<div class="qmain_1_main_2">
+							<p><a href="{:U('Article/detail?id='.$vo['id'])}">{$vo.title}</a></p>
+							<p class="qnj_description">{$vo.description}</p>
+							<p>
+							<span style="font-size:13px;font-weight:bold;color:#000c;">租车价格：{$vo.carprice}</span>
+							&nbsp;&nbsp;&nbsp;
+							<span style="font-size:13px;font-weight:bold;color:#000c;">租车类型：{$vo.rentcartype}</span>
+							</p>
+						</div>
+						<div class="qmain_1_main_3">
+							<div class="qnj_lxsj">
+								<img src="__IMG__/phone.png"><span style="color:#fff;font-size:18px;line-height:33px;margin-left:10px;margin-top:5px;position:relative;top:3px;">联系商家</span>
+							</div>
+							<p style="font-size:20px;display:none;margin:0 auto;text-align:center;">{$vo.phone}</p>
+							<br><br>
+							<div class="qnj_viptime">
+								<span style="font-size:15px;font-weight:bold;color:#ff3f00;">入&nbsp;驻&nbsp;{$vo.viplong}&nbsp;年</span>
+							</div>
+							<if condition="$vo['zhuangtai'] eq 10 ">
+								<div class="qnj_zd">农&nbsp;家&nbsp;置&nbsp;顶</div>
+							</if>
+						</div>			
+					</div>
+				</foreach>
+				<div style="width: 1423px;height: 30px;"></div>
+				<div class="qnj_page">
+					{$show}
+				</div>
+			</div>
+			<div class="qnj_qmain_2">
+				<div class="qmain_1_top">
+					<div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;float:left;">{:get_category_title(53)}</div>
+					<div style="float:right;line-height:40px;"><a href="{:U('Article/index?category='.companynews)}">更多</a></div>
+				</div>	
+				<div class="qnj_qmain_news1">
+					<article:position pos="4" cate="53" limit="8" child="true" name="news">
+					<div class="qmain_news1_1"><a href="{:U('Article/detail?id='.$news['id'])}">{$news.title}</a></div>
+					<div class="qmain_news1_2">{$news.create_time|date="Y-m-d",###}</div>
+				</article:position>
+			</div>
+			<br>
+			<div class="qmain_1_top">
+				<div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;float:left;">{:get_category_title(54)}</div>
+				<div style="float:right;line-height:40px;"><a href="{:U('Article/index?category='.TradeNews)}">更多</a></div>
+			</div>	
+			<div class="qnj_qmain_news1">
+				<article:position pos="4" cate="54" limit="8" child="true" name="news">
+				<div class="qmain_news1_1"><a href="{:U('Article/detail?id='.$news['id'])}">{$news.title}</a></div>
+				<div class="qmain_news1_2">{$news.create_time|date="Y-m-d",###}</div>
+			</article:position>
+		</div>
+	</div>	
+</div>
+
+<span class="cityname" style="display:none;">{$city}</span>
+<span class="shengname" style="display:none;">{$cityname}</span>
+<span class="scenic" style="display:none;">{$scenic}</span>
+<span class="njyclass" style="display:none;">{$njyclass}</span>
+<span class="carprice" style="display:none;">{$carprice}/天</span>
+<script type="text/javascript">
+var phonenum=true;
+	$('.qnj_lxsj').click(function(){
+		if(phonenum==true){
+			$(this).css('background','#fff').html($(this).next('p').css('display','block'));
+			phonenum=false;
+		}
+	});
+	$('.prev').wrap('<div class="prev_page"></div>');
+	$('.num').wrap('<div class="prev_num"></div>');
+	$('.current').wrap('<div class="prev_current"></div>');
+	$('.next').wrap('<div class="prev_next"></div>');
+	$('.first').wrap('<div class="prev_first"></div>');
+	$('.end').wrap('<div class="prev_end"></div>');
+	$('.prev_next').before($('.prev_end'));
+	$('.prev_page').after($('.prev_first'));
+	if($('.shengname').html()!=''){$('.qnj_qamin_top-li1').css({'background':'#fff'});$('.qnj_qamin_top-li1').find('a').css({'color':'#636363'});}
+	$('.qnj_top_li').each(function(){if($(this).html()==$('.shengname:eq(0)').html()){$(this).css({'background':'#ff6300','color':'#fff'});}});
+	$('.viewon').each(function(){if($(this).html()==$('.cityname:eq(0)').html()){$(this).css({'background':'#ff6300','color':'#fff'});}});	
+	$('.viewon1').each(function(){if($(this).html()==$('.scenic:eq(0)').html()){$(this).css({'background':'#ff6300','color':'#fff'});}});
+	$('.viewon2').each(function(){if($(this).attr('info')==$('.njyclass:eq(0)').html()){$(this).css({'background':'#ff6300','color':'#fff'});}});
+	$('.viewon5').each(function(){if($(this).html()==$('.carprice:eq(0)').html()){$(this).css({'background':'#ff6300','color':'#fff'});}});
+
+	function zd(){
+		if($('.qmain_1_main').find('.qnj_zd').html()=='会&nbsp;员&nbsp;置&nbsp;顶'){
+			$('div:contains("会&nbsp;员&nbsp;置&nbsp;顶"):last').parents('.qmain_1_main').after($('.tuiguang').css('display','block'));
+		}else{
+			$('.qmain_1_main:eq(0)').after($('.tuiguang').css('display','block'));
+		}
+	}	
+	zd();	
+</script>
+</block>

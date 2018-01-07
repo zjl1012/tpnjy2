@@ -1,0 +1,111 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+    <div style="border-top:1px solid #dddddd;width: 1423px;height: 20px;margin-left: auto;margin-right: auto;"></div>
+    <div class="qnj_qmain">
+        <div style="font-size:12px;">
+            <p>您所在的位置：
+                <a href="/" style="color:#5e5e5e;font-size:12px;">首页</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span id="title">拓展训练</span></p>
+            </div>
+            <div class="qnj_qmain_top">
+                <ul>
+                    <li class="qnj_qamin_top-li">选择位置</li>
+                    <li class="qnj_qamin_top-li1" ><a href="{:U('Article/index?category='.njy)}">不限</a></li>
+                    <volist name=":get_category_lists(127,ture)" id="cpfl" offset="0"> 
+                        <a href="/Home/Article/tzxl2/city/{$cpfl.title}/id/{$cpfl.id}">
+                            <li class="qnj_top_li">{$cpfl.title}</li>
+                        </a>
+                    </volist>
+                </ul>
+            </div>      
+            <div style="height: 60px;"></div>
+            <div class="qnj_qmain_1">
+                <div class="qmain_1_top"><div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;">全部拓展</div></div>
+                <article:list category="$_category['id']" child="true" name="img" row="$_category['list_row']">
+                    <div class="qmain_1_main">
+                        <div class="qmain_1_main_1">
+                            <a href="{:U('Article/detail?id='.$img['id'])}"><img src="{:get_cover($img['cover_id'],'path')}"></a>
+                        </div>
+                        <div class="qmain_1_main_12"></div>
+                        <div class="qmain_1_main_2">
+                            <p></p>
+                            <p><a href="{:U('Article/detail?id='.$img['id'])}">{$img.title}</a></p>
+                            <p class="qnj_description">
+                                {:get_extmodel_field($img['id'],'description')}
+                            </p>
+                            <p>
+                                <img src="__IMG__/addicon.png">&nbsp;&nbsp;<span style="font-size:13px;font-weight:bold;color:#000c;">地址：{:get_extmodel_field($img['id'],'address')}</span>
+                            </p>
+                        </div>
+                        <div class="qmain_1_main_3">
+                            <div class="qnj_lxsj">
+                                <img src="__IMG__/phone.png"><span style="color:#fff;font-size:18px;line-height:33px;margin-left:10px;margin-top:5px;position:relative;top:3px;">联系商家</span>
+                            </div>
+                            <p style="font-size:20px;visibility:hidden;margin:0 auto;text-align:center;margin-top:20px;">
+                                {:get_extmodel_field($img['id'],'phone')}
+                            </p>
+                            <div class="qnj_viptime">
+                                <span style="font-size:15px;font-weight:bold;color:#ff3f00;">会&nbsp;员&nbsp;
+                                <span class="time0" style="display:none;">{$time}</span>
+                                <span class="hydj"></span>
+                                <span class="time1" style="display:none;">{:get_extmodel_field($img['id'],'create_time')}</span>
+                                &nbsp;年</span>
+                            </div>
+                        </div>          
+                    </div>
+                </article:list>
+                <div style="width: 1423px;height: 30px;"></div>
+                <div class="qnj_page">
+                    <article:page cate="$_category['id']" listrow="$_category['list_row']" child="true"/>
+                </div>
+            </div>
+            <div class="qnj_qmain_2">
+                <div class="qmain_1_top">
+                    <div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;float:left;">{:get_category_title(53)}</div>
+                    <div style="float:right;line-height:40px;"><a href="{:U('Article/index?category='.companynews)}">更多</a></div>
+                </div>  
+                <div class="qnj_qmain_news1">
+                    <article:position pos="4" cate="53" limit="8" child="true" name="news">
+                    <div class="qmain_news1_1"><a href="{:U('Article/detail?id='.$news['id'])}">{$news.title}</a></div>
+                    <div class="qmain_news1_2">{$news.create_time|date="Y-m-d",###}</div>
+                </article:position>
+            </div>
+            <br>
+            <div class="qmain_1_top">
+                <div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;float:left;">{:get_category_title(54)}</div>
+                <div style="float:right;line-height:40px;"><a href="{:U('Article/index?category='.TradeNews)}">更多</a></div>
+            </div>  
+            <div class="qnj_qmain_news1">
+                <article:position pos="4" cate="54" limit="8" child="true" name="news">
+                <div class="qmain_news1_1"><a href="{:U('Article/detail?id='.$news['id'])}">{$news.title}</a></div>
+                <div class="qmain_news1_2">{$news.create_time|date="Y-m-d",###}</div>
+            </article:position>
+        </div>
+    </div>  
+</div>
+<script type="text/javascript">
+function mytime(){
+    $('.hydj').each(function(){
+        var a=parseInt($(this).prev('span').html())-parseInt($(this).next('span').html());
+        var b=Math.ceil(a/31536000);
+        $(this).html(b);
+    });
+}
+mytime();
+    $('.qnj_lxsj').click(function(){
+        $(this).css('background-color','#ff3f00');
+        $(this).next('p').css('visibility','');
+    });
+    $('.prev').wrap('<div class="prev_page"></div>');
+    $('.num').wrap('<div class="prev_num"></div>');
+    $('.current').wrap('<div class="prev_current"></div>');
+    $('.next').wrap('<div class="prev_next"></div>');
+    $('.first').wrap('<div class="prev_first"></div>');
+    $('.end').wrap('<div class="prev_end"></div>');
+    $('.prev_next').before($('.prev_end'));
+    $('.prev_page').after($('.prev_first'));
+</script>
+
+</block>

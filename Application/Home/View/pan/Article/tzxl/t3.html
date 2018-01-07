@@ -1,0 +1,214 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+    <div style="border-top:1px solid #dddddd;width: 1423px;height: 20px;margin-left: auto;margin-right: auto;"></div>
+    <div class="qnj_qmain">
+        <div style="font-size:12px;">
+            <p>您所在的位置：
+                <a href="/" style="color:#5e5e5e;font-size:12px;">首页</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span id="title">拓展训练</span></p>
+            </div>
+            <div class="qnj_qmain_top">
+                <ul>
+                    <li class="qnj_qamin_top-li">选择位置</li>
+                    <li class="qnj_qamin_top-li1" style="background:#fff;"><a style="color:#636363" href="{:U('Article/index?category='.njy)}">不限</a></li>
+                    <volist name=":get_category_lists(127,ture)" id="cpfl" offset="0">
+                        <a href="/Home/Article/tzxl2/city/{$cpfl.title}/id/{$cpfl.id}">
+                            <if condition="$city eq $cpfl.title ">
+                                <li class="qnj_top_li" style="background:#ff6300;color:#fff;">{$cpfl.title}</li>   
+                                <else /> 
+                                <li class="qnj_top_li">{$cpfl.title}</li>
+                            </if>
+                        </a>
+                    </volist>
+                </ul>
+            </div>  
+            <div class="qnj_qmain_top">
+                <ul>
+                    <li class="qnj_qamin_top-li">拓展基地</li>
+                    <foreach name="tzjd" item="vo" > 
+                        <if condition="$ming eq $vo">
+                            <a href="/Home/Article/tzxl3/key/{$vo}/id/{$tzcityid}/city/{$city}">
+                                <li class="qnj_top_li" style="background:#ff6300;color:#fff;width: 100px;">{$vo}</li>   
+                                <else /> 
+                                <a href="/Home/Article/tzxl3/key/{$vo}/id/{$tzcityid}/city/{$city}" >
+                                    <li class="qnj_top_li" style="width: 100px;">{$vo}</li>
+                                </if>
+                            </a>
+                        </foreach>
+                    </ul>
+                </div>
+                <div class="qnj_qmain_top" id="jdmc">
+                    <ul>
+                        <li class="qnj_qamin_top-li">拓展项目</li>
+                        <span id="jingdian">
+                            <foreach name="tzxm" item="vo" > 
+                                <if condition="$jd eq $vo">
+                                    <a href="/Home/Article/tzxl4/key/{$ming}/id/{$tzcityid}/city/{$city}/tzxm0/{$vo}"><li class="qnj_top_chali" style="background:#ff6300;color:#fff;width: 80px;margin-left:0">{$vo}</li></a>
+                                    <else />
+                                    <a href="/Home/Article/tzxl4/key/{$ming}/id/{$tzcityid}/city/{$city}/tzxm0/{$vo}"><li class="qnj_top_chali">{$vo}</li></a>
+                                </if>
+                            </foreach>
+                        </span>
+                    </ul>
+                </div>              
+                <div style="height: 60px;"></div>
+                <div class="qnj_qmain_1">
+                    <div class="qmain_1_top"><div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;">全部商家</div></div>
+                    <foreach name="list" item="vo" >
+                        <div class="qmain_1_main">
+                            <div class="qmain_1_main_1">
+                                <a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}"></a>
+                            </div>
+                            <div class="qmain_1_main_12"></div>
+                            <div class="qmain_1_main_2">
+                                <p></p>
+                                <p><a href="{:U('Article/detail?id='.$vo['id'])}">{$vo.title}</a></p>
+                                <p class="qnj_description">
+                                    {$vo.description}
+                                </p>
+                                <p>
+                                    <img src="__IMG__/addicon.png">&nbsp;&nbsp;<span style="font-size:13px;font-weight:bold;color:#000c;">地址：{$vo.address}</span>
+                                </p>
+                            </div>
+                            <div class="qmain_1_main_3">
+                                <div class="qnj_lxsj">
+                                    <img src="__IMG__/phone.png"><span style="color:#fff;font-size:18px;line-height:33px;margin-left:10px;margin-top:5px;position:relative;top:3px;">联系商家</span>
+                                </div>
+                                <p style="font-size:20px;visibility:hidden;margin:0 auto;text-align:center;margin-top:20px;">{$vo.phone}</p>
+                                <if condition="($vo['zhuangtai'] eq 10) ">
+                                    <div class="qnj_zd">
+                                        会&nbsp;员&nbsp;置&nbsp;顶
+                                    </div>
+                                    <elseif condition="$vo['zhuangtai'] eq 0"/><else /></if>
+                                    <div class="qnj_viptime">
+                                        <span style="font-size:15px;font-weight:bold;color:#ff3f00;">会&nbsp;员&nbsp;{$vo.viplong}&nbsp;年</span>
+                                    </div>
+                                </div>          
+                            </div>
+                        </foreach>
+                        <div style="width: 1423px;height: 30px;"></div>
+                        <div class="qnj_page">
+                            {$show}
+                        </div>
+                    </div>
+                    <div class="qnj_qmain_2">
+                        <div class="qmain_1_top">
+                            <div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;float:left;">{:get_category_title(53)}</div>
+                            <div style="float:right;line-height:40px;"><a href="{:U('Article/index?category='.companynews)}">更多</a></div>
+                        </div>  
+                        <div class="qnj_qmain_news1">
+                            <article:position pos="4" cate="53" limit="8" child="true" name="news">
+                            <div class="qmain_news1_1"><a href="{:U('Article/detail?id='.$news['id'])}">{$news.title}</a></div>
+                            <div class="qmain_news1_2">{$news.create_time|date="Y-m-d",###}</div>
+                        </article:position>
+                    </div>
+                    <br>
+                    <div class="qmain_1_top">
+                        <div style="width: 90px;height: 40px;background:#7FAE3B;color:#fff;text-align:center;line-height:40px;float:left;">{:get_category_title(54)}</div>
+                        <div style="float:right;line-height:40px;"><a href="{:U('Article/index?category='.TradeNews)}">更多</a></div>
+                    </div>  
+                    <div class="qnj_qmain_news1">
+                        <article:position pos="4" cate="54" limit="8" child="true" name="news">
+                        <div class="qmain_news1_1"><a href="{:U('Article/detail?id='.$news['id'])}">{$news.title}</a></div>
+                        <div class="qmain_news1_2">{$news.create_time|date="Y-m-d",###}</div>
+                    </article:position>
+                </div>
+            </div>  
+        </div>
+        <span class="citytitle" style="display:none;">{$title}</span>
+        <span class="cityname" style="display:none;">{$name}</span>
+        <span class="qu" style="display:none;">{$qu}</span>
+        <span class="jd" style="display:none;">{$jd}</span>
+        <span style="display:none;" class="tuiguang">
+            <foreach name="list1" item="vo">
+                <div class="qmain_1_main">
+                    <div class="qmain_1_main_1">
+                        <a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}"></a>
+                    </div>
+                    <div class="qmain_1_main_12"></div>
+                    <div class="qmain_1_main_2">
+                        <p></p>
+                        <p><a href="{:U('Article/detail?id='.$vo['id'])}">{$vo.title}</a></p>
+                        <p class="qnj_description">
+                            {$vo.description}                           
+                        </p>
+                        <p>
+                            <img src="/Public/Home/images/addicon.png">&nbsp;&nbsp;<span style="font-size:13px;font-weight:bold;color:#000c;">地址：{$vo.address}</span>
+                        </p>
+                    </div>
+                    <div class="qmain_1_main_3">
+                        <div class="qnj_lxsj">
+                            <img src="/Public/Home/images/phone.png"><span style="color:#fff;font-size:18px;line-height:33px;margin-left:10px;margin-top:5px;position:relative;top:3px;">联系商家</span>
+                        </div>
+                        <p style="font-size:20px;visibility:hidden;margin:0 auto;text-align:center;margin-top:20px;">{$vo.phone}</p>
+                        <div class="qnj_tg">
+                            <img src="__IMG__/推广.png" width="100" height="60">
+                        </div>
+                        <div class="qnj_viptime">
+                            <span style="font-size:15px;font-weight:bold;color:#ff3f00;">会&nbsp;员&nbsp;{$vo.viplong}&nbsp;年</span>
+                        </div>
+                    </div>          
+                </div>
+            </foreach> 
+        </span>
+
+        <script type="text/javascript">
+            $('.qnj_lxsj').click(function(){
+                $(this).css('background-color','#ff3f00');
+                $(this).next('p').css('visibility','');
+            });
+            $('.prev').wrap('<div class="prev_page"></div>');
+            $('.num').wrap('<div class="prev_num"></div>');
+            $('.current').wrap('<div class="prev_current"></div>');
+            $('.next').wrap('<div class="prev_next"></div>');
+            $('.first').wrap('<div class="prev_first"></div>');
+            $('.end').wrap('<div class="prev_end"></div>');
+            $('.prev_next').before($('.prev_end'));
+            $('.prev_page').after($('.prev_first'));
+
+            $('.quming').click(function(){
+                $('.quming').attr('info','0');
+                $(this).attr('info','1');
+                $('.quming').find('li').css({'background-color':'#fff','color':'#636363'});
+                $(this).find('li').css({'background-color':'#ff6300','color':'#fff'});
+                $('#jingdian').find('a').remove();
+                var city=$('.citytitle').html();
+                var name=$('.cityname').html();    
+                var shi=$(this).find('li').html();   
+                $.ajax({
+                    url:'/Home/Article/search1',
+                    type:'post',
+                    dataType:'json',
+                    async:false,
+                    data:{'city':city,'name':name,'shi':shi},
+                    success:function(mes){
+                        $(mes).each(function(i,val){
+                            var op='<a href="javascript:;" class="jd3"><li class="qnj_top_chali">'+$(this).attr('fjmc')+'</li></a>';
+                            $('#jingdian').append(op);
+                        });
+                        $('#jdmc').css('display','block');
+                    }
+                });
+            });
+
+            $('.jd3').live('click',function(){
+                var city1=$('.citytitle').html();
+                var name1=$('.cityname').html();
+                var qu=$('.quming[info="1"]').find('li').html();
+                var shi1=$(this).find('li').html();
+                $(this).attr('href','/Home/Article/search2/city/'+city1+'/name/'+name1+'/qu/'+qu+'/jd/'+shi1);
+            });
+
+            function zd(){
+                if($('.qmain_1_main').find('.qnj_zd').html()=='会&nbsp;员&nbsp;置&nbsp;顶'){
+                    $('div:contains("会&nbsp;员&nbsp;置&nbsp;顶"):last').parents('.qmain_1_main').after($('.tuiguang').css('display','block'));
+                }else{
+                    $('.qmain_1_main:eq(0)').after($('.tuiguang').css('display','block'));
+                }
+            }
+            zd();
+
+        </script>
+    </block>

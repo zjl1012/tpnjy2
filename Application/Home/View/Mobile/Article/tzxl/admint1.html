@@ -1,0 +1,61 @@
+<extend name="Base/common"/>
+<block name="head">
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/public_css.css-v=20170815.1.css"  />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/head_foot.css-v=20170815.1.css"  />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/calendar.css-v=20170815.1.css" />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/njl_main.css-v=20170815.1.css" />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/swiper-3.4.1.min.css"  />
+<script type="text/javascript" src="__JS__/jquery-1.8.3.min.js"></script>
+</block>
+<block name="slide"></block>
+<block name="body">
+<link rel="stylesheet" href="/Public/Home/css/vip.css" />
+<style type="text/css">.controls{height: auto;left: 10px;position: absolute;width: 180px;}.z0{margin-left: -225px;}
+  .z0{border-collapse: collapse;font-size: 15px;}
+  .bbj{font-size: 15px;}
+</style>
+ <section>
+            <div class="memb">
+                <div class="container clearfix">
+                    <div class="memb1">
+                        <ul>
+                            <li class="message"><a class="bbj" href="/Home/Login/vip"><i><img src="__IMG__/center_08.png" alt="" /></i>个人资料</a></li>
+                            <li class="message"><a class="bbj" href="/Home/Vip/myweb"><i><img src="__IMG__/center_08.png" alt="" /></i>我的农家院</a></li>
+                            <li class="message"><a class="bbj" href="/Home/Vip/tzxl"><i><img src="__IMG__/center_08.png" alt="" /></i>我的拓展</a></li>
+                        </ul>
+                    </div>
+                    <div class="memb2">
+                        <div class="page personmes">
+                            <div class="person1" align="center">
+                                <h1>管理产品后台.</h1>
+                                <div class="person2">
+                                   <table width="900" border="1" class="z0">
+                                       <tr class="z">
+                                           <th>拓展项目名称</th>
+                                           <th>状态</th>
+                                           <!-- <th>置顶/推广/普通</th> -->
+                                           <th>期限</th>
+                                           <th>操作</th>
+                                       </tr>
+                                       <foreach name="list" item="vo" >   
+                                       <tr>
+                                           <td align="center">{$vo.title}</td>
+                                           <td align="center"><if condition="($vo['up_status'] eq 1)">已通过 <else/>待审核</if></td>
+                                           <!-- <td align="center"><if condition="($vo['zhuangtai'] eq 0)"> 普通<elseif condition="$vo['zhuangtai'] eq 5"/>推广<elseif condition="$vo['zhuangtai'] eq 10"/>置顶</if></td> -->
+                                           <td align="center">{$vo['update_time']|date="y-m-d",###}至{$vo['time_long']|date="y-m-d",###}</td>
+                                           <td align="center"><a class="bbj" href="/Home/Vip/tzxledit/id/{$vo.id}">编辑</a></td>
+                                       </tr>
+                                       </foreach>
+                                   </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script type="text/javascript">
+            $('.tel').attr('style','position:relative;left:10px;top:10px;');
+            $('.tel').prev('img').attr('style','position:relative;left:10px;top:10px;');
+        </script>
+</block>

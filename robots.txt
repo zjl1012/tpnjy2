@@ -1,0 +1,15 @@
+User-agent: *
+Crawl-delay: 1
+
+Disallow: /admin/
+Disallow: /Addons/
+Disallow: /Data/
+Disallow: /Runtime/
+Disallow: /Thinkphp/
+Disallow: /Public/
+Disallow: /Application/
+Disallow: /Uploads/
+12456861564663
+这些出租车vcvxvcxvcx
+User-agent: 008
+Disallow: /

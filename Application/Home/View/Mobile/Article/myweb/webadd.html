@@ -1,0 +1,253 @@
+<extend name="Base/common1"/>
+<block name="body">
+<style type="text/css">
+    .glcp{border-bottom: 1px solid white;width: 100%;height: 55px;background: #f55d27;line-height: 55px;text-align: center;font-weight: 900;color:white;font-size: 18px;letter-spacing:10px;} 
+    .glcp1{width: 100%;height: 50px;background: #f55d27;line-height: 50px;text-align: center;color:white;font-size: 18px;} 
+    .ms1{width: 33.3%;height: 50px;background: #f55d27;border: none;color: white;font-size: 1rem;text-align: center;float: left;}
+    .zs1{width: 33.3%;height: 50px;background: #f55d27;;border: none;color: white;font-size: 1rem;text-align: center;float: left;}
+    .fj1{width: 33.4%;height: 50px;background: #f55d27;;border: none;color: white;font-size: 1rem;text-align: center;float: left;}
+    .xxedit{width: 50%;height: 30px;margin:0 auto;line-height: 30px;}
+    .ms2 img{width: 100%;height: 45%;}
+    .delete{float: right;font-size: 1rem;}
+    .upedit{font-size: 1rem;}
+    .color123{background: #f67b12;}
+    .xiugai{background: #000 none repeat scroll 0 0;display: none;height: 100%;margin: auto;max-width: 640px;position: fixed;top: 0px;width: 100%;z-index: 998}
+    .xiugai_son{width: 70%;margin:10% auto;text-align: center;}
+    .add{margin-left: 10%;}
+.message_btn{background:#f55d27;width: 30%;height: 30px;border:none;color:white;text-align:center;}   
+#preview img{width: 100%;height: 160px;border-radius: 20px;} 
+#preview{width: 88%;height: 160px;border-radius: 20px;border:1px solid gray;} 
+#preview1 img{width: 100%;height: 160px;border-radius: 20px;} 
+#preview1{width: 100%;height: 160px;border-radius: 20px;border:1px solid gray;} 
+</style>
+<div class="glcp1">
+  <div class="ms1 color123">美食</div>
+  <div class="zs1">住宿</div>
+  <div class="fj1">风景</div>
+</div>
+
+
+<div class="ms2" id="meishi">
+
+<foreach name="meishi" item="vo" >
+<div class="ms">
+<img class="mspic" info="{$vo.id}" src="{$vo.path}" >
+</div>
+<div class="xxedit">
+<a class="upedit" href="javascript:;" style="color:#ff7500;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/0.html" style="color:#ff7500;">删除</a>
+</div>
+<div style="width: 100%;height: 5px;background:#f0f0f0;overflow:hidden;"></div>
+<div style="width: 100%;height: 5px;overflow:hidden;"></div>
+</foreach>
+
+<foreach name="meishi1" item="vo" >
+<div class="ms">
+<img class="mspic" info="{$vo.id}" src="{$vo.path}" >
+</div>
+<div class="xxedit">
+<a class="upedit" href="javascript:;" style="color:#ff7500;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/0.html" style="color:#ff7500;">删除</a>
+</div> 
+<div style="width: 100%;height: 5px;background:#f0f0f0;overflow:hidden;"></div>
+<div style="width: 100%;height: 5px;overflow:hidden;"></div>
+</foreach>
+
+</div>
+
+
+
+
+<div class="ms2" style="display:none;" id="zhusu">
+
+<foreach name="zhusu" item="vo" >
+<div class="ms">
+<img class="mspic" info="{$vo.id}" src="{$vo.path}" >
+</div>
+<div class="xxedit">
+<a class="upedit" href="javascript:;" style="color:#ff7500;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/1.html" style="color:#ff7500;">删除</a>
+</div>
+<div style="width: 100%;height: 5px;background:#f0f0f0;overflow:hidden;"></div>
+<div style="width: 100%;height: 5px;overflow:hidden;"></div>
+</foreach>
+
+<foreach name="zhusu1" item="vo" >
+<div class="ms">
+<img class="mspic" info="{$vo.id}" src="{$vo.path}" >
+</div>
+<div class="xxedit">
+<a class="upedit" href="javascript:;" style="color:#ff7500;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/1.html" style="color:#ff7500;">删除</a>
+</div> 
+<div style="width: 100%;height: 5px;background:#f0f0f0;overflow:hidden;"></div>
+<div style="width: 100%;height: 5px;overflow:hidden;"></div>
+</foreach>
+
+</div>
+
+
+
+
+<div class="ms2" style="display:none;" id="fengjing">
+
+<foreach name="fengjing" item="vo" >
+<div class="ms">
+<img class="mspic" info="{$vo.id}" src="{$vo.path}" >
+</div>
+<div class="xxedit">
+<a class="upedit" href="javascript:;" style="color:#ff7500;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/2.html" style="color:#ff7500;">删除</a>
+</div>
+<div style="width: 100%;height: 5px;background:#f0f0f0;overflow:hidden;"></div>
+<div style="width: 100%;height: 5px;overflow:hidden;"></div>
+</foreach>
+
+<foreach name="fengjing1" item="vo" >
+<div class="ms">
+<img class="mspic" info="{$vo.id}" src="{$vo.path}" >
+</div>
+<div class="xxedit">
+<a class="upedit" href="javascript:;" style="color:white;">修改</a><a class="delete" href="/Vip/delete/gid/{$id}/picid/{$vo.id}/type/2.html" style="color:white;">删除</a>
+</div> 
+<div style="width: 100%;height: 5px;background:#f0f0f0;overflow:hidden;"></div>
+<div style="width: 100%;height: 5px;overflow:hidden;"></div>
+</foreach>
+</div>
+<br>
+<div class="add">
+<div id="preview"></div>
+<br>
+<form action="{:U('Vip/webadd1')}" enctype="multipart/form-data" method="post">
+<input type="file" name="t123" onchange="previewImage(this)" class="ttt1" />
+<br><br>
+<input type="hidden" name="id" value="{$id}">
+<ul class="renyuanmess">
+<li>
+<label>选择分类</label>
+<select name="flxz" id="flxz">
+<option value='0'>美食</option>
+<option value='1'>房间</option>
+<option value='2'>风景</option>
+</select>
+</li>
+<br>
+<li>
+<input type="submit" value="保&nbsp;&nbsp;存" class="message_btn" />
+</li>
+</ul>
+</form>
+</div>
+<div class="xiugai" style="display: ;">
+<div class="xiugai_son">
+  <form action="{:U('Vip/webxiugai')}" enctype="multipart/form-data" method="post" style="margin:0 auto;">
+  <div id="preview1"></div>
+  <br>
+  <input type="file" name="x123" onchange="previewImage1(this)" class="ttt2"/>
+  <input type="hidden" name="gid" value="{$id}">
+  <input type="hidden" name="picid" value="">
+  <input type="hidden" name="flmc" value="">
+  <br><br>
+  <div style="width: 100%;height: 50px;">
+    <input type="submit" value="保&nbsp;&nbsp;存" class="message_btn" style="float:left;" />
+    <button class="gb message_btn" style="float:right;">取消修改</button> 
+  </div>
+  </from>
+  </div>
+</div>  
+</div>
+<span class="njy_title" style="display:none;">{$title}</span>
+<script type="text/javascript">
+$('.gb').click(function(){
+  $('.xiugai').css('display','none');
+  return false;
+});
+
+$('.upedit').click(function(){
+  var img=$('<img src="'+$(this).parent('div').prev('div').find('img').attr('src')+'" width="50%" height="50%">');
+  $('#preview1').find('img').remove();
+  $('#preview1').append(img);
+  $('input[name="picid"]').val($(this).parent('div').prev('div').find('img').attr('info'));
+  $('input[name="flmc"]').val($('.color123').html());
+  $('.xiugai').css('display','block');
+});
+
+$('.ms1').live('click',function(){
+  $(this).attr('class','ms1 color123');
+  $('.zs1').attr('class','zs1');
+  $('.fj1').attr('class','fj1');
+  $('#meishi').css('display','block');
+  $('#zhusu').css('display','none');
+  $('#fengjing').css('display','none');
+});
+
+$('.zs1').live('click',function(){
+  $(this).attr('class','zs1 color123');
+  $('.ms1').attr('class','ms1');
+  $('.fj1').attr('class','fj1');
+  $('#meishi').css('display','none');
+  $('#zhusu').css('display','block');
+  $('#fengjing').css('display','none');
+});
+
+$('.fj1').live('click',function(){
+  $(this).attr('class','fj1 color123');
+  $('.zs1').attr('class','zs1 ');
+  $('.ms1').attr('class','ms1 ');
+  $('#meishi').css('display','none');
+  $('#zhusu').css('display','none');
+  $('#fengjing').css('display','block');
+});
+
+    function previewImage(file) {
+        var MAXWIDTH = 40;
+        var MAXHEIGHT = 110;
+        var div = document.getElementById('preview');
+        if (file.files && file.files[0]) {
+            div.innerHTML = '<img id=imghead>';
+            var img = document.getElementById('imghead');
+            img.onload = function () {
+                img.width = MAXWIDTH;
+                img.height = MAXHEIGHT;
+            }
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                img.src = evt.target.result;
+            }
+            reader.readAsDataURL(file.files[0]);
+        }else{  //兼容IE
+            var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            file.select();
+            var src = document.selection.createRange().text;
+            div.innerHTML = '<img id=imghead>';
+            var img = document.getElementById('imghead');
+            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            div.innerHTML = "<div id=divhead style='width:"+MAXWIDTH+"px;height:"+MAXHEIGHT+"px;"+sFilter+src+"\"'></div>";
+        }
+    }
+
+    function previewImage1(file) {
+        var MAXWIDTH = 40;
+        var MAXHEIGHT = 110;
+        var div = document.getElementById('preview1');
+        if (file.files && file.files[0]) {
+            div.innerHTML = '<img id=imghead1>';
+            var img = document.getElementById('imghead1');
+            img.onload = function () {
+                img.width = MAXWIDTH;
+                img.height = MAXHEIGHT;
+            }
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                img.src = evt.target.result;
+            }
+            reader.readAsDataURL(file.files[0]);
+        }else{  //兼容IE
+            var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            file.select();
+            var src = document.selection.createRange().text;
+            div.innerHTML = '<img id=imghead1>';
+            var img = document.getElementById('imghead1');
+            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            div.innerHTML = "<div id=divhead1 style='width:"+MAXWIDTH+"px;height:"+MAXHEIGHT+"px;"+sFilter+src+"\"'></div>";
+        }
+    }
+    $('.qnj_wap_headtitle_vipson2').find('h1').html($('.njy_title').html());
+</script> 
+<div style="height:100px;"></div>
+</block>

@@ -1,0 +1,111 @@
+<extend name="Base/common"/>
+<block name="head">
+<script type="text/javascript" src="__JS__/jquery-1.8.3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/public_css.css-v=20170815.1.css"  />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/head_foot.css-v=20170815.1.css"  />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/calendar.css-v=20170815.1.css" />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/njl_main.css-v=20170815.1.css" />
+<link rel="stylesheet" type="text/css" href="__CSS__/qnj/swiper-3.4.1.min.css"  />
+</block>
+<block name="slide"></block>
+<block name="body">
+<link rel="stylesheet" href="/Public/Home/css/vip.css" />
+<style type="text/css">
+#preview{width: 180px;height: 180px;border: 1px solid gray;overflow: hidden;position: absolute;left:384px;top:200px;z-index: 1;}
+.ttt1{position: absolute;left:384px;top:582px;z-index: 1;display: none;}
+.ttt{color: white;height: 26px;text-align: center;width: 72px;background: #1b843a;position: absolute;left:384px;top:392px;z-index: 10;font-size: 15px;}
+.sx{width: 115px; height: 40px; background: #3680ea none repeat; border: medium none; border-radius: 5px;color:white;position: absolute;top:248px;left:1095px;z-index: 2;}
+.sx:hover{background: #86b0ec none repeat;}
+.zmore{margin-left:595px;margin-top:-153px;}
+.zmore:hover{text-decoration:none;}
+  .z0{border-collapse: collapse;font-size: 15px;}
+  .bbj{font-size: 15px;}
+</style>
+<a href="javascript:;" class="z"><div class="ttt">上传图片</div></a>
+<div id="preview"><img src="{$list.path}" width="180" height="180" ></div>
+                                        <button class="sx">预约刷新</button>
+
+<form action="/Home/Vip/webupdate" enctype="multipart/form-data" method="post">
+<input type="hidden" name="id" value="{$list.id}">
+<input type="hidden" name="pic" value="{$list.path}">
+<input type="hidden" name="username" value="{$username}">
+<input type="file" name="t123" onchange="previewImage(this)" class="ttt1"/>
+<section>
+            <div class="memb">
+                <div class="container clearfix">
+                    <div class="memb1">
+                        <ul>
+                            <li class="message"><a class="bbj" href="/Home/Login/vip"><i><img src="__IMG__/center_08.png" alt="" /></i>个人资料</a></li>
+                            <li class="message"><a class="bbj" href="/Home/Vip/myweb"><i><img src="__IMG__/center_08.png" alt="" /></i>我的农家院</a></li>
+                            <li class="message"><a class="bbj" href="/Home/Vip/tzxl"><i><img src="__IMG__/center_08.png" alt="" /></i>我的拓展</a></li>
+                        </ul>
+                    </div>
+                    <div class="memb2">
+                        <div class="page personmes">
+                            <div class="person1">
+                                <h1>产品基本信息</h1>
+                                <div class="person2">
+                                        <ul class="renyuanmess">
+                                            <li> <label>名称</label><input type="text" name="xingming" disabled="" value="{$list.title}" class="check" /> </li>
+                                            <li><label>联系电话：</label><input type="text" name="dianhua" value="{$list.phone}" class="check" /></li>
+                                            <li>
+                                                <label>拓展介绍：</label> <textarea name="ziwojieshao" rows="" cols="" class="check">{$list.description}</textarea>
+                                            </li>
+                                            
+                                            <li>
+                                                <input type="submit" value="保存" class="message_btn" />
+                                            </li>
+                                        </ul>
+                                        </from>
+            <!-- <div class="zmore"><a href="/Home/Vip/tzxladd/id/{$list.id}">管理产品</a></div> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<script type="text/javascript">
+
+$('.z').click(function(){
+$('input[name="t123"]').trigger("click");
+});
+
+$('.message_btn').click(function(){
+var a=$('input[name="qqid"]').val();
+var b=$('input[name="dianhua"]').val();
+if(!b.match(/^(((13[0-9]{1})|159|153)+\d{8})$/)){
+alert('手机号格式不正确');
+return false;
+}
+});
+
+$('.sx').click(function(){
+    var id=$('input[name="id"]').val();
+    $.ajax({
+        url:'/Home/Vip/websx',
+        type:'post',
+        data:{'id':id},
+        async:false,
+        success:function(mes){
+            if(mes=='0'){
+                alert('刷新成功');
+                return false;
+            }else if(mes=='1'){
+                alert('刷新失败');
+                return false;
+            }else if(mes=='10'){
+                alert('您的产品已置顶无需刷新');
+                return false;
+            }else if(mes=='5'){
+                alert('您的产品已推广无需刷新');
+                return false;
+            }
+        }
+    });
+});
+</script>   
+<script type="text/javascript" src="__JS__/tupian.js"></script>    
+
+</block>

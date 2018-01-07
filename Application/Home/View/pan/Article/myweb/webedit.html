@@ -1,0 +1,68 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+  <link rel="stylesheet" type="text/css" href="__CSS__/pc/qnjuser.css">
+  <div style="width: 1423px;height: 20px;border-top:1px solid #eaeaea;margin:0 auto;"></div>
+  <div class="vip_main">
+    <div class="vip_main1">
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Login/vip')}" style="text-decoration: none;font-size:18px;">个人资料</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/vipint')}" style="text-decoration: none;font-size:18px;">会员积分</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/mymoney')}" style="text-decoration: none;font-size:18px;">我的钱包</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/myweb')}" style="text-decoration: none;font-size:18px;color:#ff7500">我的农家院</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/njyzhiding')}" style="text-decoration: none;font-size:18px;">农家置顶</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/njytuiguang')}" style="text-decoration: none;font-size:18px;">农家推广</a>
+        </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/expanduser')}" style="text-decoration: none;font-size:18px;">推广专员</a>
+      </div>
+    </div>   
+    <style type="text/css">
+      .njy_vip_ming{width: 980px;height: 60px;}
+      .njy_vip_mingl{width: 630px;height: 60px;float:left;line-height: 60px;font-size:24px;}
+      .njy_vip_mingr{width: 340px;height: 60px;float:left;}
+      .qnj_shuanxin,.qnj_xqxiugai{width: 140px;height: 50px;background: #ff5100;float:left;line-height: 50px;margin: 4px 12px;font-size: 18px;color:#fff;text-align: center;}
+      .qnj_shuanxin:hover,.qnj_xqxiugai:hover{background: #ff5100b3;}
+    </style>    
+    <div class="vip_main2" style="height: 700px;">
+      <div class="njy_vip_ming">
+        <div class="njy_vip_mingl">
+          {$list.title}
+        </div>
+        <div class="njy_vip_mingr">
+          <a href="/Vip/websx/id/{$list.id}.html" class="sx"><div class="qnj_shuanxin">预约刷新</div></a>
+          <a href="/Vip/webadd/id/{$list.id}/title/{$list.title}.html"><div class="qnj_xqxiugai">详情修改</div></a>
+        </div>
+      </div>
+
+      <form action="{:U('Vip/webupdate')}" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="id" value="{$list.id}">
+        <input type="hidden" name="picid" value="{$list.picid}">
+        <div class="vip_main2_l">
+          <div id="preview"><img src="{$list.path}" width="180" height="180" ></div><br>
+          <input type="file" name="t123" onchange="previewImage(this)"/>       
+        </div>
+        <div class="vip_main2_r">
+          <div style="height: 40px;"></div>
+          <li> <label>农家院标题：</label><input type="text" disabled="" value="{$list.title}" class="vipming" /> </li>
+          <li class="sex"> <label>联系电话：</label>&nbsp;&nbsp;&nbsp;
+            <input type="text" name="dianhua" value="{$list.phone}" class="check" />
+          </li>
+          <li style="width: 700px;height: 320px;"><label>景点介绍：</label><textarea name="ziwojieshao" style="width: 700px;height: 260px;">{$list.content}</textarea></li>
+          <li><input type="submit" value="保&nbsp;&nbsp;&nbsp;存" class="message_btn" /></li>
+        </div>
+      </form>    
+    </div>
+  </div>
+  <script type="text/javascript" src="__JS__/tupian.js"></script>                    
+</block>

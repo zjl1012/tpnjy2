@@ -1,0 +1,51 @@
+<!-- qq 客服 -->
+<link rel="stylesheet" type="text/css" href="__ADDONROOT__/css/service.css"/>
+<script id="jquery_144" type="text/javascript" class="library" src="__STATIC__/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="__ADDONROOT__/js/jquery.fixed.1.5.1.js"></script>
+
+<div class="fixed_box" id="fixedBox">
+    <div class="content_box">
+        <div class="content_inner">
+            <div class="close_btn"><a title="关闭"><span>关闭</span></a></div>
+            <div class="content_title"><span>客服中心</span></div>
+            <div class="content_list">
+                <div class="qqserver">
+                    <foreach name="numbers" item="vo" key="key">
+                    <p>
+                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$vo}&site=qq&menu=yes">
+                            <img border="0" src="http://wpa.qq.com/pa?p=2:1690704269:41" alt="点击这里给我发消息" title="点击这里给我发消息">
+                            <span>{$names[$key]}</span>
+                        </a>
+                    </p>
+                    </foreach>
+                </div>
+                <hr class="qqhr">
+                <div class="phoneserver">
+                    <h5>客户服务热线</h5>
+                    <p>请直接QQ联系！</p>
+                </div>
+            </div>
+            <div class="content_bottom"></div>
+        </div>
+    </div>
+    <div class="show_btn"><span>展开客服</span></div>
+</div>
+<script language="javascript">
+    //must window loading,don't use the document loading
+    $(window).load(function(){
+        //悬浮客服
+        $("#fixedBox").fix({
+            position 		: "{$config.position}",	//悬浮位置 - left或right
+            horizontal  	: {$config.horizontal},		//水平方向的位置 - 默认为数字
+            vertical    	: {$config.vertical},      //垂直方向的位置 - 默认为null
+            halfTop     	: true,	    //是否垂直居中位置
+            minStatue 		: {$config.minStatue},	//是否最小化
+            hideCloseBtn 	: false,	//是否隐藏关闭按钮
+            skin 			: "{$config.skin}",	//皮肤
+            showBtnWidth 	: 28,       //show_btn_width
+            contentBoxWidth : 154, 		//side_content_width
+            durationTime 	: 1000		//完成时间
+        });
+
+    });
+</script>

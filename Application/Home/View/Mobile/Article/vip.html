@@ -1,0 +1,58 @@
+<extend name="Base/common1"/>
+<block name="body">
+<style type="text/css">
+    .userhead{width: 100%;height: 185px;text-align: center;background:url(/Public/Home/images/wap/userbg.jpg);overflow: hidden;}
+    .userhead img{width: 40%;height: 110px;border-radius: 20px;}
+    .userhead span{color: #fff;font-size: 1.2rem;font-weight: bold;}
+    .actionlist{width: 100%;height: auto;overflow: hidden;}
+    .actionlist ul li{height: 30px;margin-top: 10px;}
+    .listl{width: 84%;float: left;line-height: 30px;margin-left: 3%;overflow: hidden;}
+    .listr{width: 10%;float: left;line-height: 30px;overflow: hidden;}
+    .userauto{display: none;overflow: hidden;height: 50px;width: 50%;margin: 0 auto;}
+</style>
+<div class="userhead">
+<br>
+    <img src="{$list.pic}">
+    <br><br><span>{$list.username}</span>
+</div>
+<div style="height:10px;"></div>
+<div class="actionlist">
+    <ul>
+    <a href="javascript:;" class="zhsz"><li class="listl">账户设置</li><li class="listr"><img src="__IMG__/listr.png"></li></a>
+    <div class="userauto">
+        <a class="update" href="/Vip/wapvip.html"><p>修改信息</p></a>
+        <a class="update" href="/Vip/editpass.html"><p style="margin-top:10px;">修改密码</p></a>
+    </div>    
+    <div style="border-bottom: 1px dashed #000;width: 100%;overflow:hidden;height: 5px;"></div>
+    <a href="/Vip/vipint.html"><li class="listl">会员积分</li><li class="listr"><img src="__IMG__/listr.png"></li></a>
+    <div style="border-bottom: 1px dashed #000;width: 100%;overflow:hidden;height: 5px;"></div>
+    <a href="/Vip/mymoney.html"><li class="listl">我的钱包&nbsp;&nbsp;&nbsp;：{$list['mymoney']}￥</li><li class="listr"><img src="__IMG__/listr.png"></li></a>
+    <div style="border-bottom: 1px dashed #000;width: 100%;overflow:hidden;height: 5px;"></div>
+    <a href="/Vip/myweb.html"><li class="listl">我的农家院</li><li class="listr"><img src="__IMG__/listr.png"></li></a>
+    <div style="border-bottom: 1px dashed #000;width: 100%;overflow:hidden;height: 5px;"></div>
+    <a href="/Vip/njyzhiding.html"><li class="listl">农家置顶</li><li class="listr"><img src="__IMG__/listr.png"></li></a>
+    <div style="border-bottom: 1px dashed #000;width: 100%;overflow:hidden;height: 5px;"></div>
+    <a href="/Vip/njytuiguang.html"><li class="listl">农家推广</li><li class="listr"><img src="__IMG__/listr.png"></li></a>
+    <div style="border-bottom: 1px dashed #000;width: 100%;overflow:hidden;height: 5px;"></div>
+    <a href="/Vip/expanduser.html"><li class="listl">推广专员</li><li class="listr"><img src="__IMG__/listr.png"></li></a>
+    <div style="border-bottom: 1px dashed #000;width: 100%;overflow:hidden;height: 5px;"></div>
+    <a href="/Login/quit.html"><li class="listl">退出登录</li><li class="listr"><img src="__IMG__/listr.png"></li></a>
+    <div style="border-bottom: 1px dashed #000;width: 100%;overflow:hidden;height: 5px;"></div>
+    </ul>
+</div>
+<div style="height:100px;"></div>
+<script type="text/javascript">
+var f=true;
+      $('.zhsz').click(function(){
+        if(f==true){
+            $('.userauto').css('display','block');
+            $(this).find('li:eq(1)').find('img').attr('src','__IMG__/jiao.png').css({'margin-top':'7px','margin-left':'0px'});
+            f=false;
+        }else{
+            $('.userauto').css('display','none');
+            $(this).find('li:eq(1)').find('img').attr('src','__IMG__/listr.png').css({'margin-top':'0px','margin-left':'0px'});
+            f=true;            
+        }
+      });
+</script>
+</block>

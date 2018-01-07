@@ -1,0 +1,42 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="nav"></block>
+<block name="body">
+    <include file="Public/ernav"/>
+    <div class="banner" >
+        <a href="" ><img src="{:get_cover(C('DESTINATION'),'path')}"></a>
+    </div>
+    <link href="__CSS__/wap/mdd/wap_style.css" rel="stylesheet" type="text/css">
+    <link href="__CSS__/wap/mdd/wap_index.css" rel="stylesheet" type="text/css">
+    <script language="javascript" src="__JS__/wap/mdd/mobilejsjquery-2.js" type="text/javascript" crossorigin="anonymous"></script>
+    <div id="pos38"></div>
+    <script language="javascript" src="__JS__/wap/mdd/jquery.js" type="text/javascript" crossorigin="anonymous"></script>
+    <div class="warpper">
+        <div class="hide" id="_j_pushmdds">	</div>		
+        <section class="block">
+            <a class="item-hd" href="">
+                <h2>{:get_category_title($_category['id'])}</h2>
+                <p class="dec">最受大家喜欢的目的地推荐</p>
+            </a>
+            <div class="tab-con" data-tabname="国内">
+                <div class="item-list clearfix">
+                    <foreach name="mddcity" item="vo">
+                    <a href="/Article/aimtwo/name/aim/category/{$vo.name}/city/{$vo.city}.html">
+                            <img src="{$vo.path}" data-original="" style="display: inline;">
+                            <div class="title">{$vo.title}</div>
+                        </a>
+                    </foreach>	
+                </div>
+                <style>
+                    .page{ text-align:left; padding:10px 0; font-size:12px; width:100%; margin:0 auto;}
+                    .page a{ padding:5px; margin:5px; border:1px solid #ccc; color:#888; text-decoration:none;}
+                    .page span.current{ padding:5px; margin:5px; font-weight:700;}
+                    .page a:hover{ background-color:#e3e3e3;}
+                </style>
+                <div class="page">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</block>

@@ -1,0 +1,141 @@
+<extend name="Base/common"/>
+<block name="nav">
+<div class="qnj_nav">
+    <div class="qnj_logo">
+        <a href="/"><img src="{:get_cover(C('WEB_SITE_LOGO'),'path')}" style="width: 230px;height: 82px;"></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="qgmouseover" id="qnj_quanguo" style="font-size:13px;position:relative;top:-55px;">[全国农家]
+            <div class="qnj_quanguo" >
+                <foreach name="cheng3" item="vo" >   
+                    <div class="qnj_quanguo2">
+                        <p style="margin-top: 15px;">{$key}</p>
+                        <ul class="qnj_quanguo1">
+                            <foreach name="vo" item="vo1" >   
+                                <li><a target="_blank" href="/Home/Article/scity/title/{$vo1.title}/name/{$vo1.name}">{$vo1.title}</a></li>
+                            </foreach>
+                        </ul>
+                        <p><br></p>
+                    </div> 
+                </foreach>
+            </div>
+        </a>
+    </div>
+    <div class="qnj_title">
+        <ul class="qnj_nav_title">
+                <volist name=":get_category_lists(142,ture)" id="cpfl" offset="0">
+            <li class="active1"><a href="{:U('Article/index?category='.$cpfl['name'])}">{$cpfl.title}</a></li>
+                </volist>
+    </ul>
+    
+    <div class="qnj_login">
+    <if condition="$username eq ''">
+        <a href="{:U('/Home/Login/login')}" style="color:#000">登录</a>
+        &nbsp;<span style="color:#000">｜</span>&nbsp;
+        <a href="/home/login/register" style="color:#ff7500">注册</a>
+        <else/>  
+        <a href="/Home/Login/vip" style="color:#000">欢迎：{$username}</a>
+        &nbsp;<span style="color:#000">｜</span>&nbsp;
+        <a href="/home/login/quit" style="color:#ff7500">退出</a>
+    </if>  
+    <p style="color:#f7c06c;"><img src="__IMG__/more_phone.png">&nbsp;电话：{:C('WEB_SITE_TEL')}</p>
+</div>
+</div>
+
+</div>
+
+
+</block>
+
+<block name="slide"></block>
+<block name="body">
+
+    <link rel="stylesheet" href="__CSS__/pc/tuiguang/tui.css"/>
+	
+<div class="dxtgBanner jumpTarget">
+    <img src="__IMG__/tuiguang/cptg.jpg" width="100%"/>
+    <!--<a href="" class="toAccess">立即开通</a>-->
+</div>
+<ul class="hfggList">
+    <li class="hfggLi1 jumpTarget">
+        <p class="advHead">产品推广&nbsp;&nbsp;前排展示</p>
+        <div  style="width: 822px;height: 329px;background-position: center 0;margin: 0 auto 0;"><img src="__IMG__/tuiguang/hfad-desc.png"></div>
+    </li>
+    <li class="hfggLi2 jumpTarget">
+        <i class="triangle"></i>
+        <p class="advHead">定制推广&nbsp;&nbsp;做您所需</p>
+        <div class="displayPic"></div>
+    </li>
+</ul>
+<div id="float_bottom_link"></div>
+<div class="bottomBarBg"></div>
+<div class="bottomBar">
+    <div class="centerBox">
+        <div>去农家旅游网推广</div>
+        <ul class="tg-bottomRight">
+            <li class="bottomQQ">
+                <a target="_blank" href="">
+                    <i class="barQQIcon"></i>
+                    QQ咨询
+                </a>
+            </li>
+            <li class="hot-tel"><span style="font-size:16px;color:#fff;">推广咨询热线：</span><span class="telNum">{:C('WEB_SITE_TEL')}</span></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function showBar(sellector,showTop){
+        $(window).on('scroll',function(){
+            var scrollTop = $(window).scrollTop();
+            var windowHeight = document.documentElement.clientHeight;
+            if(scrollTop > showTop - windowHeight/2){
+                $(sellector).fadeIn(300);
+            }else{
+                $(sellector).fadeOut(300);
+            }
+        });
+    }
+    function jumpTo(jumper,target,top,bindEvent){     //jumper:点击目标[选择器]、target:滚动至何处[选择器]、bandEvent：指定触发事件,jumper  和  target  的个数要一致,top为数组
+        $(jumper).each(function(index){
+            $(this).on(bindEvent,function(){
+                $(jumper).removeClass('current');
+                $(this).addClass('current');
+                if($(this).hasClass('backTop')){
+                    $(window).scrollTop(0);
+                    return;
+                }
+                var scrollTop = $($(target)[index]).offset().top + top[index];
+                $(window).scrollTop(scrollTop);
+            });
+        });
+    }
+    function changeTab(taber,target,bindEvent,move){      //taber:点击目标[选择器]、target:切换模块[选择器]、bandEvent：指定触发事件,jumper  和  target  的个数要一致,move：模块向下移动的距离
+        $(taber).each(function(index){
+            $(this).on(bindEvent,function(){
+                $(this).addClass('current').siblings('li').removeClass('current');
+                $(target).css({opacity:0,top:0,position:'relative'}).hide(0,function(){
+                    $($(target)[index]).show(0,function(){
+                        $($(target)[index]).stop().animate({top:move + 'px',opacity:1},500);
+                    });
+                });
+            });
+        });
+    }
+    function changeCurrent(changer,target){     //changer为按钮,target为分界点,top为数组
+        $(window).on('scroll',function(){
+            var scrollTop = $(window).scrollTop();
+            $(target).each(function(index){
+                if(scrollTop > $(this).offset().top - document.documentElement.clientHeight/4){
+                    $(changer).removeClass('current');
+                    $($(changer)[index]).addClass('current');
+                }
+            });
+        });
+    }
+    showBar('.sideBar,.bottomBar,.bottomBarBg',800);
+</script>
+<script>
+    jumpTo('.sideBar a','.jumpTarget',[-40,0,0],'click');
+    changeCurrent('.sideBar a','.jumpTarget');
+</script>
+</block>

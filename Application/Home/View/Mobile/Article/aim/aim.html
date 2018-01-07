@@ -1,0 +1,222 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="nav"></block>
+<block name="body">
+    <include file="Public/ernav"/>
+    <div class="banner" >
+        <a href="" ><img src="{:get_cover(C('DESTINATION'),'path')}"></a>
+    </div>
+    <link href="__CSS__/wap/mdd/wap_style.css" rel="stylesheet" type="text/css">
+    <link href="__CSS__/wap/mdd/wap_index.css" rel="stylesheet" type="text/css">
+    <script language="javascript" src="__JS__/wap/mdd/mobilejsjquery-2.js" type="text/javascript" crossorigin="anonymous"></script>
+    <div id="pos38"></div>
+    <script language="javascript" src="__JS__/wap/mdd/jquery.js" type="text/javascript" crossorigin="anonymous"></script>
+    <div class="warpper">
+        <div class="hide" id="_j_pushmdds">	</div>		
+        <section class="block">
+            <a class="item-hd" href="">
+                <h2>热门目的地</h2>
+                <p class="dec">最受大家喜欢的目的地推荐</p>
+            </a>
+            <div class="scopebar">
+                <div class="scrollview">
+                    <div class="conbox">
+                        <a href="javascript:void(0);" class="cur">全国</a>
+                        <a href="javascript:void(0);">北京</a>
+                        <a href="javascript:void(0);">天津</a>
+                        <a href="javascript:void(0);">河北</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-con" data-tabname="国内">
+                <div class="item-list clearfix">
+                    <volist name=":get_category_lists($_category['id'],ture)" id="cpfl" offset="0" >
+                    <a href="{:U('Article/index?category='.$cpfl['name'])}">
+                            <img src="{:get_cover(get_category($cpfl['id'],'icon'),'path')}" data-original="" style="display: inline;">
+                            <div class="title">{$cpfl.title}</div>
+                        </a>
+                    </volist>
+                </div>
+                <div class="showmore"><a href="">更多目的地</a></div>
+            </div>
+            <div class="tab-con" data-tabname="北京" style="display:none;">
+                <div class="item-list clearfix">
+                    <volist name="aimwapbejingres" id="vo" offset="0" length='6'>
+                        <a href="">
+                            <img src="{$vo.path}" data-original="">
+                            <div class="title">{$vo.title}</div>
+                        </a>
+                    </volist>
+                </div>
+                <div class="showmore"><a href="">更多目的地</a></div>
+            </div>
+            <div class="tab-con" data-tabname="天津" style="display:none;">
+                <div class="item-list clearfix">
+                </div>
+                <div class="showmore">
+                    <a href="">更多目的地</a>
+                </div>
+            </div>
+            <div class="tab-con" data-tabname="河北" style="display:none;">
+                <div class="item-list clearfix">
+                </div>
+                <div class="showmore">
+                    <a href="">更多目的地</a>
+                </div>
+            </div>
+        </section>
+        <section class="block">
+            <a class="item-hd" href="">
+                <h2>当季推荐</h2>
+                <p class="dec">每月最适合前往的目的地推荐</p>
+            </a>
+            <div class="scopebar">
+                <div class="scrollview">
+                    <div class="conbox" id="aim_month">
+                        <a href="javascript:void(0);" class="cur">1月</a>
+                        <a href="javascript:void(0);">2月</a>
+                        <a href="javascript:void(0);">3月</a>
+                        <a href="javascript:void(0);">4月</a>
+                        <a href="javascript:void(0);">5月</a>
+                        <a href="javascript:void(0);">6月</a>
+                        <a href="javascript:void(0);">7月</a>
+                        <a href="javascript:void(0);">8月</a>
+                        <a href="javascript:void(0);">9月</a>
+                        <a href="javascript:void(0);">10月</a>
+                        <a href="javascript:void(0);">11月</a>
+                        <a href="javascript:void(0);">12月</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item-list clearfix" id="aim_month_son">
+                <volist name="aim1" id="vo" offset="0" length='6'>
+                    <a href="{:U('Article/detail?id='.$vo['id'])}"><img src="{$vo.path}" data-original=""><div class="title">{$vo.title}</div></a>
+                </volist>
+            </div>
+            <div class="showmore">
+                <a href="/">更多目的地</a>
+            </div>
+        </section>			
+        <section class="block">
+            <a class="item-hd" href="/mdd/filter.html">
+                <h2>季节精选</h2>
+                <p class="dec">大量主题出行，个性化你的旅行</p>
+            </a>
+            <div class="scopebar">
+                <div class="scrollview">
+                    <div class="conbox">
+                        <a href="javascript:void(0);" class="cur">春&nbsp;&nbsp;spring</a>
+                        <a href="javascript:void(0);">夏&nbsp;&nbsp;summer</a>
+                        <a href="javascript:void(0);">秋&nbsp;&nbsp;autumn</a>
+                        <a href="javascript:void(0);">冬&nbsp;&nbsp;winter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-con" data-tabname="春&nbsp;&nbsp;spring">
+                <div class="item-list clearfix ">
+                    <volist name="seares" id="vo" offset="0" length='6'>
+                        <a href="{:U('Article/detail?id='.$vo['id'])}">
+                            <img src="{$vo.path}" data-original="" style="display: inline;">
+                            <div class="title">{$vo.title}</div>
+                        </a>
+                    </volist>
+                </div>
+                <div class="showmore">
+                    <a href="/">更多主题</a>
+                </div>
+            </div>
+            <div class="tab-con" data-tabname="夏&nbsp;&nbsp;summer" style="display:none;">
+                <div class="item-list clearfix ">
+                    <volist name="searesx" id="vo" offset="0" length='6'>
+                        <a href="{:U('Article/detail?id='.$vo['id'])}">
+                            <img src="{$vo.path}" data-original="" style="display: inline;">
+                            <div class="title">{$vo.title}</div>
+                        </a>
+                    </volist>
+                </div>
+                <div class="showmore">
+                    <a href="/">更多主题</a>
+                </div>
+            </div>
+            <div class="tab-con" data-tabname="秋&nbsp;&nbsp;autumn" style="display:none;">
+                <div class="item-list clearfix ">
+                    <volist name="searesq" id="vo" offset="0" length='6'>
+                        <a href="{:U('Article/detail?id='.$vo['id'])}">
+                            <img src="{$vo.path}" data-original="" style="display: inline;">
+                            <div class="title">{$vo.title}</div>
+                        </a>
+                    </volist>
+                </div>
+                <div class="showmore">
+                    <a href="/">更多主题</a>
+                </div>
+            </div>
+            <div class="tab-con" data-tabname="冬&nbsp;&nbsp;winter" style="display:none;">
+                <div class="item-list clearfix ">
+                    <volist name="searesd" id="vo" offset="0" length='6'>
+                        <a href="{:U('Article/detail?id='.$vo['id'])}">
+                            <img src="{$vo.path}" data-original="" style="display: inline;">
+                            <div class="title">{$vo.title}</div>
+                        </a>
+                    </volist>
+                </div>
+                <div class="showmore">
+                    <a href="/">更多主题</a>
+                </div>
+            </div>
+        </section>
+    </div>
+<script type="text/javascript">
+    $('img').lazyload({
+        threshold: 30,
+        skip_invisible:true,
+        placeHolder: ''
+    });
+    $('.scrollview a').click(function () {
+        var $this = $(this), index = $this.index();
+        $this.addClass('cur').siblings().removeClass('cur').end().closest('.block').find('.tab-con').hide().eq(index).show();
+        $(window).trigger('scroll');
+    }).filter('.cur').each(function(){
+        var $this =$(this),$con = $this.closest('.scrollview');
+        if ($con[0].scrollLeft + $con.width() < $this.offset().left + $this.outerWidth()) {
+            $con[0].scrollLeft = $this.offset().left + $this.outerWidth() - $con.width();
+        }
+    });
+    function pageEventStat(block, kind, mdd) {
+        mfwPageEvent('mdd', 'mdd_m_index', {
+            block: block != undefined ? $.trim(block) : block,
+            kind: kind != undefined ? $.trim(kind) : kind,
+            mdd: mdd != undefined ? $.trim(mdd) : mdd
+        });
+    }
+    $(function () {
+        pageEventStat('页面访问');
+        $(document).delegate('.block a[href]', 'click', function (e) {
+            pageEventStat($(this).closest('.block').find('.item-hd h2').text(),
+                    $(this).find('h2').length ? '标题' : ($(this).closest('.tab-con').data('tabname') || '标签切换'),
+                    $(this).find('h2').length ? undefined : ($(this).find('.title').text() || $(this).text())
+            );
+        }).delegate('.focus a[href]', 'click', function (e) {
+            pageEventStat('头图');
+        });
+    });
+
+$('#aim_month').find('a').click(function(){
+    var month=$(this).html();
+    $.ajax({
+    url:'/Article/aimmonth1',
+    type:'post',
+    data:{'month':month},
+    dataType:'json',
+    success:function(mes){
+    $('#aim_month_son').find('a').remove();
+            $(mes).each(function(i){
+                var yue=$('<a href="/Article/detail/id/'+$(this).attr('id')+'.html"><img src="'+$(this).attr('path')+'"><div class="title">'+$(this).attr('title')+'</div></a>');
+                $('#aim_month_son').append(yue);
+            });
+        }
+    });
+});
+
+</script>
+</block>

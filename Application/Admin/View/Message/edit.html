@@ -1,0 +1,139 @@
+<extend name="Public/base" />
+
+<!-- 子导航 -->
+<block name="sidebar">
+    <include file="sidemenu" />
+</block>
+
+<block name="body">
+
+
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+	<div class="main-title cf">
+		<h2>
+			编辑留言 [
+			<a href="{:U('message/index')}">留言板</a>
+			]
+		</h2>
+	</div>
+	<!-- 标签页导航 -->
+<div class="tab-wrap">
+	<ul class="tab-nav nav">
+		<li data-tab="tab1" class="current"><a href="javascript:void(0);">基础</a></li>
+	</ul>
+	<div class="tab-content">
+	<!-- 表单 -->
+	<form action="{:U('message/update')}" method="post" class="form-horizontal">
+		<!-- 基础文档模型 -->
+		<input type="hidden" name="id" value="{$list.id}">
+		<div id="tab1" class="tab-pane in tab1">
+			<div class="form-item cf">
+				<label class="item-label">用户名<span class="check-tips">（文档标题）</span></label>
+				<div class="controls">
+					<input type="text" class="text input-large" name="username" disabled value="{$list.uid}">
+				</div>
+			</div>
+
+			<div class="form-item cf">
+				<label class="item-label">商品名<span class="check-tips">（文档标题）</span></label>
+				<div class="controls">
+					<input type="text" class="text input-large" name="gname" disabled value="{$list.gid}">
+				</div>
+			</div>			
+			<div class="form-item cf">
+				<label class="item-label">状态<span class="check-tips"></span></label>
+				<div class="controls">
+					<select name="status" id="">
+						<option value="0" <if condition="($list.status eq 0)"> selected="selected" </if>>待审核</option>
+						<option value="1" <if condition="($list.status eq 1)"> selected="selected" </if>>已通过</option>
+					</select>                    
+				</div>
+			</div>
+			<div class="form-item cf">
+				<label class="item-label">图片<span class="check-tips"></span></label>
+				<div class="controls">
+					<img src="{$list.picpath}" alt="">                  
+				</div>
+			</div>
+        	<div class="form-item cf">
+                <label class="item-label">留言内容<span class="check-tips"></span></label>
+                <div class="controls">
+                <input type="hidden" name="idnum" value="{$list.idnum}">
+                    <label class="textarea">
+                            <textarea name="content"><p>{$list.text}<br/></p></textarea>
+                        		<input type="hidden" name="parse" value="0">
+            <script type="text/javascript" charset="utf-8" src="/Public/static/ueditor/ueditor.config.js"></script>
+			<script type="text/javascript" charset="utf-8" src="/Public/static/ueditor/ueditor.all.js"></script>
+			<script type="text/javascript" charset="utf-8" src="/Public/static/ueditor/lang/zh-cn/zh-cn.js"></script>
+			<script type="text/javascript">
+				$('textarea[name="content"]').attr('id', 'editor_id_content');
+				window.UEDITOR_HOME_URL = "/Public/static/ueditor";
+				window.UEDITOR_CONFIG.initialFrameHeight = parseInt('500px');
+				window.UEDITOR_CONFIG.scaleEnabled = true;
+				window.UEDITOR_CONFIG.imageUrl = '/Admin/Addons/execute/_addons/EditorForAdmin/_controller/Upload/_action/ue_upimg.html';
+				window.UEDITOR_CONFIG.imagePath = '';
+				window.UEDITOR_CONFIG.imageFieldName = 'imgFile';
+				UE.getEditor('editor_id_content');
+			</script>                                
+					</label>                    
+				</div>
+            </div>        
+        </div>
+
+								<script type="text/javascript">
+								//上传图片
+							    /* 初始化上传插件 */
+								$("#upload_file_{$field.name}").uploadify({
+							        "height"          : 30,
+							        "swf"             : "__STATIC__/uploadify/uploadify.swf",
+							        "fileObjName"     : "download",
+							        "buttonText"      : "上传附件",
+							        "uploader"        : "{:U('File/upload',array('session_id'=>session_id()))}",
+							        "width"           : 120,
+							        'removeTimeout'	  : 1,
+							        "onUploadSuccess" : uploadFile{$field.name},
+							        'onFallback' : function() {
+							            alert('未检测到兼容版本的Flash.');
+							        }
+							    });
+								function uploadFile{$field.name}(file, data){
+									var data = $.parseJSON(data);
+							        if(data.status){
+							        	var name = "{$field.name}";
+							        	$("input[name="+name+"]").val(data.data);
+							        	$("input[name="+name+"]").parent().find('.upload-img-box').html(
+							        		"<div class=\"upload-pre-file\"><span class=\"upload_icon_all\"></span>" + data.info + "</div>"
+							        	);
+							        } else {
+							        	updateAlert(data.info);
+							        	setTimeout(function(){
+							                $('#top-alert').find('button').click();
+							                $(that).removeClass('disabled').prop('disabled',false);
+							            },1500);
+							        }
+							    }
+								</script>
+		<div class="form-item cf">
+			<input class="btn submit-btn"  type="submit" value="确 定">
+			<a class="btn btn-return" href="{$Think.cookie.__forward__}">返 回</a>
+			<if condition="C('OPEN_DRAFTBOX') and (ACTION_NAME eq 'add' or $data['status'] eq 3)">
+			<button class="btn save-btn" url="{:U('article/autoSave')}" target-form="form-horizontal" id="autoSave">
+				存草稿
+			</button>
+			</if>
+		</div>
+	</form>
+	</div>
+</div>
+</block>
+
+<block name="script">
+<link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+<php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+<link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript">
+
+</script>
+</block>

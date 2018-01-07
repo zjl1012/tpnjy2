@@ -1,0 +1,59 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+<link rel="stylesheet" type="text/css" href="__CSS__/pc/qnjuser.css">
+    <div style="width: 1423px;height: 20px;border-top:1px solid #eaeaea;margin:0 auto;"></div>
+    <div class="vip_main">
+        <div class="vip_main1">
+            <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+                <a href="{:U('Login/vip')}" style="text-decoration: none;font-size:18px;color:#ff7500">账户设置</a>
+            </div>
+            <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+                <a href="{:U('Vip/vipint')}" style="text-decoration: none;font-size:18px;">会员积分</a>
+            </div>
+            <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+                <a href="{:U('Vip/mymoney')}" style="text-decoration: none;font-size:18px;">我的钱包</a>
+            </div>
+            <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+                <a href="{:U('Vip/myweb')}" style="text-decoration: none;font-size:18px;">我的农家院</a>
+            </div>
+            <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+                <a href="{:U('Vip/njyzhiding')}" style="text-decoration: none;font-size:18px;">农家置顶</a>
+            </div>
+            <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+                <a href="{:U('Vip/njytuiguang')}" style="text-decoration: none;font-size:18px;">农家推广</a>
+            </div>
+          <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+              <a href="{:U('Vip/expanduser')}" style="text-decoration: none;font-size:18px;">推广专员</a>
+          </div>
+        </div>       
+        <div class="vip_main2">
+            <h2 style="text-align:center;color:#ff9102">个人信息</h2><hr>
+            <form action="{:U('Login/user_index')}" enctype="multipart/form-data" method="post">
+                <div class="vip_main2_l">
+				<b>在此上传您的头像</b><br>
+                    <div id="preview" style="height:260px;border: 1px dashed #b8cadd;background: url(__IMG__/upload_bg.jpg) center no-repeat #f7fbff;"><img src="{$list.pic}"></div><br>
+                    <input type="file" name="t123" onchange="previewImage(this)" />       
+                </div>
+				<div style="float: left;margin-left: 50px;border-left: 1px dashed #c6baba;">
+                <div class="vip_main2_r">
+                    <div style="height: 40px;"></div>
+                    <li> <label>用户名：</label><input type="text" name="name" disabled="" value="{$list.username}" class="vipming" /> </li>
+                    <li class="sex"> <label>性别：</label>&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="xingbie" value="1" class="check" <if condition="($list['sex'] eq 1)"> checked<else /> </if> /> 男 &nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="xingbie" value="0" class="check" <if condition="($list['sex'] eq 0)"> checked<else /> </if> /> 女 
+                    </li>
+                    <li><label>Q&nbsp; Q：&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="qqid" value="{$list.qq}" class="vipqq" /></li>
+                    <li><label>电话：&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="phonenumber" value="{$list.phone}" class="vipphone" /></li>
+                    <input class="" type="hidden" name="userid" value="{$list.id}" >
+                    <li>
+                    </li><br><br>
+                    
+                </div>
+				</div>
+				<input type="submit" value="保&nbsp;&nbsp;&nbsp;存" class="message_btn" style="margin-top: 40px;margin-left: 430px;margin-bottom: 20px;"/>
+            </form>    
+        </div>
+    </div>
+    <script type="text/javascript" src="__JS__/tupian.js"></script>    
+</block>

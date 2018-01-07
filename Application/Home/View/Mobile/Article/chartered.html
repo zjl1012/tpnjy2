@@ -1,0 +1,46 @@
+<extend name="Base/common"/>
+<block name="nav"><include file="Public/ernav"/></block>
+<block name="slide"></block>
+<block name="body">
+
+<div class="wrap">
+<a href="/article/index/category/njy.html">
+    <div class="title">
+        <div class="titleson1">
+          <div class="titleson1son"></div>
+        </div>
+        <div class="titleson2">&nbsp;旅游包车&nbsp;</div>
+        <div class="titleson3">
+          <div class="titleson3son"></div>
+        </div>
+    </div>
+    </a>
+<div class="qnj_wap_bodytable">
+
+	
+	<ul>
+	<article:list category="$_category['id']" child="true" name="img" row="$_category['list_row']">
+	<li style="float:left; width:50%;"><a href="{:U('Article/chartered?id='.$img['id'])}"><img src="{:get_cover($img['cover_id'],'path')}" style="width:95%;">
+	<p style="float:left;">车型─{$img.title} </p>&nbsp;&nbsp;<p style="color:#FF0000; float:left;">￥500/天</p>
+	<p class="qnj_wap_titlelimit">{$img.description}</p></a>
+	</li>
+	</article:list> 
+	
+		
+	<li style="float:left; width:50%;"><a href="/article/detail/id/663.html"><img src="/Uploads/Picture/2017-10-28/59f3d5ec4a6cc.jpg" style="width:95%;"><p>海淀区─凤凰岭</p><p class="qnj_wap_titlelimit">凤凰岭聚福农家小院</p>
+        </a></li>
+	<li style="float:left; width:50%;"><a href="/article/detail/id/663.html"><img src="/Uploads/Picture/2017-10-28/59f3d5ec4a6cc.jpg" style="width:95%;"><p>海淀区─凤凰岭</p><p class="qnj_wap_titlelimit">凤凰岭聚福农家小院</p>
+        </a></li>
+	<li style="float:left; width:50%;"><a href="/article/detail/id/663.html"><img src="/Uploads/Picture/2017-10-28/59f3d5ec4a6cc.jpg" style="width:95%;"><p>海淀区─凤凰岭</p><p class="qnj_wap_titlelimit">凤凰岭聚福农家小院</p>
+        </a></li>
+	<li style="float:left; width:50%;"><a href="/article/detail/id/663.html"><img src="/Uploads/Picture/2017-10-28/59f3d5ec4a6cc.jpg" style="width:95%;"><p>海淀区─凤凰岭</p><p class="qnj_wap_titlelimit">凤凰岭聚福农家小院</p>
+        </a></li>
+	
+	
+	</ul>
+	
+ 
+  </div>
+  
+</div>
+</block>

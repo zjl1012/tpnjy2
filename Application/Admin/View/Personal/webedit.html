@@ -1,0 +1,148 @@
+<extend name="Public/base" />
+<block name="sidebar">
+<style type="text/css">
+    .sidebar{padding-top: 12px;}
+    #pic{left: 800px;position: absolute; width: 292px;height: 305px;}
+    .current{margin-left: 5px;border-bottom:1px solid red;   }
+    .num{margin-left: 5px;}
+    .next{margin-left: 5px;}
+    .prev{margin-left: 5px;}
+      .chan{width: 100%;height: 300px;}
+  .ms{float: left;margin-left: 10px;margin-top: 10px;width: 160px;height: 110px;}
+</style>
+    <div class="sidebar">
+        <div id="subnav" class="subnav">
+            <h3><i class="icon icon-unfold"></i>会员管理</h3>                        
+            <ul class="side-sub-menu">
+                <li class="current">
+                    <a class="item" href="{:U('Personal/index')}">会员列表</a>
+                </li>
+                <li class="">
+                    <a class="item" href="{:U('Personal/jinyong')}">禁用会员列表</a>
+                </li>               
+            </ul>                    
+        </div>
+    </div>
+</block>
+<block name="body">
+<div id="main-content">
+        <div id="top-alert" class="" style="display: ;">
+            <div class="alert-content" style="margin-top:-17px;font-size:20px;font-weight:900;">{$njy.title}</div>
+        </div>
+        <div id="main" class="main" style="min-height: 412px;">
+
+    <!-- 表单 -->
+    <form id="form" action="{:U('Personal/webupdate1')}" method="post" class="form-horizontal">
+        <div id="pic" class="form-item cf">
+            <div class="controls">
+            <img src="{$njy.path}" max-width="100%">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">名称<span class="check-tips"></span></label>
+            <div class="controls">
+                <input class="text input-large" name="name" value="{$njy.title}" disabled="" type="text">
+            </div>
+        </div>
+        <div class="form-item cf">
+            <label class="item-label">联系电话<span class="check-tips"></span></label>
+            <div class="controls">
+                <input class="text input-large" name="phone" value="{$njy.phone}" readonly="" type="text">
+            </div>
+        </div>
+        <div class="form-item cf">
+            <label class="item-label">创建时间<span class="check-tips"></span></label>
+            <div class="controls">
+                <input class="text input-large" name="name" value="{$njy.create_time|date="Y-m-d",###}" disabled="" type="text">
+            </div>
+        </div>
+        <div class="form-item cf">
+            <label class="item-label">描述<span class="check-tips"></span></label>
+            <div class="controls">
+                <textarea name="miaoshu" id="" cols="52" readonly="" rows="8">{$njy.content}</textarea>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">状态<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="radio" name="check" value="1" <if condition="($njy['up_status'] eq 1)"> checked</if>>已通过
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="check" value="0" <if condition="($njy['up_status'] eq 0)"> checked</if>>待审核
+            </div>
+        </div>
+<input type="hidden" name="pathid" value="{$njy.pathid}">
+        <div class="form-item cf">
+            <label class="item-label">普通/推广<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="radio" name="zhuangtai" value="0" <if condition="($njy['zhuangtai'] eq 0)"> checked</if>>普通
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="zhuangtai" value="5" <if condition="($njy['zhuangtai'] eq 5)"> checked</if>>推广
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <input type="radio" name="zhuangtai" value="10" <if condition="($njy['zhuangtai'] eq 10)"> checked</if>>置顶              -->
+            </div>
+        </div>
+        <div class="form-item cf">
+        <label class="item-label">截止时间<span class="check-tips"></span></label>
+      <input type="text" name="time_long" class="text time" value="{$njy.time_long|date="Y-m-d H:i:s",###}" placeholder="请选择时间" />                   
+        </div>
+
+        <div class="form-item cf">
+            <div class="controls">
+<div class="chan">
+<h3>美食</h3><br>
+<foreach name="ms1" item="vo" >
+<div class="ms"><img src="{$vo.path}" width="100%" height="100%"></div>
+</foreach>
+<foreach name="upms1" item="vo" >
+<div class="ms"><img src="{$vo.path}" width="100%" height="100%"></div>
+</foreach>
+</div>  
+
+<div class="chan">
+<h3>房间</h3><br>
+<foreach name="zs1" item="vo" >
+<div class="ms"><img src="{$vo.path}" width="100%" height="100%"></div>
+</foreach>
+<foreach name="upzs1" item="vo">
+<div class="ms"><img src="{$vo.path}" width="100%" height="100%"></div>
+</foreach>
+</div>
+
+<div class="chan">
+<h3>风景</h3><br>
+<foreach name="fj1" item="vo" >
+<div class="ms"><img src="{$vo.path}" width="100%" height="100%"></div>
+</foreach>
+<foreach name="upfj1" item="vo" >
+<div class="ms"><img src="{$vo.path}" width="100%" height="100%"></div>
+</foreach>
+</div>
+
+            </div>
+                <input type="hidden" name="id" value="{$njy.id}">
+        <input class="btn submit-btn" type="submit" value="确 定">
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+    </form>
+        </div>      
+        </div>
+    </div>
+<link href="/Public/static/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">
+<link href="/Public/static/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/Public/static/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/Public/static/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/Public/static/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript">
+$(function(){
+    $('.time').datetimepicker({
+        format: 'yyyy-mm-dd hh:ii:ss',
+        language:"zh-CN",
+        minView:2,
+        autoclose:true
+    });
+    showTab();
+});
+</script>
+
+</block>

@@ -1,0 +1,36 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+  <link rel="stylesheet" type="text/css" href="__CSS__/pc/qnjuser.css">
+  <div style="width: 1423px;height: 20px;border-top:1px solid #eaeaea;margin:0 auto;"></div>
+  <div class="vip_main">
+    <div class="vip_main1">
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Login/vip')}" style="text-decoration: none;font-size:18px;">个人资料</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/vipint')}" style="text-decoration: none;font-size:18px;">会员积分</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/mymoney')}" style="text-decoration: none;font-size:18px;color:#ff7500">我的钱包</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/myweb')}" style="text-decoration: none;font-size:18px;">我的农家院</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/njyzhiding')}" style="text-decoration: none;font-size:18px;">农家置顶</a>
+        </div>
+        <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+            <a href="{:U('Vip/njytuiguang')}" style="text-decoration: none;font-size:18px;">农家推广</a>
+        </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/expanduser')}" style="text-decoration: none;font-size:18px;">推广专员</a>
+      </div>
+    </div>   
+       <div class="vip_main2">
+      <h2 align="center" style="color: #ff7500;">我的钱包</h2><hr>
+      尊敬的<span style="color:#ff7500;">{$username}</span>您当前的余额为：{$res}￥
+      <br><br>
+    </div>
+  </div>
+</block>

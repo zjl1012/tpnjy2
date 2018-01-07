@@ -1,0 +1,170 @@
+<extend name="Base/common"/>
+<block name="slide"></block>
+<block name="body">
+  <link rel="stylesheet" type="text/css" href="__CSS__/pc/qnjuser.css">
+  <div style="width: 1423px;height: 20px;border-top:1px solid #eaeaea;margin:0 auto;"></div>
+  <div class="vip_main">
+    <div class="vip_main1">
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+        <a href="{:U('Login/vip')}" style="text-decoration: none;font-size:18px;">个人资料</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/vipint')}" style="text-decoration: none;font-size:18px;">会员积分</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/mymoney')}" style="text-decoration: none;font-size:18px;">我的钱包</a>
+      </div>
+<if condition="$catename eq '置顶' ">
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+        <a href="{:U('Vip/myweb')}" style="text-decoration: none;font-size:18px;">我的农家院</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/njyzhiding')}" style="text-decoration: none;font-size:18px;color:#ff7500;">农家置顶</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/njytuiguang')}" style="text-decoration: none;font-size:18px;">农家推广</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/expanduser')}" style="text-decoration: none;font-size:18px;">推广专员</a>
+      </div>
+<elseif condition="$catename eq '推广' "/>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+        <a href="{:U('Vip/myweb')}" style="text-decoration: none;font-size:18px;">我的农家院</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/njyzhiding')}" style="text-decoration: none;font-size:18px;">农家置顶</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/njytuiguang')}" style="text-decoration: none;font-size:18px;color:#ff7500;">农家推广</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/expanduser')}" style="text-decoration: none;font-size:18px;">推广专员</a>
+      </div>
+<else />
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+        <a href="{:U('Vip/myweb')}" style="text-decoration: none;font-size:18px;color:#ff7500;">我的农家院</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/njyzhiding')}" style="text-decoration: none;font-size:18px;">农家置顶</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/njytuiguang')}" style="text-decoration: none;font-size:18px;">农家推广</a>
+      </div>
+      <div style="width: 200px;height: 80px;border-bottom:1px dashed #e1e1e1;text-align:center;line-height:80px;margin:0 auto;">
+          <a href="{:U('Vip/expanduser')}" style="text-decoration: none;font-size:18px;">推广专员</a>
+      </div>
+</if>
+    </div>      
+    <style type="text/css">
+      .qnj_vip_njytable{width: 950px;height: auto;margin:0 auto;text-align: center;}
+      .qnj_vip_njytabletitle td{font-weight: bold;}
+      .qnj_vip_njytable td{border: 1px solid #dab2b2;font-size: 18px;font-family: Verdana;color: #ff7500;padding: 8px 8px;}
+      .vipzd{width: 100px;height: 26px;border-radius: 20px;background: #ff7500;line-height: 26px;color:#fff;}
+    </style> 
+    <div class="vip_main2">
+      <h2 align="center" style="color: #ff7500;">农家院管理</h2><hr>
+      <span style="float:right;color: #c22816;font-family: Verdana;font-weight: bold;">尊敬的会员：{$username}</span><br><br>
+      <table class="qnj_vip_njytable">
+        <if condition="$catename eq '置顶' ">
+        <tr class="qnj_vip_njytabletitle">
+          <td width="300">农家院标题</td>
+          <td width="150">排列等级</td>
+          <td width="260">置顶截止期限</td>
+          <td width="80">点击量</td>
+          <td width="80">状态</td>
+        </tr> 
+        <foreach name="list" item="vo" >   
+          <tr>
+            <td>{$vo.title}</td>
+            <if condition="($vo['zhuangtai'] eq 0)">
+              <td align="center">普通</td>
+              <elseif condition="$vo['zhuangtai'] eq 5"/>
+              <td style="background:#028afe;color:#fff;">已推广</td>
+              <elseif condition="$vo['zhuangtai'] eq 10"/>
+              <td style="background:#ff3600;color:#fff;">已置顶</td>
+            </if>
+            <td>{$vo['time_long']|date="Y-m-d H:i:s",###}</td>
+            <td>{$vo.view}</td>
+            <if condition="($vo['up_status'] eq 1)">
+              <td>已通过</td> 
+              <else/>
+              <td style="background:#f00;color:#fff;">待审核</td>
+            </if>
+          <if condition="($catename eq '置顶') OR ($catename eq '推广') "> 
+          <else /> 
+            <td><a href="{:U('Vip/webedit/id/'.$vo['id'])}">编辑</a></td>
+          </if>
+          </tr>
+        </foreach>
+        <elseif condition="$catename eq '推广' "/>
+        <tr class="qnj_vip_njytabletitle">
+          <td width="300">农家院标题</td>
+          <td width="150">排列等级</td>
+          <td width="260">推广截止期限</td>
+          <td width="80">点击量</td>
+          <td width="80">状态</td>
+        </tr> 
+        <foreach name="list" item="vo" >   
+          <tr>
+            <td>{$vo.title}</td>
+            <if condition="($vo['zhuangtai'] eq 0)">
+              <td align="center">普通</td>
+              <elseif condition="$vo['zhuangtai'] eq 5"/>
+              <td style="background:#028afe;color:#fff;">已推广</td>
+              <elseif condition="$vo['zhuangtai'] eq 10"/>
+              <td style="background:#ff3600;color:#fff;">已置顶</td>
+            </if>
+            <td>{$vo['time_long']|date="Y-m-d H:i:s",###}</td>
+            <td>{$vo.view}</td>
+            <if condition="($vo['up_status'] eq 1)">
+              <td>已通过</td> 
+              <else/>
+              <td style="background:#f00;color:#fff;">待审核</td>
+            </if>
+          <if condition="($catename eq '置顶') OR ($catename eq '推广') "> 
+          <else /> 
+            <td><a href="{:U('Vip/webedit/id/'.$vo['id'])}">编辑</a></td>
+          </if>
+          </tr>
+        </foreach>
+        <else /> 
+        <tr class="qnj_vip_njytabletitle">
+          <td width="300">农家院标题</td>
+          <td width="150">每日置顶</td>
+          <td width="260">置顶截止期限</td>
+          <td width="80">点击量</td>
+          <td width="80">状态</td>
+          <td width="80">操作</td>
+        </tr> 
+        <foreach name="list" item="vo" >   
+          <tr>
+            <td class="zjl">{$vo.title}</td>
+            <if condition="($vo['zhuangtai'] eq 0)">
+              <td align="center"><a href="{:U('Vip/vipzd/id/'.$vo['id'])}"><div class="vipzd">我要置顶</div></a></td>
+              <elseif condition="$vo['zhuangtai'] eq 5"/>
+              <td style="background:#028afe;color:#fff;">已推广</td>
+              <elseif condition="$vo['zhuangtai'] eq 10"/>
+              <td style="background:#ff3600;color:#fff;">已置顶</td>
+            </if>
+            <td>{$vo['create_time']|date="y-m-d",###}至{$vo['deadline']|date="y-m-d",###}</td>
+            <td>{$vo.view}</td>
+            <if condition="($vo['up_status'] eq 1)">
+              <td>已通过</td> 
+              <else/>
+              <td style="background:#f00;color:#fff;">待审核</td>
+            </if>
+          <if condition="($catename eq '置顶') OR ($catename eq '推广') "> 
+          <else /> 
+            <td><a href="{:U('Vip/webedit/id/'.$vo['id'])}">编辑</a></td>
+          </if>
+          </tr>
+        </foreach>
+        </if>
+
+
+
+      </table>
+      <br><br>
+    </div>
+  </div>
+</block>

@@ -1,0 +1,277 @@
+<extend name="Base/common"/>
+<block name="nav"><include file="Public/ernav"/>
+<style type="text/css">
+    body{overflow-x:hidden; }
+</style>
+</block>
+<block name="slide"></block>
+<block name="body">
+    <style type="text/css">
+        .qnj_zmul{overflow: hidden;}
+        .qnj_zmul li {width: 16.66666666666667%;float: left;height: 40px;line-height: 40px;text-align: center;color: #394B59;}
+
+    </style>
+    &nbsp;&nbsp;&nbsp;<font style="font-size:1.5rem;font-weight:bold;color:black;">字母查找</font>
+    <ul class="qnj_zmul">
+    <li><a href="#xianshi">A</a></li>
+    <li><a href="#xianshi">B</a></li>
+    <li><a href="#xianshi">C</a></li>
+    <li><a href="#xianshi">D</a></li>
+    <li><a href="#xianshi">E</a></li>
+    <li><a href="#xianshi">F</a></li>
+    <li><a href="#xianshi">G</a></li>
+    <li><a href="#xianshi">H</a></li>
+    <li><a href="#xianshi">J</a></li>
+    <li><a href="#xianshi">K</a></li>
+    <li><a href="#xianshi">L</a></li>
+    <li><a href="#xianshi">M</a></li>
+    <li><a href="#xianshi">N</a></li>
+    <li><a href="#xianshi">P</a></li>
+    <li><a href="#xianshi">Q</a></li>
+    <li><a href="#xianshi">R</a></li>
+    <li><a href="#xianshi">S</a></li>
+    <li><a href="#xianshi">T</a></li>
+    <li><a href="#xianshi">W</a></li>
+    <li><a href="#xianshi">X</a></li>
+    <li><a href="#xianshi">Y</a></li>
+    <li><a href="#xianshi">Z</a></li>
+    </ul>
+<br>
+<span class="xianshi"></span>
+<span class="xianshi1" style="display:none;"><br></span>
+<style type="text/css">
+    .qnj_mzimu{float: left;width: 22%;height: 30px;margin: 2% 2% 0 0;text-align: center;line-height: 35px;}
+    .qnj_mzimu a{color:#000;}
+    .qnj_mm{width: 90%;height: auto;margin-left: 5%;}
+    .qnj_mm ul{overflow: hidden;}
+</style>
+<br>
+<div class="qnj_mm">
+    <h4>热门城市：</h4><br>
+    <a href="/Article/qnjsearch/citynum/beijing/category/njy.html">北京</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/Article/qnjsearch/citynum/shanghai/category/njy.html">上海</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/Article/qnjsearch/citynum/tj/category/njy.html">天津</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/Article/qnjsearch/citynum/hebei/category/njy.html">河北</a>
+</div>
+<br><br>
+
+<div class="qnj_mm">
+    <h4>A</h4>
+    <ul>
+        <foreach name="rasa" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>B</h4>
+    <ul>
+        <foreach name="rasb" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>C</h4>
+    <ul>
+        <foreach name="rasc" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>D</h4>
+    <ul>
+        <foreach name="rasd" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>E</h4>
+    <ul>
+        <foreach name="rase" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>F</h4>
+    <ul>
+        <foreach name="rasf" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>G</h4>
+    <ul>
+        <foreach name="rasg" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>H</h4>
+    <ul>
+        <foreach name="rash" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>J</h4>
+    <ul>
+        <foreach name="rasj" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>K</h4>
+    <ul>
+        <foreach name="rask" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>L</h4>
+    <ul>
+        <foreach name="rasl" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>M</h4>
+    <ul>
+        <foreach name="rasm" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>N</h4>
+    <ul>
+        <foreach name="rasn" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>O</h4>
+    <ul>
+        <foreach name="raso" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>P</h4>
+    <ul>
+        <foreach name="rasp" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>Q</h4>
+    <ul>
+        <foreach name="rasq" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>R</h4>
+    <ul>
+        <foreach name="rasr" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>S</h4>
+    <ul>
+        <foreach name="rass" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>T</h4>
+    <ul>
+        <foreach name="rast" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>W</h4>
+    <ul>
+        <foreach name="rasw" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>X</h4>
+    <ul>
+        <foreach name="rasx" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>Y</h4>
+    <ul>
+        <foreach name="rasy" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<br>
+<div class="qnj_mm">
+    <h4>Z</h4>
+    <ul>
+        <foreach name="rasz" item="vo" > 
+            <li class="qnj_mzimu"><a href="{:U('Article/qnjsearch?citynum='.$vo['name'].'&city='.$vo['city'].'&category=njy')}">{$vo.city}</a></li>
+        </foreach>
+    </ul>
+</div>
+<script type="text/javascript">
+    $('.qnj_zmul').find('li').find('a').click(function(){
+        var a=$(this).html();
+        $('.qnj_mm').find('h4').each(function(){
+            if(a==$(this).html()){
+                $('.xianshi').find('div').remove();
+                var k=$(this).parent().clone();
+                $('.xianshi').append(k);
+                $('.xianshi1').css('display','block');
+            }
+        });
+    });
+</script>
+</block>

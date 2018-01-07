@@ -1,0 +1,45 @@
+<block name="footer">  
+    <div class="qnj_footer">
+        <div class="qnj_footer1">
+            <div style="width: 1300px;height:10px ;"></div>
+            <div style="width: 1300px;height: auto;margin:0 auto;border-bottom:1px solid #717171;">
+                <h4 style="margin:5px 5px;color:#ccc;">友情链接</h4>
+                <volist name=":C('WEB_SITE_FRIEND_LINK_TITLE')" id="f">
+                    <a href="http://{:C('WEB_SITE_FRIEND_LINK')[$key]}" target="_blank" style="font-size:14px;color:#fff;margin:5px 5px;">{$f}</a>
+                </volist>
+                <div style="width: 1300px;height:10px ;"></div>
+            </div>   
+            <div class="footer_contactus">
+                <div>
+                    <div style="width: 55px;height:50px;float:left;text-align:center;margin-left:30px;"><img src="__IMG__/adress-icon.png"></div>
+                    <div style="width: 200px;height:100px;float:left;color:#fff;font-weight:bold;font-size:14px;">{:C('WEB_SITE_ADDRESS')}</div>
+                </div>
+                <div>
+                    <div style="width: 55px;height:50px;float:left;text-align:center;margin-left:30px;"><img src="__IMG__/call-icon.png"></div>
+                    <div style="width: 200px;height:100px;float:left;color:#fff;font-weight:bold;font-size:14px;">{:C('WEB_SITE_TEL')}<p>(9:00AM-6:00PM)</p></div>
+                </div>
+                <div>
+                    <div style="width: 55px;height:50px;float:left;text-align:center;margin-left:30px;"><img src="__IMG__/mail-icon.png"></div>
+                    <div style="width: 200px;height:100px;float:left;color:#fff;font-weight:bold;font-size:14px;">{:C('WEB_SITE_EMALL')}</div>
+                </div>
+                <div>
+                    <div style="width: 55px;height:50px;float:left;text-align:center;margin-left:30px;"><img src="__IMG__/join-us.png"></div>
+                    <div style="width: 200px;height:100px;float:left;color:#fff;font-weight:bold;font-size:14px;">加入我们<p><a href="/" style="color:#fff;font-weight:bold;font-size:14px;">www.qunongjia.cn</a></p></div>
+                </div>
+            </div>
+        </div>
+        <div class="qnj_footer2">
+            <div style="width: 1300px;height:10px ;"></div>
+            <div class="footer_nav">
+                <a href="{:U('Login/register')}">注册新用户</a>-
+                <a href="">用户协议</a>-
+                <a href="{:U('Article/index?category='.company)}">公司简介</a>-
+                <a href="{:U('Article/index?category='.Contactus)}">联系我们</a>-
+                <a href="">我要推广</a>
+            </div>    
+            <p style="color:#ccc;">版权：{:C('WEB_SITE_COPYRIGHT')}</p>
+            <p>{:C('WEB_SITE_ICP')}</p>
+        </div>
+    </div>
+    {:C('WEB_SITE_PUSH')}
+</block>

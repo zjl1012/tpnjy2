@@ -1,0 +1,167 @@
+<block name="body">
+	<div style="width: 1423px;height: 10px;margin-left: auto;margin-right: auto;"></div>
+	<div class="qnj_main">
+		<div class="quntitle" id="floor01" align="center" style="font-size:25px;font-weight:900;height:45px;line-height:45px;">
+<!-- 			<span class="dayu" style="font-size:15px;">＞＞＞＞＞＞＞＞＞＞</span>
+			北京周边游
+			<span class="dayu" style="font-size:15px;">＜＜＜＜＜＜＜＜＜＜</span> -->
+			<div style="width:500px ;height: 45px;">
+				<img src="__IMG__/bg_d_meitu_1.jpg" style="width: 160px;">
+				<span style="font-weight:100;">北京周边游</span>
+				<img src="__IMG__/bg_d_meitu_1.jpg" style="width: 170px;line-height:45px;">
+			</div>
+		</div>
+		<div class="qnj_body1">
+			<article:position pos="4" cate="116" limit="10" child="true" name="img">
+			<div class="qnj_body11 download">
+				<p><a href="{:U('Article/detail?id='.$img['id'])}"><img src="{:get_cover($img['cover_id'],'path')}" ></a></p>
+				<p style="text-align:center;color:#000;">{$img.title}</p>
+				<p ><span style="font-size:14px;color:#a8b0b9;">景点：</span><span style="font-size:14px;color:#000;">{:get_extmodel_field($img['id'],'fjmc')}</span></p>
+				<p style="margin-top:-10px;"><span style="font-size:14px;color:#a8b0b9;">地区：</span><span style="font-size:14px;color:#000;">{:get_extmodel_field($img['id'],'city')}</span></p>
+			</div>
+		</article:position>	
+	</div>
+	<br>
+<!-- 	<div class="quntitle" id="floor1" align="center" style="font-size:25px;font-weight:900;height:45px;">
+		<span class="dayu" style="font-size:15px;">＞＞＞＞＞＞＞＞＞＞</span>
+		天津周边游
+		<span class="dayu" style="font-size:15px;">＜＜＜＜＜＜＜＜＜＜</span>
+	</div> -->
+	<div class="quntitle" id="floor01" align="center" style="font-size:25px;font-weight:900;height:45px;line-height:45px;">
+		<div style="width:500px ;height: 45px;">
+			<img src="__IMG__/bg_d_meitu_2.jpg" style="width: 160px;">
+			<span style="font-weight:100;">天津周边游</span>
+			<img src="__IMG__/bg_d_meitu_2.jpg" style="width: 170px;line-height:45px;">
+		</div>
+	</div>	
+	<div class="qnj_body1">
+		<article:position pos="4" cate="120" limit="10" child="true" name="img">
+		<div class="qnj_body11">
+			<p><a href="{:U('Article/detail?id='.$img['id'])}"><img src="{:get_cover($img['cover_id'],'path')}" ></a></p>
+			<p style="text-align:center;color:#000;">{$img.title}</p>
+			<p ><span style="font-size:14px;color:#a8b0b9;">景点：</span><span style="font-size:14px;color:#000;">{:get_extmodel_field($img['id'],'fjmc')}</span></p>
+			<p style="margin-top:-10px;"><span style="font-size:14px;color:#a8b0b9;">地区：</span><span style="font-size:14px;color:#000;">{:get_extmodel_field($img['id'],'city')}</span></p>
+		</div>
+	</article:position>	
+</div>
+<br>
+<!-- <div class="quntitle" id="floor2" align="center" style="font-size:25px;font-weight:900;height:45px;">
+	<span class="dayu" style="font-size:15px;">＞＞＞＞＞＞＞＞＞＞</span>
+	河北周边游
+	<span class="dayu" style="font-size:15px;">＜＜＜＜＜＜＜＜＜＜</span>
+</div> -->
+	<div class="quntitle" id="floor01" align="center" style="font-size:25px;font-weight:900;height:45px;line-height:45px;">
+		<div style="width:500px ;height: 45px;">
+			<img src="__IMG__/bg_d_meitu_3.jpg" style="width: 160px;">
+			<span style="font-weight:100;">河北周边游</span>
+			<img src="__IMG__/bg_d_meitu_3.jpg" style="width: 170px;line-height:45px;">
+		</div>
+	</div>	
+<div class="qnj_body1">
+	<article:position pos="4" cate="117" limit="10" child="true" name="img">
+	<div class="qnj_body11">
+		<p><a href="{:U('Article/detail?id='.$img['id'])}"><img src="{:get_cover($img['cover_id'],'path')}" ></a></p>
+		<p style="text-align:center;color:#000;">{$img.title}</p>
+		<p ><span style="font-size:14px;color:#a8b0b9;">景点：</span><span style="font-size:14px;color:#000;">{:get_extmodel_field($img['id'],'fjmc')}</span></p>
+		<p style="margin-top:-10px;"><span style="font-size:14px;color:#a8b0b9;">地区：</span><span style="font-size:14px;color:#000;">{:get_extmodel_field($img['id'],'city')}</span></p>
+	</div>
+</article:position>	
+</div>
+<br>
+<div class="qnj_1117_news">
+	<div class="qnj_1117_newsl">
+		<p>
+			<span class="qnj_1117_newsl_title">{:get_category_title(54)}</span>
+			<span class="qnj_1117_newsl_more"><a href="{:U('Article/index?category='.TradeNews)}">更多</a></span>
+		</p>
+		<div class="qnj_xhx"></div>
+		<article:list category="54" child="true"  name="img" row="8">
+		<div class="qnj_1117_newsl_son">
+			<a class="qnj_1117_newsl_sonimg" href="{:U('Article/detail?id='.$img['id'])}"><img src="{:get_cover($img['cover_id'],'path')}"></a>
+			<p class="qnj_1117_newsl_sontitle"><a href="{:U('Article/detail?id='.$img['id'])}">{$img.title}</a></p>
+		</div>
+		</article:list>
+		<div style="height: 45px;"></div>
+		<p>
+			<span class="qnj_1117_newsl_title">{:get_category_title(56)}</span>
+			<span class="qnj_1117_newsl_more"><a href="{:U('Article/index?category='.honor)}">更多</a></span>
+		</p>
+		<div class="qnj_xhx"></div>
+		<article:list category="56" child="true"  name="img" row="8">
+		<div class="qnj_1117_newsl_son1">
+			<a class="qnj_1117_newsl_sonimg1" href="{:U('Article/detail?id='.$img['id'])}"><img src="{:get_cover($img['cover_id'],'path')}"></a>
+			<p class="qnj_1117_newsl_sontitle1"><a href="{:U('Article/detail?id='.$img['id'])}">{$img.title}</a></p>
+		</div>
+		</article:list>
+	</div>
+	<!----------------旅游包车----------------->
+<div class="qnj_1117_newsr">
+		<p>
+			<span class="qnj_1117_newsl_title">{:get_category_title(139)}</span>
+			<span class="qnj_1117_newsl_more"><a href="{:U('Article/index?category='.chartered)}">更多</a></span>
+		</p>
+		<div class="qnj_xhx"></div>
+		<div class="qnj_body1">
+	<article:position pos="4" cate="139" limit="8" child="true" name="show">	
+	<div class="qnj_body12">
+		<p><a href="{:U('Article/detail?id='.$show['id'])}"><img src="{:get_cover($show['cover_id'],'path')}" data-bd-imgshare-binded="1"></a></p>
+		<p style="color:#000;">{$show.title}</p>
+		<p><span style="font-size:14px;color:#a8b0b9;">价格：</span><span style="font-size:14px;color:#000;">￥{:get_extmodel_field($show['id'],'carprice')}</span></p>
+	</div>
+	</article:position>
+	
+</div>			
+	</div>
+<!----------------旅游包车end----------------->
+	<!----------------新闻动态----------------->
+	<div class="qnj_1117_newsr">
+		<p>
+			<span class="qnj_1117_newsl_title">{:get_category_title(53)}</span>
+			<span class="qnj_1117_newsl_more"><a href="{:U('Article/index?category='.companynews)}">更多</a></span>
+		</p>
+		<div class="qnj_xhx"></div>
+		<article:list category="53" child="true"  name="img" row="3">
+		<div class="qnj_1117_newsr_son">
+			<div class="qnj_1117_newsr_sonl">
+				<a class="qnj_1117_newsr_sonimg" href="{:U('Article/detail?id='.$img['id'])}"><img src="{:get_cover($img['cover_id'],'path')}"></a>
+			</div>	
+			<div class="qnj_1117_newsr_sonr">
+				<p><a class="qnj_1117_newsr_sontitle" href="{:U('Article/detail?id='.$img['id'])}">{$img.title}</a></p>
+				<div class="qnj_1117_newsr_description">
+					{:get_extmodel_field($img['id'],'description')} 
+				</div>
+				<p style="color:#000;font-size:13px;margin-top:15px;">发布时间：{$img.create_time|date="Y-m-d H:i:s",###}</p>
+			</div>
+		</div>
+		</article:list>			
+	</div>
+		<!----------------新闻动态end----------------->
+
+</div>
+<script type="text/javascript" src="__JS__/pc/web.js"></script>
+<script type="text/javascript">
+$('.qnj_1117_newsl_sonimg:eq(0)').css('display','block');
+	$('.qnj_1117_newsl_son').mouseover(function(){
+		$('.qnj_1117_newsl_sonimg').css('display','none');
+		$(this).find('.qnj_1117_newsl_sonimg').css('display','block');
+		$(this).find('p').find('.qnj_1117_newsl_sontitle').css('color','#ff2d00');
+	});
+$('.qnj_1117_newsl_sonimg1:eq(0)').css('display','block');
+	$('.qnj_1117_newsl_son1').mouseover(function(){
+		$('.qnj_1117_newsl_sonimg1').css('display','none');
+		$(this).find('.qnj_1117_newsl_sonimg1').css('display','block');
+		$(this).find('p').find('.qnj_1117_newsl_sontitle1').css('color','#ff2d00');
+	});	
+$('img').mouseover(function(){
+	$('.sr-bdimgshare-black').remove();
+});	
+</script>
+</div>
+<div class="qnj_class_float">
+	<a class="qnj_beijing" href="javascript:;" style="text-decoration: none;"><div class="float_title " >北京</div></a>
+	<a class="qnj_tianjin" href="javascript:;" style="text-decoration: none;"><div class="float_title" >天津</div></a>
+	<a class="qnj_hebei" href="javascript:;" style="text-decoration: none;"><div class="float_title" >河北</div></a>
+	<a class="qnj_gonglv" href="javascript:;" style="text-decoration: none;"><div class="float_title" >攻略</div></a>
+</div>
+<script type="text/javascript" src="__JS__/pc/qnj_style.js"></script>
+</block>
